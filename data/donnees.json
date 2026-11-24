@@ -1,0 +1,3194 @@
+{
+ "version": 1,
+ "majour": "2026-11-24",
+ "site": {
+  "nom": "Le Tremplin",
+  "sous_titre": "ancien CESAL, Bourges",
+  "adresse": "25 rue Louis Mallet, 18000 Bourges"
+ },
+ "urgences": [
+  {
+   "numero": "18",
+   "nom": "Pompiers"
+  },
+  {
+   "numero": "112",
+   "nom": "Urgences (Europe)"
+  }
+ ],
+ "categories": {
+  "technique": {
+   "nom": "Locaux techniques",
+   "couleur": "#5b7083"
+  },
+  "securite": {
+   "nom": "Sécurité, coupures",
+   "couleur": "#a8432f"
+  },
+  "restauration": {
+   "nom": "Restauration",
+   "couleur": "#c9a66b"
+  },
+  "sport": {
+   "nom": "Sport",
+   "couleur": "#2c3e5c"
+  },
+  "culture": {
+   "nom": "Culture et art",
+   "couleur": "#8fa07e"
+  },
+  "hebergement": {
+   "nom": "Hébergement",
+   "couleur": "#8b7d9c"
+  },
+  "circulation": {
+   "nom": "Circulations, accès",
+   "couleur": "#9aa1a8"
+  },
+  "sanitaires": {
+   "nom": "Sanitaires",
+   "couleur": "#4a90a4"
+  },
+  "batiment": {
+   "nom": "Bâtiments",
+   "couleur": "#2f3328"
+  }
+ },
+ "niveaux": [
+  {
+   "id": "site",
+   "nom": "Site · plan de masse",
+   "court": "Site",
+   "alt": "±0,00 = 126,80 NGF",
+   "plan": {
+    "svg": "\n<defs>\n <pattern id=\"hach\" width=\"14\" height=\"14\" patternUnits=\"userSpaceOnUse\" patternTransform=\"rotate(45)\"><line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"14\" stroke=\"#2f3328\" stroke-opacity=\".18\" stroke-width=\"5\"/></pattern>\n</defs>\n<rect width=\"1600\" height=\"1000\" fill=\"#f2f0ea\"/>\n<g fill=\"#e4e0d5\" stroke=\"none\">\n <polygon points=\"0,250 1060,250 1060,300 0,300\"/>\n <polygon points=\"1520,0 1600,0 1600,1000 1520,1000\"/>\n <polygon points=\"0,880 1520,880 1520,915 0,915\"/>\n</g>\n<g font-family=\"system-ui,sans-serif\" font-size=\"22\" fill=\"#6b6a60\" font-style=\"italic\">\n <text x=\"40\" y=\"283\">Rue André Chénier</text>\n <text x=\"1568\" y=\"520\" transform=\"rotate(-90 1568 520)\" text-anchor=\"middle\">Rue Louis Mallet</text>\n <text x=\"700\" y=\"905\" text-anchor=\"middle\" font-size=\"18\">passage</text>\n</g>\n<g fill=\"none\" stroke=\"#2f3328\" stroke-dasharray=\"10 8\" stroke-width=\"2\" opacity=\".55\">\n <polygon points=\"560,330 900,330 900,410 1470,410 1470,700 980,700 840,560 560,560\"/>\n</g>\n<text x=\"1000\" y=\"728\" font-family=\"system-ui,sans-serif\" font-size=\"17\" fill=\"#6b6a60\">emprise du parking enterré (115 pl.)</text>\n<g stroke=\"#2f3328\" stroke-width=\"3\">\n <polygon points=\"420,50 700,50 740,95 740,220 420,220\" fill=\"#fbfaf6\"/>\n <polygon points=\"60,330 600,330 640,370 980,760 980,840 60,840\" fill=\"#fbfaf6\"/>\n <polygon points=\"695,430 1440,430 1440,560 810,560\" fill=\"#fbfaf6\"/>\n <polygon points=\"1440,450 1515,450 1515,640 1440,640\" fill=\"url(#hach)\"/>\n <rect x=\"790\" y=\"70\" width=\"80\" height=\"40\" fill=\"#fbfaf6\"/>\n</g>\n<g font-family=\"system-ui,sans-serif\" fill=\"#2f3328\" text-anchor=\"middle\">\n <text x=\"580\" y=\"140\" font-size=\"26\" font-weight=\"700\">Bât. restaurant</text>\n <text x=\"580\" y=\"170\" font-size=\"18\">239 m² · cuisine de production</text>\n <text x=\"330\" y=\"580\" font-size=\"28\" font-weight=\"700\">Bât. 1 · locaux pédagogiques</text>\n <text x=\"330\" y=\"612\" font-size=\"18\">RDC bas (-2,16) + RDC haut · 3 074 m²</text>\n <text x=\"1110\" y=\"490\" font-size=\"26\" font-weight=\"700\">Foyer d'hébergement</text>\n <text x=\"1110\" y=\"520\" font-size=\"18\">R+1 à R+4 · ≈ 115 chambres</text>\n <text x=\"830\" y=\"96\" font-size=\"16\">Transfo</text>\n <text x=\"1478\" y=\"680\" font-size=\"16\">rampe</text>\n</g>\n<g transform=\"translate(110,120)\" font-family=\"system-ui,sans-serif\">\n <g transform=\"rotate(-25)\"><path d=\"M0,-48 L14,10 L0,2 L-14,10 Z\" fill=\"#2f3328\"/><text x=\"0\" y=\"34\" font-size=\"20\" text-anchor=\"middle\" fill=\"#2f3328\">N</text></g>\n</g>\n<text x=\"40\" y=\"975\" font-family=\"system-ui,sans-serif\" font-size=\"17\" fill=\"#6b6a60\">Schéma de principe interprété (plans DOE 1989-1990 + planches A0) · non à l'échelle · à vérifier sur place</text>\n",
+    "w": 1600,
+    "h": 1000
+   },
+   "note": "Schéma interprété, non à l'échelle."
+  },
+  {
+   "id": "terrasse",
+   "nom": "Terrasse du foyer",
+   "court": "Toit",
+   "alt": "toiture",
+   "plan": {
+    "svg": "\n<rect width=\"1600\" height=\"620\" fill=\"#f2f0ea\"/>\n<g stroke=\"#2f3328\" stroke-width=\"3\" fill=\"#fbfaf6\">\n <polygon points=\"140,200 920,200 920,430 140,430\"/>\n <polygon points=\"930,315 1210,255 1210,350 1070,400 930,430\"/>\n</g>\n<g stroke=\"#2f3328\" stroke-width=\"2\" fill=\"#e4e0d5\">\n <rect x=\"360\" y=\"215\" width=\"100\" height=\"55\"/>\n <circle cx=\"110\" cy=\"415\" r=\"38\"/>\n <circle cx=\"985\" cy=\"450\" r=\"34\"/>\n <rect x=\"900\" y=\"425\" width=\"40\" height=\"40\"/>\n</g>\n<g font-family=\"system-ui,sans-serif\" fill=\"#2f3328\" text-anchor=\"middle\">\n <text x=\"560\" y=\"330\" font-size=\"26\" font-weight=\"700\">Toiture-terrasse du foyer</text>\n <text x=\"560\" y=\"360\" font-size=\"18\">béton, étanchéité ≈ 35 ans, non isolée</text>\n <text x=\"410\" y=\"300\" font-size=\"15\">édicule escalier</text>\n</g>\n<text x=\"40\" y=\"590\" font-family=\"system-ui,sans-serif\" font-size=\"17\" fill=\"#6b6a60\">Plan terrasse non fourni : emprise reprise du R+3, position de la chaufferie à confirmer (planche D1 : « chaufferie gaz en toiture »).</text>\n",
+    "w": 1600,
+    "h": 620
+   },
+   "note": "Plan non fourni : schéma interprété à partir du R+3."
+  },
+  {
+   "id": "r4",
+   "nom": "R+4 · chambres",
+   "court": "R+4",
+   "alt": "",
+   "plan": {
+    "src": "plans/r3.webp",
+    "leger": "plans/r3-l.webp",
+    "w": 4438,
+    "h": 2579
+   },
+   "note": "Plan supposé identique au R+3, à vérifier."
+  },
+  {
+   "id": "r3",
+   "nom": "R+3 · chambres",
+   "court": "R+3",
+   "alt": "",
+   "plan": {
+    "src": "plans/r3.webp",
+    "leger": "plans/r3-l.webp",
+    "w": 4438,
+    "h": 2579
+   },
+   "note": "Plan DOE Ex11a : 31 chambres dont 2 couples et 1 PMR."
+  },
+  {
+   "id": "r2",
+   "nom": "R+2 · chambres",
+   "court": "R+2",
+   "alt": "",
+   "plan": {
+    "src": "plans/r3.webp",
+    "leger": "plans/r3-l.webp",
+    "w": 4438,
+    "h": 2579
+   },
+   "note": "Plan supposé identique au R+3, à vérifier."
+  },
+  {
+   "id": "r1",
+   "nom": "R+1 · chambres + logement",
+   "court": "R+1",
+   "alt": "",
+   "plan": {
+    "src": "plans/r1.webp",
+    "leger": "plans/r1-l.webp",
+    "w": 4419,
+    "h": 2331
+   },
+   "note": "Plan DOE Ex09a : 27 chambres + 1 logement de 4 personnes."
+  },
+  {
+   "id": "rdc-haut",
+   "nom": "RDC haut · hall, restaurant",
+   "court": "RDC h",
+   "alt": "±0,00",
+   "plan": {
+    "src": "plans/rdc-haut.webp",
+    "leger": "plans/rdc-haut-l.webp",
+    "w": 4076,
+    "h": 3025
+   },
+   "note": "Plan DOE Ex04d : bât. 1, halls du foyer et bâtiment restaurant."
+  },
+  {
+   "id": "rdc-bas",
+   "nom": "RDC bas · sport et culture",
+   "court": "RDC b",
+   "alt": "-2,16",
+   "plan": {
+    "src": "plans/rdc-bas.webp",
+    "leger": "plans/rdc-bas-l.webp",
+    "w": 4071,
+    "h": 2347
+   },
+   "note": "Plan DOE Ex03c : 15 salles, amphi, patio, locaux techniques."
+  },
+  {
+   "id": "sous-sol",
+   "nom": "Sous-sol · parking",
+   "court": "-1",
+   "alt": "-2,20 / -2,80",
+   "plan": {
+    "src": "plans/sous-sol.webp",
+    "leger": "plans/sous-sol-l.webp",
+    "w": 3164,
+    "h": 1977
+   },
+   "note": "Plan DOE parking et locaux : 115 places."
+  }
+ ],
+ "locaux": [
+  {
+   "id": "tgbt",
+   "nom": "TGBT · tableau électrique",
+   "niveau": "rdc-haut",
+   "batiment": "Bât. 1 / foyer",
+   "categorie": "technique",
+   "fiabilite": "H",
+   "qr": true,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      2521,
+      1755
+     ],
+     [
+      2611,
+      1755
+     ],
+     [
+      2611,
+      1840
+     ],
+     [
+      2521,
+      1840
+     ]
+    ]
+   },
+   "resume": "Local « tableau électr. » du plan DOE, près de l'accès hébergement. Retenu comme TGBT par hypothèse : aucun diagnostic électrique fourni.",
+   "surface": "",
+   "acces": "Depuis le hall d'accueil, côté accès hébergement.",
+   "equipements": [
+    {
+     "nom": "Tableau général basse tension",
+     "detail": "Puissance souscrite inconnue (planche R1.4).",
+     "fiabilite": "H"
+    },
+    {
+     "nom": "Coupure générale",
+     "detail": "Organe à repérer et étiqueter lors de la visite.",
+     "fiabilite": "H"
+    },
+    {
+     "nom": "Départs par pôle",
+     "detail": "Préconisé : un tableau par pôle, coupure d'urgence accessible aux pompiers (R2.5).",
+     "fiabilite": "P"
+    }
+   ],
+   "coupure": [
+    {
+     "texte": "Alerter : 18 ou 112.",
+     "fiabilite": "C"
+    },
+    {
+     "texte": "Couper la coupure générale du TGBT, sans s'exposer, si la consigne le permet.",
+     "fiabilite": "H"
+    },
+    {
+     "texte": "Ne jamais utiliser d'eau sur un tableau sous tension.",
+     "fiabilite": "C"
+    }
+   ],
+   "risques": [
+    {
+     "texte": "Installation de 1990 probablement sous-dimensionnée (cuisine, cinéma, sport).",
+     "niveau": "fort"
+    },
+    {
+     "texte": "Électricité non diagnostiquée (D4.3).",
+     "niveau": "fort"
+    },
+    {
+     "texte": "Local à risques à isoler (R2.5).",
+     "niveau": "moyen"
+    }
+   ],
+   "projet": "Diagnostic complet, bilan de puissance, raccordement Enedis à vérifier ; au-delà de 250 kVA, poste de transformation sur la parcelle (R1.4).",
+   "source": "Plan DOE Ex04d ; planches D4, R1.4, R2.5.",
+   "remarques": "Emplacement à confirmer sur place.",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "chaufferie",
+   "nom": "Chaufferie gaz",
+   "niveau": "terrasse",
+   "batiment": "Foyer",
+   "categorie": "technique",
+   "fiabilite": "C",
+   "qr": true,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      360,
+      215
+     ],
+     [
+      460,
+      215
+     ],
+     [
+      460,
+      270
+     ],
+     [
+      360,
+      270
+     ]
+    ]
+   },
+   "resume": "Chaufferie gaz en toiture du foyer : 2 chaudières gaz standard en cascade pour le chauffage et l'eau chaude.",
+   "surface": "",
+   "acces": "Toiture du foyer, par l'escalier principal (position exacte à confirmer).",
+   "equipements": [
+    {
+     "nom": "2 chaudières gaz standard en cascade",
+     "detail": "DPE 2020.",
+     "fiabilite": "C"
+    },
+    {
+     "nom": "Plancher chauffant à eau",
+     "detail": "Installation d'origine 1990, noyée dans les dalles.",
+     "fiabilite": "C"
+    },
+    {
+     "nom": "Consommation",
+     "detail": "551 635 kWh PCS de gaz par an (DPE 2020).",
+     "fiabilite": "C"
+    },
+    {
+     "nom": "Vanne de coupure gaz",
+     "detail": "Organe de coupure générale accessible depuis l'extérieur (R2.4).",
+     "fiabilite": "P"
+    }
+   ],
+   "coupure": [
+    {
+     "texte": "Alerter : 18 ou 112.",
+     "fiabilite": "C"
+    },
+    {
+     "texte": "Fermer la vanne gaz générale extérieure (voir niveau Site).",
+     "fiabilite": "H"
+    },
+    {
+     "texte": "Couper l'alimentation électrique de la chaufferie, ne rien rallumer.",
+     "fiabilite": "H"
+    }
+   ],
+   "risques": [
+    {
+     "texte": "Gaz : local à risques isolé (R2.5).",
+     "niveau": "fort"
+    },
+    {
+     "texte": "Rendement faible, fin de vie probable des chaudières.",
+     "niveau": "moyen"
+    },
+    {
+     "texte": "Embouage et fuites possibles du plancher chauffant.",
+     "niveau": "moyen"
+    }
+   ],
+   "projet": "PAC, ou chaudières à condensation + PAC, après étude ; tester le réseau de chaleur urbain (R1.5).",
+   "source": "Planches D1.3, D4.2, R1.4, R2.4.",
+   "remarques": "Plan de la terrasse non fourni : position dessinée par interprétation.",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "cuisine",
+   "nom": "Cuisine du restaurant",
+   "niveau": "rdc-haut",
+   "batiment": "Bât. restaurant",
+   "categorie": "restauration",
+   "fiabilite": "C",
+   "qr": true,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      1543,
+      285
+     ],
+     [
+      2169,
+      285
+     ],
+     [
+      2241,
+      408
+     ],
+     [
+      2241,
+      582
+     ],
+     [
+      1543,
+      582
+     ]
+    ]
+   },
+   "resume": "Cuisine, self, laverie et local poubelles du bâtiment restaurant indépendant (239 m²).",
+   "surface": "Bâtiment : 239 m² (Carrez 2024)",
+   "acces": "Accès service au nord du bâtiment restaurant ; livraisons rue André Chénier.",
+   "equipements": [
+    {
+     "nom": "Cuisine, self, laverie",
+     "detail": "Plan DOE Ex04d.",
+     "fiabilite": "C"
+    },
+    {
+     "nom": "Hotte et amenée d'air compensée",
+     "detail": "Obligatoire si cuisson > 20 kW (grande cuisine).",
+     "fiabilite": "P"
+    },
+    {
+     "nom": "Séparateur à graisses",
+     "detail": "Vidé 2 fois par an au moins (R2.2).",
+     "fiabilite": "P"
+    },
+    {
+     "nom": "Vanne gaz à l'entrée de la cuisine",
+     "detail": "Préconisée en R2.5.",
+     "fiabilite": "P"
+    }
+   ],
+   "coupure": [
+    {
+     "texte": "Alerter : 18 ou 112.",
+     "fiabilite": "C"
+    },
+    {
+     "texte": "Arrêt d'urgence de la cuisson et fermeture de la vanne gaz cuisine.",
+     "fiabilite": "H"
+    },
+    {
+     "texte": "Feu d'huile : couvercle ou extincteur adapté, jamais d'eau.",
+     "fiabilite": "C"
+    }
+   ],
+   "risques": [
+    {
+     "texte": "Feu de cuisson, graisses dans l'extraction.",
+     "niveau": "fort"
+    },
+    {
+     "texte": "Rejet d'extraction à 8 m au moins des fenêtres (R2.3).",
+     "niveau": "moyen"
+    }
+   ],
+   "projet": "Cuisine de production dans le bâtiment restaurant, rejet direct en toiture ; salle et terrasse au RDC haut du bât. 1 (planche 1.8).",
+   "source": "Plan DOE Ex04d ; planches 1.8, R2.1 à R2.5.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "parking",
+   "nom": "Parking enterré",
+   "niveau": "sous-sol",
+   "batiment": "Sous le foyer",
+   "categorie": "circulation",
+   "fiabilite": "C",
+   "qr": true,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      904,
+      486
+     ],
+     [
+      1537,
+      486
+     ],
+     [
+      1537,
+      1187
+     ],
+     [
+      2486,
+      1187
+     ],
+     [
+      2882,
+      1119
+     ],
+     [
+      2949,
+      1537
+     ],
+     [
+      2588,
+      1537
+     ],
+     [
+      2588,
+      1797
+     ],
+     [
+      1684,
+      1797
+     ],
+     [
+      1446,
+      1446
+     ],
+     [
+      1220,
+      1266
+     ],
+     [
+      1062,
+      1085
+     ],
+     [
+      904,
+      1085
+     ]
+    ]
+   },
+   "resume": "115 places sur deux niveaux (-2,20 et -2,80), sous le foyer et les abords.",
+   "surface": "115 places",
+   "acces": "Entrée rue Louis Mallet, sortie rue André Chénier (planche D1.1).",
+   "equipements": [
+    {
+     "nom": "Rampe d'accès",
+     "detail": "Voitures séparées des piétons.",
+     "fiabilite": "C"
+    },
+    {
+     "nom": "Escaliers vers le foyer",
+     "detail": "Communication par sas préconisée (R2.5).",
+     "fiabilite": "P"
+    },
+    {
+     "nom": "Recharge électrique",
+     "detail": "1 point par tranche de 20 places (R1.3).",
+     "fiabilite": "P"
+    }
+   ],
+   "coupure": [
+    {
+     "texte": "Alerter : 18 ou 112.",
+     "fiabilite": "C"
+    },
+    {
+     "texte": "Évacuer à pied par les escaliers, jamais par la rampe en sens inverse.",
+     "fiabilite": "H"
+    },
+    {
+     "texte": "Ne pas utiliser l'ascenseur.",
+     "fiabilite": "C"
+    }
+   ],
+   "risques": [
+    {
+     "texte": "Isolement renforcé exigé vis-à-vis de l'ERP et du foyer.",
+     "niveau": "fort"
+    },
+    {
+     "texte": "Carbonatation, aciers apparents possibles (D3.1).",
+     "niveau": "moyen"
+    }
+   ],
+   "projet": "Parking mutualisé avec places vélos ; 2 % de places PMR ; ombrières si parking extérieur > 1 500 m² (R1.3).",
+   "source": "Plan DOE parking ; planches D1.1, R1.2, R1.3.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "vanne-gaz",
+   "nom": "Vanne gaz générale",
+   "niveau": "site",
+   "batiment": "Site",
+   "categorie": "securite",
+   "fiabilite": "H",
+   "qr": false,
+   "forme": {
+    "type": "point",
+    "x": 1300,
+    "y": 400
+   },
+   "resume": "Organe de coupure générale du gaz, accessible depuis l'extérieur. À LOCALISER sur place.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [
+    {
+     "texte": "Alerter : 18 ou 112.",
+     "fiabilite": "C"
+    },
+    {
+     "texte": "Fermer la vanne (quart de tour), sans s'exposer.",
+     "fiabilite": "H"
+    },
+    {
+     "texte": "Ne rien rallumer avant l'avis de GRDF.",
+     "fiabilite": "C"
+    }
+   ],
+   "risques": [
+    {
+     "texte": "Position inconnue : à relever et à reporter ici.",
+     "niveau": "fort"
+    }
+   ],
+   "projet": "",
+   "source": "Planches R2.4, R2.5.",
+   "remarques": "Position dessinée au hasard : à corriger en mode édition.",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "regards",
+   "nom": "Regards de branchement",
+   "niveau": "site",
+   "batiment": "Site",
+   "categorie": "technique",
+   "fiabilite": "H",
+   "qr": false,
+   "forme": {
+    "type": "point",
+    "x": 700,
+    "y": 860
+   },
+   "resume": "Collecteurs eaux usées ø200 et pluviales ø700 (DOE). Un branchement par bâtiment, regard en limite de propriété.",
+   "surface": "",
+   "acces": "",
+   "equipements": [
+    {
+     "nom": "Eaux usées ø200",
+     "detail": "Réseau séparatif.",
+     "fiabilite": "C"
+    },
+    {
+     "nom": "Eaux pluviales ø700",
+     "detail": "",
+     "fiabilite": "C"
+    }
+   ],
+   "coupure": [],
+   "risques": [
+    {
+     "texte": "État intérieur inconnu : inspection caméra préconisée.",
+     "niveau": "moyen"
+    }
+   ],
+   "projet": "",
+   "source": "Planches R1.4, R2.2.",
+   "remarques": "Position à relever.",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "transfo",
+   "nom": "Transformateur",
+   "niveau": "site",
+   "batiment": "Site",
+   "categorie": "technique",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      790,
+      70
+     ],
+     [
+      870,
+      70
+     ],
+     [
+      870,
+      110
+     ],
+     [
+      790,
+      110
+     ]
+    ]
+   },
+   "resume": "Poste « Transfo » figurant au nord, sur le plan DOE du RDC haut.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [
+    {
+     "texte": "Local à risques isolé (R2.5).",
+     "niveau": "moyen"
+    }
+   ],
+   "projet": "",
+   "source": "Plan DOE Ex04d.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "entree-parking",
+   "nom": "Entrée et sortie du parking",
+   "niveau": "site",
+   "batiment": "Site",
+   "categorie": "circulation",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      1440,
+      450
+     ],
+     [
+      1515,
+      450
+     ],
+     [
+      1515,
+      640
+     ],
+     [
+      1440,
+      640
+     ]
+    ]
+   },
+   "resume": "Rampe vers le parking enterré, côté rue Louis Mallet.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plan DOE parking ; planche D1.1.",
+   "remarques": "",
+   "photo": null,
+   "lien": "parking"
+  },
+  {
+   "id": "bat-restaurant",
+   "nom": "Bâtiment restaurant",
+   "niveau": "site",
+   "batiment": "Bât. restaurant",
+   "categorie": "batiment",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      420,
+      50
+     ],
+     [
+      700,
+      50
+     ],
+     [
+      740,
+      95
+     ],
+     [
+      740,
+      220
+     ],
+     [
+      420,
+      220
+     ]
+    ]
+   },
+   "resume": "Bâtiment indépendant de 239 m² : 3 salles, office, sanitaires.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Planche D1.1.",
+   "remarques": "",
+   "photo": null,
+   "lien": "cuisine"
+  },
+  {
+   "id": "bat-1",
+   "nom": "Bâtiment 1 · locaux pédagogiques",
+   "niveau": "site",
+   "batiment": "Bât. 1",
+   "categorie": "batiment",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      60,
+      330
+     ],
+     [
+      600,
+      330
+     ],
+     [
+      640,
+      370
+     ],
+     [
+      980,
+      760
+     ],
+     [
+      980,
+      840
+     ],
+     [
+      60,
+      840
+     ]
+    ]
+   },
+   "resume": "Futur ERP : RDC bas (-2,16) sport et culture, RDC haut restauration et accueil. 3 074 m² Carrez.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Planche D1.1.",
+   "remarques": "",
+   "photo": null,
+   "lien": "rdc-haut"
+  },
+  {
+   "id": "foyer",
+   "nom": "Foyer d'hébergement",
+   "niveau": "site",
+   "batiment": "Foyer",
+   "categorie": "batiment",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      695,
+      430
+     ],
+     [
+      1440,
+      430
+     ],
+     [
+      1440,
+      560
+     ],
+     [
+      810,
+      560
+     ]
+    ]
+   },
+   "resume": "R+1 à R+4, ≈ 115 chambres, ≈ 2 037 m² chauffés. Chaufferie gaz en toiture.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Planche D1.1.",
+   "remarques": "",
+   "photo": null,
+   "lien": "r1"
+  },
+  {
+   "id": "salle-restaurant",
+   "nom": "Restaurant · salle 100 places",
+   "niveau": "rdc-haut",
+   "batiment": "Bât. restaurant",
+   "categorie": "restauration",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      1499,
+      582
+     ],
+     [
+      2241,
+      582
+     ],
+     [
+      2241,
+      873
+     ],
+     [
+      2009,
+      961
+     ],
+     [
+      1630,
+      961
+     ],
+     [
+      1499,
+      844
+     ]
+    ]
+   },
+   "resume": "Salle à manger de 100 places, entrée publique au sud.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plan DOE Ex04d.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "hall-accueil",
+   "nom": "Hall d'accueil",
+   "niveau": "rdc-haut",
+   "batiment": "Bât. 1",
+   "categorie": "circulation",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      1747,
+      1834
+     ],
+     [
+      2533,
+      1834
+     ],
+     [
+      2533,
+      2009
+     ],
+     [
+      2038,
+      2038
+     ],
+     [
+      1863,
+      2154
+     ],
+     [
+      1747,
+      2038
+     ]
+    ]
+   },
+   "resume": "Hall traversant avec vide central sur le RDC bas (puits).",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [
+    {
+     "texte": "Désenfumage du puits à prévoir (planche 2.4).",
+     "niveau": "moyen"
+    }
+   ],
+   "projet": "Hall, accueil, communs résidents.",
+   "source": "Plan DOE Ex04d ; planches D2.2, 1.10.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "patio",
+   "nom": "Patio",
+   "niveau": "rdc-haut",
+   "batiment": "Bât. 1",
+   "categorie": "circulation",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      932,
+      2081
+     ],
+     [
+      1368,
+      2081
+     ],
+     [
+      1368,
+      2416
+     ],
+     [
+      932,
+      2416
+     ]
+    ]
+   },
+   "resume": "Patio central, au-dessus du RDC bas.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plan DOE Ex04d.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "terrasse-accessible",
+   "nom": "Terrasse accessible",
+   "niveau": "rdc-haut",
+   "batiment": "Bât. 1",
+   "categorie": "restauration",
+   "fiabilite": "H",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      408,
+      2242
+     ],
+     [
+      932,
+      2242
+     ],
+     [
+      932,
+      2445
+     ],
+     [
+      1397,
+      2445
+     ],
+     [
+      1572,
+      2271
+     ],
+     [
+      1630,
+      2795
+     ],
+     [
+      408,
+      2795
+     ]
+    ]
+   },
+   "resume": "Terrasse sur le RDC bas, prévue accessible en 1990, avec jardinières et skydomes.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [
+    {
+     "texte": "Charge de calcul inconnue : une terrasse de restaurant demande 5 kN/m².",
+     "niveau": "fort"
+    }
+   ],
+   "projet": "Terrasse du restaurant, 340 m², après vérification prioritaire de la structure (D3.1).",
+   "source": "Plan DOE Ex04d ; planches D3.1, 1.9.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "local-vmc-1",
+   "nom": "Local technique VMC 1",
+   "niveau": "rdc-haut",
+   "batiment": "Bât. 1",
+   "categorie": "technique",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      771,
+      1639
+     ],
+     [
+      867,
+      1639
+     ],
+     [
+      867,
+      1703
+     ],
+     [
+      771,
+      1703
+     ]
+    ]
+   },
+   "resume": "Local VMC du bât. 1.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "Double flux pour les pôles ERP (D4.2).",
+   "source": "Plan DOE Ex04d.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "local-vmc-2",
+   "nom": "Local technique VMC 2",
+   "niveau": "rdc-haut",
+   "batiment": "Bât. 1",
+   "categorie": "technique",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      2445,
+      2722
+     ],
+     [
+      2562,
+      2722
+     ],
+     [
+      2562,
+      2795
+     ],
+     [
+      2445,
+      2795
+     ]
+    ]
+   },
+   "resume": "Local VMC du bât. 1, côté passage.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plan DOE Ex04d.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "entree-hebergement",
+   "nom": "Accès hébergement",
+   "niveau": "rdc-haut",
+   "batiment": "Foyer",
+   "categorie": "circulation",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "point",
+    "x": 2780,
+    "y": 1805
+   },
+   "resume": "Entrée du foyer, séparée de l'entrée enseignement.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plan DOE Ex04d ; planche D2.2.",
+   "remarques": "",
+   "photo": null,
+   "lien": "r1"
+  },
+  {
+   "id": "local-ecs",
+   "nom": "Local ECS n°2",
+   "niveau": "rdc-bas",
+   "batiment": "Bât. 1",
+   "categorie": "technique",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      2181,
+      1303
+     ],
+     [
+      2297,
+      1303
+     ],
+     [
+      2297,
+      1352
+     ],
+     [
+      2181,
+      1352
+     ]
+    ]
+   },
+   "resume": "Production d'eau chaude sanitaire.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [
+    {
+     "texte": "Légionelles si le bouclage descend sous 55 °C.",
+     "niveau": "moyen"
+    }
+   ],
+   "projet": "Contrôle des températures et analyses (D4.2).",
+   "source": "Plan DOE Ex03c ; planche D4.2.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "machinerie",
+   "nom": "Machinerie d'ascenseur",
+   "niveau": "rdc-bas",
+   "batiment": "Bât. 1",
+   "categorie": "technique",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      2175,
+      1425
+     ],
+     [
+      2254,
+      1425
+     ],
+     [
+      2254,
+      1474
+     ],
+     [
+      2175,
+      1474
+     ]
+    ]
+   },
+   "resume": "Seul ascenseur entre RDC bas et RDC haut.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [
+    {
+     "texte": "Une panne coupe l'accès PMR au RDC bas (D2.3).",
+     "niveau": "fort"
+    }
+   ],
+   "projet": "Second ascenseur ou rampe.",
+   "source": "Plan DOE Ex03c ; planche D2.3.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "local-techn-3",
+   "nom": "Local technique 3",
+   "niveau": "rdc-bas",
+   "batiment": "Bât. 1",
+   "categorie": "technique",
+   "fiabilite": "H",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      640,
+      858
+     ],
+     [
+      712,
+      858
+     ],
+     [
+      712,
+      931
+     ],
+     [
+      640,
+      931
+     ]
+    ]
+   },
+   "resume": "Local technique d'origine, usage non documenté.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plan DOE Ex03c.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "local-techn-4",
+   "nom": "Local technique 4",
+   "niveau": "rdc-bas",
+   "batiment": "Bât. 1",
+   "categorie": "technique",
+   "fiabilite": "H",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      1585,
+      1977
+     ],
+     [
+      1687,
+      1977
+     ],
+     [
+      1687,
+      2050
+     ],
+     [
+      1585,
+      2050
+     ]
+    ]
+   },
+   "resume": "Local technique près de l'amphithéâtre.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plan DOE Ex03c.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "local-techn-5",
+   "nom": "Local technique 5",
+   "niveau": "rdc-bas",
+   "batiment": "Bât. 1",
+   "categorie": "technique",
+   "fiabilite": "H",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      2268,
+      1992
+     ],
+     [
+      2414,
+      1992
+     ],
+     [
+      2414,
+      2036
+     ],
+     [
+      2268,
+      2036
+     ]
+    ]
+   },
+   "resume": "Local technique près de l'amphithéâtre.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plan DOE Ex03c.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "local-techn-6",
+   "nom": "Local technique 6 · soufflage",
+   "niveau": "rdc-bas",
+   "batiment": "Bât. 1",
+   "categorie": "technique",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      407,
+      1847
+     ],
+     [
+      567,
+      1847
+     ],
+     [
+      567,
+      1934
+     ],
+     [
+      407,
+      1934
+     ]
+    ]
+   },
+   "resume": "Soufflage de l'air.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plan DOE Ex03c.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "amphitheatre",
+   "nom": "Amphithéâtre",
+   "niveau": "rdc-bas",
+   "batiment": "Bât. 1",
+   "categorie": "culture",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      1730,
+      1585
+     ],
+     [
+      2268,
+      1585
+     ],
+     [
+      2443,
+      1759
+     ],
+     [
+      2326,
+      2050
+     ],
+     [
+      1628,
+      2050
+     ],
+     [
+      1585,
+      1774
+     ]
+    ]
+   },
+   "resume": "Amphi de 140 places, 240 m².",
+   "surface": "240 m²",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [
+    {
+     "texte": "Hauteur libre inconnue : relevé 3D nécessaire.",
+     "niveau": "moyen"
+    },
+    {
+     "texte": "Sons amplifiés sous des chambres : acoustique critique (D5.4).",
+     "niveau": "fort"
+    }
+   ],
+   "projet": "Golf (2 à 3 box) ou cinéma : à trancher après relevé des hauteurs (1.8, D5.1).",
+   "source": "Plan DOE Ex03c ; planches 1.8, D5.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "patio-bas",
+   "nom": "Patio (RDC bas)",
+   "niveau": "rdc-bas",
+   "batiment": "Bât. 1",
+   "categorie": "circulation",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      930,
+      1323
+     ],
+     [
+      1367,
+      1323
+     ],
+     [
+      1367,
+      1599
+     ],
+     [
+      930,
+      1599
+     ]
+    ]
+   },
+   "resume": "Patio central, éclairage naturel des salles aveugles.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "Espace street workout (zonage projet).",
+   "source": "Plan DOE Ex03c.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "bat-1-sous-sol",
+   "nom": "Bât. 1 · RDC bas (même niveau)",
+   "niveau": "sous-sol",
+   "batiment": "Bât. 1",
+   "categorie": "batiment",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      305,
+      1017
+     ],
+     [
+      994,
+      1017
+     ],
+     [
+      1684,
+      1797
+     ],
+     [
+      305,
+      1797
+     ]
+    ]
+   },
+   "resume": "Le RDC bas (-2,16) est presque au niveau du parking (-2,20).",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "",
+   "remarques": "",
+   "photo": null,
+   "lien": "rdc-bas"
+  },
+  {
+   "id": "chambres-r1",
+   "nom": "Chambres R+1",
+   "niveau": "r1",
+   "batiment": "Foyer",
+   "categorie": "hebergement",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      410,
+      584
+     ],
+     [
+      2857,
+      584
+     ],
+     [
+      2857,
+      1200
+     ],
+     [
+      410,
+      1200
+     ]
+    ]
+   },
+   "resume": "Couloir central entre deux rangées de chambres de 12 m², balcon filant au sud.",
+   "surface": "",
+   "acces": "",
+   "equipements": [
+    {
+     "nom": "Plancher chauffant à eau",
+     "detail": "Noyé dans les dalles : aucune trémie sans repérage.",
+     "fiabilite": "C"
+    },
+    {
+     "nom": "VMC autoréglable",
+     "detail": "",
+     "fiabilite": "C"
+    }
+   ],
+   "coupure": [],
+   "risques": [
+    {
+     "texte": "Ponts thermiques : balcon filant, nez de dalle.",
+     "niveau": "moyen"
+    },
+    {
+     "texte": "Gaines techniques à recouper à chaque niveau.",
+     "niveau": "moyen"
+    }
+   ],
+   "projet": "Rénovation chambre par chambre, VMC hygro B, ITE fibre de bois.",
+   "source": "Plans DOE Ex09a / Ex11a ; planches D2, D4.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "escalier-r1",
+   "nom": "Escalier principal R+1",
+   "niveau": "r1",
+   "batiment": "Foyer",
+   "categorie": "circulation",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      1200,
+      600
+     ],
+     [
+      1389,
+      600
+     ],
+     [
+      1389,
+      758
+     ],
+     [
+      1200,
+      758
+     ]
+    ]
+   },
+   "resume": "Escalier principal et ascenseur du foyer.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plans DOE.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "escalier-ouest-r1",
+   "nom": "Escalier ouest R+1",
+   "niveau": "r1",
+   "batiment": "Foyer",
+   "categorie": "circulation",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "point",
+    "x": 316,
+    "y": 1121
+   },
+   "resume": "Escalier en tourelle.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plans DOE.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "escalier-est-r1",
+   "nom": "Escalier est R+1",
+   "niveau": "r1",
+   "batiment": "Foyer",
+   "categorie": "circulation",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "point",
+    "x": 2968,
+    "y": 1247
+   },
+   "resume": "Escalier en tourelle.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plans DOE.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "ascenseur-r1",
+   "nom": "Ascenseur R+1",
+   "niveau": "r1",
+   "batiment": "Foyer",
+   "categorie": "circulation",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "point",
+    "x": 2794,
+    "y": 1263
+   },
+   "resume": "Ne pas utiliser en cas d'incendie.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plans DOE.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "logement-r1",
+   "nom": "Aile est · logement 4 p.",
+   "niveau": "r1",
+   "batiment": "Foyer",
+   "categorie": "hebergement",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      2857,
+      726
+     ],
+     [
+      3631,
+      679
+     ],
+     [
+      3678,
+      947
+     ],
+     [
+      3346,
+      1010
+     ],
+     [
+      2857,
+      1200
+     ]
+    ]
+   },
+   "resume": "Logement de 4 personnes et chambres de l'aile est.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plan DOE Ex09a.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "chambres-r2",
+   "nom": "Chambres R+2",
+   "niveau": "r2",
+   "batiment": "Foyer",
+   "categorie": "hebergement",
+   "fiabilite": "H",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      412,
+      618
+     ],
+     [
+      2758,
+      618
+     ],
+     [
+      2758,
+      1300
+     ],
+     [
+      412,
+      1300
+     ]
+    ]
+   },
+   "resume": "Couloir central entre deux rangées de chambres de 12 m², balcon filant au sud.",
+   "surface": "",
+   "acces": "",
+   "equipements": [
+    {
+     "nom": "Plancher chauffant à eau",
+     "detail": "Noyé dans les dalles : aucune trémie sans repérage.",
+     "fiabilite": "C"
+    },
+    {
+     "nom": "VMC autoréglable",
+     "detail": "",
+     "fiabilite": "C"
+    }
+   ],
+   "coupure": [],
+   "risques": [
+    {
+     "texte": "Ponts thermiques : balcon filant, nez de dalle.",
+     "niveau": "moyen"
+    },
+    {
+     "texte": "Gaines techniques à recouper à chaque niveau.",
+     "niveau": "moyen"
+    }
+   ],
+   "projet": "Rénovation chambre par chambre, VMC hygro B, ITE fibre de bois.",
+   "source": "Plans DOE Ex09a / Ex11a ; planches D2, D4.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "escalier-r2",
+   "nom": "Escalier principal R+2",
+   "niveau": "r2",
+   "batiment": "Foyer",
+   "categorie": "circulation",
+   "fiabilite": "H",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      1078,
+      713
+     ],
+     [
+      1379,
+      713
+     ],
+     [
+      1379,
+      872
+     ],
+     [
+      1078,
+      872
+     ]
+    ]
+   },
+   "resume": "Escalier principal et ascenseur du foyer.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plans DOE.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "escalier-ouest-r2",
+   "nom": "Escalier ouest R+2",
+   "niveau": "r2",
+   "batiment": "Foyer",
+   "categorie": "circulation",
+   "fiabilite": "H",
+   "qr": false,
+   "forme": {
+    "type": "point",
+    "x": 301,
+    "y": 1252
+   },
+   "resume": "Escalier en tourelle.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plans DOE.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "escalier-est-r2",
+   "nom": "Escalier est R+2",
+   "niveau": "r2",
+   "batiment": "Foyer",
+   "categorie": "circulation",
+   "fiabilite": "H",
+   "qr": false,
+   "forme": {
+    "type": "point",
+    "x": 2948,
+    "y": 1347
+   },
+   "resume": "Escalier en tourelle.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plans DOE.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "ascenseur-r2",
+   "nom": "Ascenseur R+2",
+   "niveau": "r2",
+   "batiment": "Foyer",
+   "categorie": "circulation",
+   "fiabilite": "H",
+   "qr": false,
+   "forme": {
+    "type": "point",
+    "x": 2758,
+    "y": 1347
+   },
+   "resume": "Ne pas utiliser en cas d'incendie.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plans DOE.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "aile-est-r2",
+   "nom": "Aile est R+2",
+   "niveau": "r2",
+   "batiment": "Foyer",
+   "categorie": "hebergement",
+   "fiabilite": "H",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      2790,
+      951
+     ],
+     [
+      3630,
+      761
+     ],
+     [
+      3630,
+      1046
+     ],
+     [
+      3202,
+      1205
+     ],
+     [
+      2790,
+      1300
+     ]
+    ]
+   },
+   "resume": "Chambres de l'aile est.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plan DOE Ex11a.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "chambres-r3",
+   "nom": "Chambres R+3",
+   "niveau": "r3",
+   "batiment": "Foyer",
+   "categorie": "hebergement",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      412,
+      618
+     ],
+     [
+      2758,
+      618
+     ],
+     [
+      2758,
+      1300
+     ],
+     [
+      412,
+      1300
+     ]
+    ]
+   },
+   "resume": "Couloir central entre deux rangées de chambres de 12 m², balcon filant au sud.",
+   "surface": "",
+   "acces": "",
+   "equipements": [
+    {
+     "nom": "Plancher chauffant à eau",
+     "detail": "Noyé dans les dalles : aucune trémie sans repérage.",
+     "fiabilite": "C"
+    },
+    {
+     "nom": "VMC autoréglable",
+     "detail": "",
+     "fiabilite": "C"
+    }
+   ],
+   "coupure": [],
+   "risques": [
+    {
+     "texte": "Ponts thermiques : balcon filant, nez de dalle.",
+     "niveau": "moyen"
+    },
+    {
+     "texte": "Gaines techniques à recouper à chaque niveau.",
+     "niveau": "moyen"
+    }
+   ],
+   "projet": "Rénovation chambre par chambre, VMC hygro B, ITE fibre de bois.",
+   "source": "Plans DOE Ex09a / Ex11a ; planches D2, D4.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "escalier-r3",
+   "nom": "Escalier principal R+3",
+   "niveau": "r3",
+   "batiment": "Foyer",
+   "categorie": "circulation",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      1078,
+      713
+     ],
+     [
+      1379,
+      713
+     ],
+     [
+      1379,
+      872
+     ],
+     [
+      1078,
+      872
+     ]
+    ]
+   },
+   "resume": "Escalier principal et ascenseur du foyer.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plans DOE.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "escalier-ouest-r3",
+   "nom": "Escalier ouest R+3",
+   "niveau": "r3",
+   "batiment": "Foyer",
+   "categorie": "circulation",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "point",
+    "x": 301,
+    "y": 1252
+   },
+   "resume": "Escalier en tourelle.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plans DOE.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "escalier-est-r3",
+   "nom": "Escalier est R+3",
+   "niveau": "r3",
+   "batiment": "Foyer",
+   "categorie": "circulation",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "point",
+    "x": 2948,
+    "y": 1347
+   },
+   "resume": "Escalier en tourelle.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plans DOE.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "ascenseur-r3",
+   "nom": "Ascenseur R+3",
+   "niveau": "r3",
+   "batiment": "Foyer",
+   "categorie": "circulation",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "point",
+    "x": 2758,
+    "y": 1347
+   },
+   "resume": "Ne pas utiliser en cas d'incendie.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plans DOE.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "aile-est-r3",
+   "nom": "Aile est R+3",
+   "niveau": "r3",
+   "batiment": "Foyer",
+   "categorie": "hebergement",
+   "fiabilite": "C",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      2790,
+      951
+     ],
+     [
+      3630,
+      761
+     ],
+     [
+      3630,
+      1046
+     ],
+     [
+      3202,
+      1205
+     ],
+     [
+      2790,
+      1300
+     ]
+    ]
+   },
+   "resume": "Chambres de l'aile est.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plan DOE Ex11a.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "chambres-r4",
+   "nom": "Chambres R+4",
+   "niveau": "r4",
+   "batiment": "Foyer",
+   "categorie": "hebergement",
+   "fiabilite": "H",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      412,
+      618
+     ],
+     [
+      2758,
+      618
+     ],
+     [
+      2758,
+      1300
+     ],
+     [
+      412,
+      1300
+     ]
+    ]
+   },
+   "resume": "Couloir central entre deux rangées de chambres de 12 m², balcon filant au sud.",
+   "surface": "",
+   "acces": "",
+   "equipements": [
+    {
+     "nom": "Plancher chauffant à eau",
+     "detail": "Noyé dans les dalles : aucune trémie sans repérage.",
+     "fiabilite": "C"
+    },
+    {
+     "nom": "VMC autoréglable",
+     "detail": "",
+     "fiabilite": "C"
+    }
+   ],
+   "coupure": [],
+   "risques": [
+    {
+     "texte": "Ponts thermiques : balcon filant, nez de dalle.",
+     "niveau": "moyen"
+    },
+    {
+     "texte": "Gaines techniques à recouper à chaque niveau.",
+     "niveau": "moyen"
+    }
+   ],
+   "projet": "Rénovation chambre par chambre, VMC hygro B, ITE fibre de bois.",
+   "source": "Plans DOE Ex09a / Ex11a ; planches D2, D4.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "escalier-r4",
+   "nom": "Escalier principal R+4",
+   "niveau": "r4",
+   "batiment": "Foyer",
+   "categorie": "circulation",
+   "fiabilite": "H",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      1078,
+      713
+     ],
+     [
+      1379,
+      713
+     ],
+     [
+      1379,
+      872
+     ],
+     [
+      1078,
+      872
+     ]
+    ]
+   },
+   "resume": "Escalier principal et ascenseur du foyer.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plans DOE.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "escalier-ouest-r4",
+   "nom": "Escalier ouest R+4",
+   "niveau": "r4",
+   "batiment": "Foyer",
+   "categorie": "circulation",
+   "fiabilite": "H",
+   "qr": false,
+   "forme": {
+    "type": "point",
+    "x": 301,
+    "y": 1252
+   },
+   "resume": "Escalier en tourelle.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plans DOE.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "escalier-est-r4",
+   "nom": "Escalier est R+4",
+   "niveau": "r4",
+   "batiment": "Foyer",
+   "categorie": "circulation",
+   "fiabilite": "H",
+   "qr": false,
+   "forme": {
+    "type": "point",
+    "x": 2948,
+    "y": 1347
+   },
+   "resume": "Escalier en tourelle.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plans DOE.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "ascenseur-r4",
+   "nom": "Ascenseur R+4",
+   "niveau": "r4",
+   "batiment": "Foyer",
+   "categorie": "circulation",
+   "fiabilite": "H",
+   "qr": false,
+   "forme": {
+    "type": "point",
+    "x": 2758,
+    "y": 1347
+   },
+   "resume": "Ne pas utiliser en cas d'incendie.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plans DOE.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  },
+  {
+   "id": "aile-est-r4",
+   "nom": "Aile est R+4",
+   "niveau": "r4",
+   "batiment": "Foyer",
+   "categorie": "hebergement",
+   "fiabilite": "H",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      2790,
+      951
+     ],
+     [
+      3630,
+      761
+     ],
+     [
+      3630,
+      1046
+     ],
+     [
+      3202,
+      1205
+     ],
+     [
+      2790,
+      1300
+     ]
+    ]
+   },
+   "resume": "Chambres de l'aile est.",
+   "surface": "",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "",
+   "source": "Plan DOE Ex11a.",
+   "remarques": "",
+   "photo": null,
+   "lien": null
+  }
+ ],
+ "zonesProjet": [
+  {
+   "id": "p-musique",
+   "niveau": "rdc-bas",
+   "nom": "Studio de musique",
+   "categorie": "culture",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      640,
+      538
+     ],
+     [
+      960,
+      538
+     ],
+     [
+      960,
+      814
+     ],
+     [
+      640,
+      814
+     ]
+    ]
+   },
+   "texte": "Ancien labo de langues.",
+   "source": "Zonage projet (schéma organisationnel du groupe + planches A0)"
+  },
+  {
+   "id": "p-polyvalente",
+   "niveau": "rdc-bas",
+   "nom": "Salle de sport polyvalente",
+   "categorie": "sport",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      960,
+      538
+     ],
+     [
+      1658,
+      538
+     ],
+     [
+      1745,
+      625
+     ],
+     [
+      1861,
+      872
+     ],
+     [
+      1628,
+      931
+     ],
+     [
+      960,
+      814
+     ]
+    ]
+   },
+   "texte": "Escalade prévue au schéma, mais les blocs de 4 m ne rentrent pas au RDC bas (planche 1.8) : mur extérieur en pignon.",
+   "source": "Zonage projet (schéma organisationnel du groupe + planches A0)"
+  },
+  {
+   "id": "p-boxe",
+   "niveau": "rdc-bas",
+   "nom": "Salle de boxe",
+   "categorie": "sport",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      669,
+      989
+     ],
+     [
+      1367,
+      989
+     ],
+     [
+      1367,
+      1309
+     ],
+     [
+      669,
+      1309
+     ]
+    ]
+   },
+   "texte": "Ex-salle audiovisuelle et cours B6.",
+   "source": "Zonage projet (schéma organisationnel du groupe + planches A0)"
+  },
+  {
+   "id": "p-danse",
+   "niveau": "rdc-bas",
+   "nom": "Salle de danse",
+   "categorie": "sport",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      1367,
+      1163
+     ],
+     [
+      1628,
+      1163
+     ],
+     [
+      1861,
+      1367
+     ],
+     [
+      1628,
+      1628
+     ],
+     [
+      1367,
+      1454
+     ]
+    ]
+   },
+   "texte": "Ex-cours A1 et salle informatique.",
+   "source": "Zonage projet (schéma organisationnel du groupe + planches A0)"
+  },
+  {
+   "id": "p-workout",
+   "niveau": "rdc-bas",
+   "nom": "Street workout",
+   "categorie": "sport",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      930,
+      1323
+     ],
+     [
+      1367,
+      1323
+     ],
+     [
+      1367,
+      1599
+     ],
+     [
+      930,
+      1599
+     ]
+    ]
+   },
+   "texte": "Dans le patio.",
+   "source": "Zonage projet (schéma organisationnel du groupe + planches A0)"
+  },
+  {
+   "id": "p-muscu",
+   "niveau": "rdc-bas",
+   "nom": "Salle de musculation",
+   "categorie": "sport",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      654,
+      1309
+     ],
+     [
+      930,
+      1309
+     ],
+     [
+      930,
+      1599
+     ],
+     [
+      1367,
+      1599
+     ],
+     [
+      1454,
+      1745
+     ],
+     [
+      1454,
+      2006
+     ],
+     [
+      654,
+      2006
+     ]
+    ]
+   },
+   "texte": "Sur dallage, après sondage du plancher (D3.1).",
+   "source": "Zonage projet (schéma organisationnel du groupe + planches A0)"
+  },
+  {
+   "id": "p-vestiaires",
+   "niveau": "rdc-bas",
+   "nom": "Vestiaires",
+   "categorie": "sanitaires",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      1454,
+      1570
+     ],
+     [
+      1658,
+      1570
+     ],
+     [
+      1658,
+      1861
+     ],
+     [
+      1454,
+      1861
+     ]
+    ]
+   },
+   "texte": "",
+   "source": "Zonage projet (schéma organisationnel du groupe + planches A0)"
+  },
+  {
+   "id": "p-golf",
+   "niveau": "rdc-bas",
+   "nom": "Golf 2-3 box / cinéma",
+   "categorie": "culture",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      1730,
+      1585
+     ],
+     [
+      2268,
+      1585
+     ],
+     [
+      2443,
+      1759
+     ],
+     [
+      2326,
+      2050
+     ],
+     [
+      1628,
+      2050
+     ],
+     [
+      1585,
+      1774
+     ]
+    ]
+   },
+   "texte": "Ex-amphi : 2 à 3 box de golf si hauteur ≥ 3,00 m, sinon cinéma.",
+   "source": "Zonage projet (schéma organisationnel du groupe + planches A0)"
+  },
+  {
+   "id": "p-wc-bas",
+   "niveau": "rdc-bas",
+   "nom": "Sanitaires",
+   "categorie": "sanitaires",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      2210,
+      1352
+     ],
+     [
+      2530,
+      1352
+     ],
+     [
+      2530,
+      1614
+     ],
+     [
+      2210,
+      1614
+     ]
+    ]
+   },
+   "texte": "",
+   "source": "Zonage projet (schéma organisationnel du groupe + planches A0)"
+  },
+  {
+   "id": "p-art",
+   "niveau": "rdc-bas",
+   "nom": "Atelier d'art",
+   "categorie": "culture",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      2414,
+      1541
+     ],
+     [
+      2617,
+      1541
+     ],
+     [
+      3053,
+      1977
+     ],
+     [
+      2414,
+      2006
+     ]
+    ]
+   },
+   "texte": "Atelier coupé en deux : adultes et enfants.",
+   "source": "Zonage projet (schéma organisationnel du groupe + planches A0)"
+  },
+  {
+   "id": "p-stock-bas",
+   "niveau": "rdc-bas",
+   "nom": "Stockage",
+   "categorie": "technique",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      378,
+      1483
+     ],
+     [
+      582,
+      1483
+     ],
+     [
+      582,
+      2006
+     ],
+     [
+      378,
+      2006
+     ]
+    ]
+   },
+   "texte": "Local de rangement.",
+   "source": "Zonage projet (schéma organisationnel du groupe + planches A0)"
+  },
+  {
+   "id": "p-resto",
+   "niveau": "rdc-haut",
+   "nom": "Salle de restaurant",
+   "categorie": "restauration",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      597,
+      1747
+     ],
+     [
+      1383,
+      1747
+     ],
+     [
+      1383,
+      2081
+     ],
+     [
+      597,
+      2081
+     ]
+    ]
+   },
+   "texte": "Ex-bibliothèque et cours B1.",
+   "source": "Zonage projet (schéma organisationnel du groupe + planches A0)"
+  },
+  {
+   "id": "p-office",
+   "niveau": "rdc-haut",
+   "nom": "Office et réserve du restaurant",
+   "categorie": "restauration",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      597,
+      1295
+     ],
+     [
+      1587,
+      1295
+     ],
+     [
+      1587,
+      1587
+     ],
+     [
+      597,
+      1587
+     ]
+    ]
+   },
+   "texte": "Liaison couverte avec la cuisine du bâtiment restaurant, maintien en température (R2.1).",
+   "source": "Zonage projet (schéma organisationnel du groupe + planches A0)"
+  },
+  {
+   "id": "p-vest-haut",
+   "niveau": "rdc-haut",
+   "nom": "Vestiaires et stockage du personnel",
+   "categorie": "technique",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      1397,
+      1295
+     ],
+     [
+      1630,
+      1295
+     ],
+     [
+      2009,
+      1688
+     ],
+     [
+      1863,
+      1834
+     ],
+     [
+      1397,
+      1834
+     ]
+    ]
+   },
+   "texte": "Ex-administration.",
+   "source": "Zonage projet (schéma organisationnel du groupe + planches A0)"
+  },
+  {
+   "id": "p-terrasse",
+   "niveau": "rdc-haut",
+   "nom": "Terrasse du restaurant · 340 m²",
+   "categorie": "restauration",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      408,
+      2242
+     ],
+     [
+      932,
+      2242
+     ],
+     [
+      932,
+      2445
+     ],
+     [
+      1397,
+      2445
+     ],
+     [
+      1572,
+      2271
+     ],
+     [
+      1630,
+      2795
+     ],
+     [
+      408,
+      2795
+     ]
+    ]
+   },
+   "texte": "5 kN/m² à vérifier avant tout.",
+   "source": "Zonage projet (schéma organisationnel du groupe + planches A0)"
+  },
+  {
+   "id": "p-lecture",
+   "niveau": "rdc-haut",
+   "nom": "Espace lecture et partagé",
+   "categorie": "culture",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      1630,
+      2212
+     ],
+     [
+      2009,
+      2212
+     ],
+     [
+      2416,
+      2620
+     ],
+     [
+      2416,
+      2795
+     ],
+     [
+      2009,
+      2795
+     ],
+     [
+      1630,
+      2416
+     ]
+    ]
+   },
+   "texte": "Ex-cours C2 et B2.",
+   "source": "Zonage projet (schéma organisationnel du groupe + planches A0)"
+  },
+  {
+   "id": "p-popup",
+   "niveau": "rdc-haut",
+   "nom": "Pop-up vêtements",
+   "categorie": "culture",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      2416,
+      2212
+     ],
+     [
+      2634,
+      2212
+     ],
+     [
+      2998,
+      2591
+     ],
+     [
+      2998,
+      2795
+     ],
+     [
+      2591,
+      2795
+     ],
+     [
+      2416,
+      2620
+     ]
+    ]
+   },
+   "texte": "Ex-cours C3 et B3.",
+   "source": "Zonage projet (schéma organisationnel du groupe + planches A0)"
+  },
+  {
+   "id": "p-wc-haut",
+   "niveau": "rdc-haut",
+   "nom": "Sanitaires",
+   "categorie": "sanitaires",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      2271,
+      2140
+     ],
+     [
+      2562,
+      2140
+     ],
+     [
+      2562,
+      2300
+     ],
+     [
+      2271,
+      2300
+     ]
+    ]
+   },
+   "texte": "",
+   "source": "Zonage projet (schéma organisationnel du groupe + planches A0)"
+  },
+  {
+   "id": "p-cuisine",
+   "niveau": "rdc-haut",
+   "nom": "Cuisine de production",
+   "categorie": "restauration",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      1499,
+      285
+     ],
+     [
+      2169,
+      285
+     ],
+     [
+      2241,
+      408
+     ],
+     [
+      2241,
+      873
+     ],
+     [
+      2009,
+      961
+     ],
+     [
+      1630,
+      961
+     ],
+     [
+      1499,
+      844
+     ]
+    ]
+   },
+   "texte": "Bâtiment restaurant : rejet d'extraction direct en toiture, livraisons rue A. Chénier (1.8).",
+   "source": "Zonage projet (schéma organisationnel du groupe + planches A0)"
+  },
+  {
+   "id": "p-heb-r1",
+   "niveau": "r1",
+   "nom": "Logements rénovés",
+   "categorie": "hebergement",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      410,
+      584
+     ],
+     [
+      2857,
+      584
+     ],
+     [
+      2857,
+      1200
+     ],
+     [
+      410,
+      1200
+     ]
+    ]
+   },
+   "texte": "121 logements au total : 116 chambres, 4 PMR, 1 appartement (planche 3).",
+   "source": "Zonage projet (schéma organisationnel du groupe + planches A0)"
+  },
+  {
+   "id": "p-heb-r2",
+   "niveau": "r2",
+   "nom": "Logements rénovés",
+   "categorie": "hebergement",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      412,
+      618
+     ],
+     [
+      2758,
+      618
+     ],
+     [
+      2758,
+      1300
+     ],
+     [
+      412,
+      1300
+     ]
+    ]
+   },
+   "texte": "121 logements au total : 116 chambres, 4 PMR, 1 appartement (planche 3).",
+   "source": "Zonage projet (schéma organisationnel du groupe + planches A0)"
+  },
+  {
+   "id": "p-heb-r3",
+   "niveau": "r3",
+   "nom": "Logements rénovés",
+   "categorie": "hebergement",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      412,
+      618
+     ],
+     [
+      2758,
+      618
+     ],
+     [
+      2758,
+      1300
+     ],
+     [
+      412,
+      1300
+     ]
+    ]
+   },
+   "texte": "121 logements au total : 116 chambres, 4 PMR, 1 appartement (planche 3).",
+   "source": "Zonage projet (schéma organisationnel du groupe + planches A0)"
+  },
+  {
+   "id": "p-heb-r4",
+   "niveau": "r4",
+   "nom": "Logements rénovés",
+   "categorie": "hebergement",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      412,
+      618
+     ],
+     [
+      2758,
+      618
+     ],
+     [
+      2758,
+      1300
+     ],
+     [
+      412,
+      1300
+     ]
+    ]
+   },
+   "texte": "121 logements au total : 116 chambres, 4 PMR, 1 appartement (planche 3).",
+   "source": "Zonage projet (schéma organisationnel du groupe + planches A0)"
+  }
+ ]
+}

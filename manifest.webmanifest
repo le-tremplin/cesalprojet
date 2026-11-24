@@ -1,0 +1,16 @@
+{
+  "name": "Le Tremplin · plans et locaux",
+  "short_name": "Le Tremplin",
+  "description": "Plans interactifs du Tremplin, ancien CESAL de Bourges. Document d'étude BUT GCCD.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#2f3328",
+  "theme_color": "#2f3328",
+  "lang": "fr",
+  "icons": [
+    { "src": "icones/icone-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icones/icone-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icones/icone.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

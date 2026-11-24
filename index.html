@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le Tremplin · plans</title>
+<meta name="description" content="Plans interactifs et fiches des locaux du Tremplin, ancien CESAL de Bourges. Document d'étude BUT GCCD.">
+<meta name="theme-color" content="#2f3328">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icones/icone.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icones/icone-192.png">
+<link rel="stylesheet" href="app.css">
+<script src="config.js"></script>
+</head>
+<body>
+<div id="app">
+  <header class="barre">
+    <button class="marque" id="btn-accueil" aria-label="Accueil">
+      <span class="logo" aria-hidden="true"></span>
+      <span class="titre"><b>Le Tremplin</b><small>ancien CESAL, Bourges</small></span>
+    </button>
+    <div class="recherche">
+      <input id="recherche" type="search" placeholder="Chercher un local…" autocomplete="off" aria-label="Chercher un local">
+      <ul id="resultats" class="resultats" hidden></ul>
+    </div>
+    <a class="urgence" href="tel:112" aria-label="Appeler le 112">112</a>
+  </header>
+
+  <main class="scene-zone">
+    <nav class="niveaux" id="niveaux" aria-label="Niveaux"></nav>
+
+    <section class="vue" id="vue" aria-label="Plan">
+      <div class="vue-entete">
+        <div>
+          <h1 id="niv-titre">…</h1>
+          <p id="niv-note" class="note"></p>
+        </div>
+        <div class="calques" role="group" aria-label="Affichage">
+          <div class="segment" role="radiogroup" aria-label="État">
+            <button data-etat="existant" class="on" role="radio" aria-checked="true">Existant</button>
+            <button data-etat="projet" role="radio" aria-checked="false">Projet</button>
+          </div>
+          <button id="btn-filtres" class="puce" aria-expanded="false">Calques</button>
+        </div>
+      </div>
+      <div class="filtres" id="filtres" hidden></div>
+
+      <div class="viewport" id="viewport">
+        <div class="contenu" id="contenu">
+          <img id="plan-img" alt="" draggable="false">
+          <div id="plan-svg" class="plan-svg"></div>
+          <svg id="calque" class="calque" xmlns="http://www.w3.org/2000/svg"></svg>
+        </div>
+        <div class="zoom">
+          <button id="z-plus" aria-label="Zoomer">+</button>
+          <button id="z-moins" aria-label="Dézoomer">−</button>
+          <button id="z-tout" aria-label="Voir tout le plan">⤢</button>
+        </div>
+        <div class="legende" id="legende" hidden></div>
+        <div class="astuce" id="astuce">Pincez pour zoomer · touchez un local</div>
+      </div>
+    </section>
+
+    <aside class="fiche" id="fiche" aria-live="polite" hidden>
+      <div class="poignee" id="poignee" aria-hidden="true"></div>
+      <div class="fiche-corps" id="fiche-corps"></div>
+    </aside>
+  </main>
+
+  <footer class="pied">
+    <span id="mention"></span>
+    <span class="hors-ligne" id="hors-ligne" hidden>hors ligne · données en cache</span>
+  </footer>
+</div>
+
+<div class="accueil" id="accueil" hidden></div>
+<div class="verrou" id="verrou" hidden>
+  <form id="verrou-form">
+    <b>Le Tremplin</b>
+    <label>Mot de passe <input type="password" id="verrou-mdp" autocomplete="current-password"></label>
+    <button>Entrer</button>
+    <p id="verrou-err" hidden>Mot de passe incorrect.</p>
+  </form>
+</div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="app.js"></script>
+<script src="edition.js" defer></script>
+</body>
+</html>
