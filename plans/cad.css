@@ -19,3 +19,19 @@
 .etat-projet .plan-cad .l-a-ouvertures-nouvelles{display:inline}
 .etat-projet .plan-cad .l-a-ouvertures-nouvelles path{stroke:#a8432f;stroke-width:1.4}
 .plan-cad .l-a-fenetres path{stroke:#55594e;stroke-width:.6}
+.plan-cad .l-a-gaines path{stroke:#a8432f;stroke-width:1}
+.plan-cad .l-a-gaines .h{fill:#b5654a;fill-opacity:.35}
+.plan-cad .l-a-gaines text,.plan-cad .l-a-ascenseurs text{fill:#a8432f;font-weight:700}
+.plan-cad .l-a-ascenseurs path{stroke:#5b7083;stroke-width:1}
+.plan-cad .l-a-equipements path{stroke:#9a9b90;stroke-width:.6}
+.plan-cad .l-a-stationnement path{stroke:#5b7083;stroke-width:.7;stroke-dasharray:5 3}
+.plan-cad .l-a-stationnement text{fill:#5b7083;font-weight:600}
+.plan-cad .l-a-rampes path{stroke:#8a8c80;stroke-width:.6}
+.plan-cad .l-a-rampes text{fill:#2f3328;font-weight:700}
+.plan-cad .l-a-annotations path{stroke:#b5654a;stroke-width:2}
+.plan-cad .l-a-annotations text{fill:#b5654a;font-weight:800;letter-spacing:.05em}
+.plan-cad .l-a-escaliers text{font-weight:700}
+.plan-cad .l-a-acrotere path{stroke:#2f3328;stroke-width:1.3}
+.plan-cad .l-a-toitures path{stroke:none}
+.plan-cad .l-a-toitures text{fill:#2f3328;font-weight:700}
+.plan-cad .l-a-toiture-details path{stroke:#7b7c72;stroke-width:.9;stroke-dasharray:8 4}

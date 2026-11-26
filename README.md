@@ -34,22 +34,45 @@ Changer d'adresse : modifier `URL_BASE` dans `config.js`, puis :
     python3 outils/generer_qr.py --local tgbt   # QR d'un local précis, si besoin
 
 ## Plans vectoriels (DAO)
-Les plans affichés sont des SVG générés à partir de DXF (calques A-MURS, A-PORTES, A-FENETRES, A-ESCALIERS, A-SALLES-TEXTE…), unités en mètres :
-- `plans/cad/rdc-bas.dxf`, `plans/cad/rdc-haut.dxf` : plans du groupe ;
-- `plans/cad/r2.dxf`, `r3.dxf`, `r4.dxf` : reconstruits par `outils/foyer_etage.py` à partir du DOE Ex10a.
+Chaque niveau est un DXF (unités : mètres) converti en SVG. Calques : A-MURS, A-MURS-HACHURES, A-PORTES, A-FENETRES,
+A-ESCALIERS, A-GAINES, A-ASCENSEURS, A-STATIONNEMENT, A-RAMPES, A-TOITURES, A-EQUIPEMENTS, A-SALLES-TEXTE…
 
-Après modification d'un DXF (dans n'importe quel logiciel de DAO, en gardant les calques) :
+| Niveau | Source DXF | Produit par |
+|---|---|---|
+| RDC haut, RDC bas | `plans/cad/origine/*-groupe.dxf` (plans du groupe, jamais modifiés) | `outils/projet_rdc.py` (salle des fêtes, ascenseur, double porte à badge, escalier demi-colimaçon, Stockage) |
+| R+1 (projet, logements) | `plans/cad/r1.dxf` | `outils/foyer_etage.py 1` |
+| R+2, R+3, R+4 | `plans/cad/r2.dxf` … | `outils/foyer_etage.py 2` (3, 4) — d'après le DOE Ex10a |
+| Sous-sol | `plans/cad/sous-sol.dxf` | `outils/sous_sol.py` — d'après le DOE Ex07c |
+| Toiture | `plans/cad/terrasse.dxf` | `outils/toiture.py` — d'après le DOE Ex12bis |
+
+Mettre à jour un niveau (après modification d'un DXF dans un logiciel de DAO, en gardant les calques) :
 
     pip install ezdxf shapely numpy
     python3 outils/dxf_vers_svg.py plans/cad/rdc-haut.dxf plans/rdc-haut.svg
     python3 outils/integrer_cad.py rdc-haut
 
-Les fiches existantes sont conservées : le lien fiche ↔ salle se fait par le champ `salleCad` (nom de la salle dans le DXF).
-Les niveaux R+1, sous-sol et terrasse sont encore affichés à partir des scans.
+Chaque pièce fermée, gaine, ascenseur, place de parking ou zone de toiture devient une zone cliquable.
+Le lien fiche ↔ salle se fait par le champ `salleCad` : une géométrie qui change ne fait perdre aucune donnée.
+Une pièce sans nom dans le DXF apparaît comme « Local à identifier n ».
+
+## Fiches, budgets et photos : base Supabase
+Sans configuration, le site fonctionne en « mode local » (données gardées sur l'appareil, signalé à l'écran).
+Pour partager les données entre appareils et utilisateurs :
+1. Créer un projet sur supabase.com (région Europe).
+2. SQL Editor → New query → coller `supabase/schema.sql` → Run.
+3. Authentication → Users → Add user (cocher « Auto confirm ») pour chaque membre ; puis attribuer les rôles
+   (requête en fin de `schema.sql`) : `admin` (tout, dont budget et photos) ou `editeur` (textes des fiches).
+4. Authentication → Sign In / Providers : désactiver « Allow new users to sign up ».
+5. Project Settings → API : copier « Project URL » et la clé « anon public » dans `config.js` (bloc `SUPABASE`).
+
+Sécurité : lecture publique (le site est public), écriture réservée aux comptes autorisés (règles RLS),
+budget et photos réservés aux administrateurs, chaque version d'une fiche est archivée (`fiches_historique`).
 
 ## Fichiers
 - `index.html`, `app.css`, `app.js` : l'appli (aucune dépendance externe)
-- `edition.js` : mode édition (`?edition=1`)
+- `fiches.js` : fiches (Essentiel, Actuel, Futur, Budget, Galerie), connexion, sauvegarde automatique
+- `edition.js` : mode édition (`?edition=1`) des contours
+- `supabase/schema.sql` : base de données, droits, historique
 - `config.js` : adresse du site, mention, mot de passe (désactivé)
 - `data/donnees.json` : niveaux, fiches, zones projet
 - `plans/*.webp` : plans DOE (version légère `-l` chargée d'abord, HD au zoom)

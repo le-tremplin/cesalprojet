@@ -119,19 +119,29 @@ class Conv:
     # ------------------------------------------------------------- salles
     def murs(self):
         polys = []
+        fermes = []
         for e in self.msp.query('LWPOLYLINE[layer=="A-MURS"]'):
             pts = lwpoly_pts(e)
             if e.closed and len(pts) >= 3:
                 p = Polygon(pts).buffer(0)
                 if p.area > 0:
-                    polys.append(p)
+                    fermes.append(p)
             elif len(pts) >= 2:
                 polys.append(LineString(pts).buffer(0.08))
+        # règle pair-impair : un contour fermé à l'intérieur d'un autre est un vide (pièce), pas un mur
+        plein = None
+        for p in sorted(fermes, key=lambda q: -q.area):
+            plein = p if plein is None else plein.symmetric_difference(p)
+        if plein is not None:
+            polys.append(plein)
         for e in self.msp.query('HATCH[layer=="A-MURS-HACHURES"]'):
-            for v in hatch_polys(e):
+            h = None                       # contours d'une hachure : règle pair-impair (îlots = vides)
+            for v in sorted(hatch_polys(e), key=lambda q: -Polygon(q).buffer(0).area):
                 p = Polygon(v).buffer(0)
                 if p.area > 0:
-                    polys.append(p)
+                    h = p if h is None else h.symmetric_difference(p)
+            if h is not None:
+                polys.append(h)
         # une porte ferme la pièce : vantail (ligne) + corde de son arc d'ouverture
         for e in self.msp.query('*[layer=="A-PORTES"]'):
             t = e.dxftype()
@@ -145,7 +155,24 @@ class Conv:
             polys.append(LineString([(e.dxf.start.x, e.dxf.start.y), (e.dxf.end.x, e.dxf.end.y)]).buffer(0.05))
         for e in self.msp.query('CIRCLE[layer=="A-POTEAUX"]'):
             polys.append(Point(e.dxf.center.x, e.dxf.center.y).buffer(e.dxf.radius))
+        for g, _, _ in self.boites():          # gaines et ascenseurs : exclus des pièces voisines
+            polys.append(g)
         return unary_union(polys)
+
+    def boites(self):
+        """Gaines techniques et cages d'ascenseur : chaque contour fermé est un local à part."""
+        out = []
+        for calque, genre in (("A-GAINES", "gaine"), ("A-ASCENSEURS", "ascenseur"), ("A-STATIONNEMENT", "place"),
+                              ("A-RAMPES", "rampe"), ("A-ESCALIERS", "escalier"), ("A-TOITURES", "toiture")):
+            textes = [(Point(t.dxf.insert.x, t.dxf.insert.y) if not t.dxf.hasattr("align_point") else Point(t.dxf.align_point.x, t.dxf.align_point.y), t.dxf.text)
+                      for t in self.msp.query(f'TEXT[layer=="{calque}"]')]
+            for e in self.msp.query(f'LWPOLYLINE[layer=="{calque}"]'):
+                if not e.closed:
+                    continue
+                g = Polygon(lwpoly_pts(e)).buffer(0)
+                nom = next((t for p, t in textes if g.buffer(0.05).contains(p)), "")
+                out.append((g, genre, nom))
+        return out
 
     def salles(self):
         etiquettes = []
@@ -183,7 +210,9 @@ class Conv:
                 if z.contains(pt):
                     geo, src = z, "hachure"
                     break
-            if geo is None:
+            # une pièce fermée par des murs prime sur une hachure qui en couvre plusieurs
+            hachure = geo
+            if True:
                 cand = []
                 for f, cel in decoupes:
                     for c in cel:
@@ -195,10 +224,13 @@ class Conv:
                             break
                 if cand:
                     if cible:
-                        geo = min(cand, key=lambda g: abs(math.log(max(g.area, 0.01) / cible)))
+                        g = min(cand, key=lambda g: abs(math.log(max(g.area, 0.01) / cible)))
                     else:
-                        geo = cand[len(cand) // 2]
-                    geo, src = geo.simplify(0.05), "murs"
+                        g = cand[len(cand) // 2]
+                    if hachure is None or g.area < hachure.area * 0.95:
+                        geo, src = g.simplify(0.05), "murs"
+            if geo is not None and not geo.is_empty and not surf and geo.area < 2500:
+                surf = f"{geo.area:.1f} m²".replace(".", ",")
             if geo is None or geo.is_empty or geo.area > 2500:
                 geo, src = pt.buffer(0.8, 6), "point"
             if isinstance(geo, MultiPolygon):
@@ -206,6 +238,35 @@ class Conv:
             x, y = self.P(pt.x, pt.y)
             out.append({"nom": nom, "surface": surf, "x": round(x, 1), "y": round(y, 1), "source": src,
                         "contour": [[round(a, 1), round(b, 1)] for a, b in (self.P(*c) for c in list(geo.exterior.coords)[:-1])]})
+        # pièces fermées sans étiquette : chacune devient un local à identifier
+        deja = unary_union([Polygon([((a / ECHELLE) + self.x0, self.y1 - b / ECHELLE) for a, b in o["contour"]]).buffer(0) for o in out])
+        k = 0
+        for c in sorted(decoupes[1][1], key=lambda c: (-c.centroid.y, c.centroid.x)):
+            g = c.buffer(decoupes[1][0], join_style=2).difference(murs)
+            if isinstance(g, MultiPolygon):
+                g = max(g.geoms, key=lambda q: q.area)
+            if not (2.5 < g.area < 600) or g.intersection(deja).area > 0.3 * g.area or g.buffer(-0.45).is_empty:
+                continue
+            k += 1
+            q = g.representative_point()
+            x, y = self.P(q.x, q.y)
+            out.append({"nom": f"Local à identifier {k}", "surface": f"{g.area:.1f} m²".replace(".", ","), "x": round(x, 1), "y": round(y, 1),
+                        "source": "murs", "contour": [[round(a, 1), round(b, 1)] for a, b in (self.P(*q) for q in list(g.simplify(0.05).exterior.coords)[:-1])]})
+        for g, genre, nom in self.boites():
+            c = g.representative_point()
+            x, y = self.P(c.x, c.y)
+            libelle = {"gaine": "Gaine technique", "ascenseur": "Ascenseur", "place": "Place", "rampe": "Rampe", "escalier": "Escalier", "toiture": "Toiture"}[genre]
+            if nom and genre in ("place", "rampe", "escalier", "toiture"):
+                libelle = ("Place " + nom) if genre == "place" else nom
+            elif nom:
+                if " " in nom and not nom.startswith("Asc."):
+                    libelle = nom                                   # nom déjà explicite
+                elif genre == "gaine":
+                    libelle = "Vide-ordures" if nom.startswith(("V.O", "Vide")) else f"Gaine {nom}"
+                else:
+                    libelle = nom if nom.startswith("Ascenseur") else f"Ascenseur {nom.replace('Asc.', '').strip()}".strip()
+            out.append({"nom": libelle, "surface": (f"{g.area:.2f} m²" if genre in ("gaine", "ascenseur") else f"{g.area:.1f} m²").replace(".", ","), "x": round(x, 1), "y": round(y, 1),
+                        "source": genre, "contour": [[round(a, 1), round(b, 1)] for a, b in (self.P(*q) for q in list(g.exterior.coords)[:-1])]})
         zp = []
         for z, col in zones:
             noms = [n for n, p in etiquettes if z.contains(p)]

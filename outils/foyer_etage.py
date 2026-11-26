@@ -26,13 +26,17 @@ from shapely.ops import unary_union
 from shapely import affinity
 
 RACINE = Path(__file__).resolve().parent.parent
+ETAGE = int(sys.argv[1]) if len(sys.argv) > 1 else 2
+LOGEMENTS = ETAGE == 1      # R+1 : chambres réunies deux par deux (projet)
 PX = 79.2            # pixels du scan par mètre
 X0, Y0 = 250, 2720   # origine du repère (pixels du scan)
 
 A_VERIFIER = [
     "Aile est (chambres 229 à 231 et local) : murs biais relevés à ±0,3 m.",
     "Dégagement de la façade ouest et accès à l'escalier sud-ouest : simplifiés.",
-    "Cellules sanitaires préfabriquées et mobilier : non dessinés.",
+    "Cellules sanitaires préfabriquées et mobilier : non dessinés (sauf aménagement des logements du R+1).",
+    "Partie est de la barre (axes 10 à 23) : le DOE ne dessine aucune gaine hachurée ; aucune n'a été ajoutée.",
+    "R+1 : les refends entre chambres sont sur la trame porteuse ; la baie de réunion (≈ 2,4 m) est à valider par un BET.",
     "Numérotation des chambres : numérotation d'étude, absente du DOE.",
 ]
 
@@ -63,6 +67,49 @@ portes = []     # (charnière, direction du vantail, sens d'ouverture, largeur)
 fenetres = []   # (point a, point b, épaisseur)
 escaliers = []  # lignes
 salles = []     # (nom, point en pixels, id d'étude)
+boites = []     # gaines et ascenseurs : (calque, nom, x0, y0, x1, y1, fiabilité) en pixels
+equip = []      # mobilier / équipements dessinés (polylignes en pixels)
+# gaines techniques relevées sur le DOE Ex10a (carrés hachurés et blocs « GAINES »)
+GAINES = [(1022, 1815, 1060, 1865), (2005, 1812, 2042, 1867), (1505, 1617, 1547, 1677),
+          (2401, 1495, 2484, 1680), (5707, 1950, 5795, 2190)]
+for i, (x0, y0, x1, y1) in enumerate(GAINES, 1):
+    boites.append(("A-GAINES", f"Gaine G{i}", x0, y0, x1, y1, "C"))
+boites.append(("A-ASCENSEURS", "Ascenseur nord", 2305, 1241, 2476, 1354, "C"))
+boites.append(("A-ASCENSEURS", "Ascenseur est", 5620, 2530, 5788, 2620, "C"))
+boites.append(("A-GAINES", "Vide-ordures", 5620, 2280, 5788, 2505, "C"))
+# Paires réunies au R+1 : cloison du milieu (non porteuse de cellules sanitaires), entre deux noyaux
+PAIRES_SUD = [1498, 1989, 2486, 2982, 3474, 3964, 4455, 4953, 5448]
+PAIRES_NORD = [1498]
+
+
+def logement(a, mid, c, y_c, y_f):
+    """Réunit les baies [a, mid] et [mid, c] : grande baie dans le refend, salle d'eau,
+    kitchenette, lit et coin repas. y_c = mur du couloir, y_f = façade (pixels)."""
+    sg = 1 if y_f > y_c else -1
+    # refend du milieu conservé côté couloir (gaine, cellules) et côté façade
+    mur([(mid, y_c), (mid, y_c + sg * 2.70 * PX)], EP_REFEND, True)
+    mur([(mid, y_f - sg * 0.55 * PX), (mid, y_f)], EP_REFEND, True)
+    # salle d'eau (≈ 2,0 × 2,4 m) contre le mur couloir, côté a
+    xs0, xs1 = a + 0.10 * PX, a + 2.05 * PX
+    ys1 = y_c + sg * 2.45 * PX
+    mur([(xs0, ys1), (xs1, ys1), (xs1, y_c)], 0.10)
+    porte([(xs1, ys1), (xs1, y_c)], 0.25, larg=0.80, ep=0.10, cote=-1 if sg > 0 else 1)
+    salles.append(("Salle d'eau", ((xs0 + xs1) / 2, (y_c + ys1) / 2), None))
+    # kitchenette contre le mur couloir, côté c (plan de travail 0,62 m)
+    kx0, kx1 = c - 2.05 * PX, c - 0.12 * PX
+    ky = y_c + sg * 0.62 * PX
+    equip.append([(kx0, y_c), (kx0, ky), (kx1, ky), (kx1, y_c)])
+    equip.append([(kx0 + 0.35 * PX, y_c + sg * 0.12 * PX), (kx0 + 0.95 * PX, y_c + sg * 0.12 * PX),
+                  (kx0 + 0.95 * PX, y_c + sg * 0.50 * PX), (kx0 + 0.35 * PX, y_c + sg * 0.50 * PX), (kx0 + 0.35 * PX, y_c + sg * 0.12 * PX)])
+    # lit 140 × 190 tête contre le mur a, côté façade
+    by1 = y_f - sg * 0.45 * PX
+    by0 = by1 - sg * 1.40 * PX
+    equip.append([(a + 0.10 * PX, by0), (a + 2.00 * PX, by0), (a + 2.00 * PX, by1), (a + 0.10 * PX, by1), (a + 0.10 * PX, by0)])
+    # table et chaises côté c, près de la fenêtre
+    tx0, tx1 = c - 1.50 * PX, c - 0.70 * PX
+    ty0, ty1 = y_f - sg * 1.60 * PX, y_f - sg * 0.80 * PX
+    equip.append([(tx0, ty0), (tx1, ty0), (tx1, ty1), (tx0, ty1), (tx0, ty0)])
+    return ((a + c) / 2, y_c + sg * 3.4 * PX)
 
 
 def mur(pts, ep, porteur=False):
@@ -140,29 +187,50 @@ salles += [("Chambre couple", (640, 1400), "201"), ("Chambre", (640, 1690), "202
 ]
 # rangée nord (axes 2 à 8)
 for a, b in zip(CLOISONS_NORD, CLOISONS_NORD[1:]):
-    if a != 1004:
+    if a != 1004 and not (LOGEMENTS and a in PAIRES_NORD):
         mur([(a, Y_A), (a, Y_CN)], EP_REFEND if a in NOYAUX else EP_CLOISON, a in NOYAUX)
-noms_nord = ["Chambre", "Chambre", "Chambre", "Chambre", "Chambre PMR", "Ascenseur, gaines, office"]
+noms_nord = ["Chambre", "Chambre", "Chambre", "Chambre", "Chambre PMR", "Office"]
 num = 203
 for (a, b), nom in zip(zip(CLOISONS_NORD, CLOISONS_NORD[1:]), noms_nord):
     pres_a = b in NOYAUX or nom.startswith("Asc")
     larg = 0.90 if "PMR" in nom else 0.83
     d0 = (a - CLOISONS_NORD[0]) / PX + 0.15 if pres_a else (b - CLOISONS_NORD[0]) / PX - 0.15 - larg
-    porte([(1004, Y_CN), (2486, Y_CN)], d0, larg=larg, ep=EP_REFEND, cote=1)
-    if not nom.startswith("Asc"):
+    if nom == "Office":
+        d0 = (2234 - 1004) / PX + 0.15
+    if LOGEMENTS and b in PAIRES_NORD:          # porte supprimée : une seule entrée par logement
+        pass
+    else:
+        porte([(1004, Y_CN), (2486, Y_CN)], d0, larg=larg, ep=EP_REFEND, cote=1)
+    if nom != "Office":
         fenetre([(X_1, Y_A), (2486, Y_A)], ((a + b) / 2 - X_1) / PX - 0.6)
-    salles.append((nom, ((a + b) / 2, (Y_A + Y_CN) / 2), str(num) if nom.startswith("Ch") else None))
+    if LOGEMENTS and b in PAIRES_NORD:
+        continue
+    if LOGEMENTS and a in PAIRES_NORD:
+        a0 = CLOISONS_NORD[CLOISONS_NORD.index(a) - 1]
+        salles.append(("Logement", logement(a0, a, b, Y_CN, Y_A), str(num)))
+        num += 1
+        continue
+    salles.append((nom, ((a + b) / 2, (Y_A + Y_CN) / 2 + (60 if nom == "Office" else 0)), str(num) if nom.startswith("Ch") else None))
     if nom.startswith("Ch"):
         num += 1
 # rangée sud (19 chambres)
 for c in CLOISONS_SUD[1:-1]:
+    if LOGEMENTS and c in PAIRES_SUD:
+        continue
     mur([(c, Y_CS), (c, Y_S)], EP_REFEND if c in NOYAUX else EP_CLOISON, c in NOYAUX)
 mur([(5690, Y_CS), (5690, Y_S)], EP_FACADE, True)
 for a, b in zip(CLOISONS_SUD, CLOISONS_SUD[1:]):
     pres_a = b in NOYAUX
     d0 = (a - 1004) / PX + 0.15 if pres_a else (b - 1004) / PX - 0.98
-    porte([(1004, Y_CS), (5690, Y_CS)], d0, ep=EP_REFEND, cote=-1)
     fenetre([(1004, Y_S), (5690, Y_S)], ((a + b) / 2 - 1004) / PX - 0.6)
+    if LOGEMENTS and b in PAIRES_SUD:            # porte supprimée : une seule entrée par logement
+        continue
+    porte([(1004, Y_CS), (5690, Y_CS)], d0, ep=EP_REFEND, cote=-1)
+    if LOGEMENTS and a in PAIRES_SUD:
+        a0 = CLOISONS_SUD[CLOISONS_SUD.index(a) - 1]
+        salles.append(("Logement", logement(a0, a, b, Y_CS, Y_S), str(num)))
+        num += 1
+        continue
     salles.append(("Chambre", ((a + b) / 2, (Y_CS + Y_S) / 2 + 40), str(num)))
     num += 1
 # fenêtres du couloir (façade nord, partie est)
@@ -189,14 +257,12 @@ salles.append(("Escalier", (790, 2268), None))
 # ------------------------------------------------------------------ jonction et aile est
 mur([(5690, Y_CS), (5705, Y_CS)], EP_REFEND, True)
 mur([(5705, 1945), (5795, 1945), (5795, 2250), (5705, 2250), (5705, 1945)], EP_CLOISON)   # gaines
-salles.append(("Gaines", (5750, 2100), None))
 mur([(5690, Y_S), (5705, Y_S), (5705, 2633)], EP_REFEND, True)
 mur([(5608, 2267), (5608, 2633), (5933, 2633)], EP_REFEND, True)                     # V.O. + ascenseur
 mur([(5608, 2267), (5800, 2267)], EP_REFEND, True)
 mur([(5608, 2517), (5800, 2517)], EP_CLOISON)
 mur([(5800, 2267), (5800, 2633)], EP_REFEND, True)
-salles.append(("Vide-ordures", (5704, 2390), None))
-salles.append(("Ascenseur", (5704, 2575), None))
+
 tour_escalier(5933, 2383, 6075, 2633, "est")                                          # escalier sud-est
 mur([(5933, 2250), (5933, 2383)], EP_REFEND, True)
 salles.append(("Escalier", (6010, 2508), None))
@@ -254,7 +320,8 @@ def ecrire(etage=2):
     doc = ezdxf.new("R2013", setup=True)
     doc.header["$INSUNITS"] = 6
     for nom, col in [("A-MURS", 7), ("A-MURS-HACHURES", 8), ("A-PORTES", 4), ("A-FENETRES", 5),
-                     ("A-ESCALIERS", 7), ("A-SALLES-TEXTE", 7), ("A-SALLES-SURFACES", 9), ("A-CARTOUCHE", 7)]:
+                     ("A-ESCALIERS", 7), ("A-SALLES-TEXTE", 7), ("A-SALLES-SURFACES", 9), ("A-CARTOUCHE", 7),
+                     ("A-GAINES", 1), ("A-ASCENSEURS", 3), ("A-EQUIPEMENTS", 8)]:
         doc.layers.add(nom, color=col)
     msp = doc.modelspace()
     W = murs_polygones()
@@ -282,8 +349,26 @@ def ecrire(etage=2):
             msp.add_line((s[0] + n[0] * k, s[1] + n[1] * k), (e[0] + n[0] * k, e[1] + n[1] * k), dxfattribs={"layer": "A-FENETRES"})
     for l in escaliers:
         msp.add_line(*l.coords, dxfattribs={"layer": "A-ESCALIERS"})
+    for pts in equip:
+        msp.add_lwpolyline([m(*p) for p in pts], dxfattribs={"layer": "A-EQUIPEMENTS"})
+    # gaines et ascenseurs : un contour fermé chacun, cliquable sur le site
+    for calque, nom, x0, y0, x1, y1, fia in boites:
+        a, b = m(x0, y1), m(x1, y0)
+        rect = [a, (b[0], a[1]), b, (a[0], b[1])]
+        msp.add_lwpolyline(rect, close=True, dxfattribs={"layer": calque})
+        if calque == "A-GAINES":
+            h = msp.add_hatch(color=1, dxfattribs={"layer": calque})
+            h.set_pattern_fill("ANSI31", scale=0.25)
+            h.paths.add_polyline_path(rect, is_closed=True)
+        else:
+            msp.add_line(rect[0], rect[2], dxfattribs={"layer": calque})
+            msp.add_line(rect[1], rect[3], dxfattribs={"layer": calque})
+        t = msp.add_text(nom.replace("Gaine ", "").replace("Ascenseur", "Asc.").replace("Vide-ordures", "V.O."),
+                         height=0.16, dxfattribs={"layer": calque})
+        t.set_placement(((a[0] + b[0]) / 2, (a[1] + b[1]) / 2), align=TextEntityAlignment.MIDDLE_CENTER)
     # salles : surface calculée dans le vide entre les murs (baies refermées)
-    plein = unary_union([l.buffer(ep / 2, cap_style=2, join_style=2) for l, ep, _ in murs])
+    plein = unary_union([l.buffer(ep / 2, cap_style=2, join_style=2) for l, ep, _ in murs]
+                        + [box(*m(x0, y1), *m(x1, y0)) for _, _, x0, y0, x1, y1, _ in boites])
     xs, ys = zip(*[c for l, _, _ in murs for c in l.coords])
     cadre = box(min(xs) - 2, min(ys) - 2, max(xs) + 2, max(ys) + 2)
     vide = cadre.difference(plein.buffer(0.45, join_style=2))
@@ -297,15 +382,18 @@ def ecrire(etage=2):
         if nom.startswith("Chambre") and numero:
             texte = ("Ch. couple " if "couple" in nom else "Ch. PMR " if "PMR" in nom else "Ch. ") + numero
             total += 1
+        if nom == "Logement":
+            texte = "Logement " + numero
+            total += 1
         t = msp.add_text(texte, height=0.30 if len(texte) < 14 else 0.24, dxfattribs={"layer": "A-SALLES-TEXTE", "style": "Standard"})
         t.set_placement((pt.x, pt.y + 0.12), align=TextEntityAlignment.MIDDLE_CENTER)
         if aire and aire < 600:
             s = msp.add_text(f"{aire:.1f} m²".replace(".", ","), height=0.2, dxfattribs={"layer": "A-SALLES-SURFACES"})
             s.set_placement((pt.x, pt.y - 0.25), align=TextEntityAlignment.MIDDLE_CENTER)
-    for i, t in enumerate(["ENSEMBLE D'ACCUEIL POUR ÉTUDIANTS — FOYER", f"ÉTAGE COURANT R+{etage} (R+2, R+3 et R+4 identiques)",
+    for i, t in enumerate(["ENSEMBLE D'ACCUEIL POUR ÉTUDIANTS — FOYER", (f"R+1 — PROJET : chambres réunies en logements" if etage == 1 else f"ÉTAGE COURANT R+{etage} (R+2, R+3 et R+4 identiques)"),
                            "Échelle 1/100 — unités : mètres",
                            "Redessiné d'après plan DOE Ex10a (1990) — 26/11/2026",
-                           f"{total} chambres"]):
+                           f"{total} chambres et logements"]):
         msp.add_text(t, height=0.4, dxfattribs={"layer": "A-CARTOUCHE"}).set_placement((0, -2 - i * 0.6))
     out = RACINE / "plans" / "cad" / f"r{etage}.dxf"
     doc.saveas(out)
@@ -315,4 +403,4 @@ def ecrire(etage=2):
 
 
 if __name__ == "__main__":
-    ecrire(int(sys.argv[1]) if len(sys.argv) > 1 else 2)
+    ecrire(ETAGE)

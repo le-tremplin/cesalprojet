@@ -14,6 +14,17 @@ window.CONFIG = {
   MENTION: "Document d'étude – BUT GCCD – ne remplace pas le plan d'intervention officiel",
 
   /*
+   * Base de données partagée (fiches, budgets, photos) : projet Supabase.
+   * Renseigner l'adresse du projet et sa clé publique « anon » (Project Settings → API).
+   * La clé anon est faite pour être publique : la sécurité vient des règles (RLS) de supabase/schema.sql.
+   * Laisser vide = mode local (données gardées sur l'appareil, sans partage).
+   */
+  SUPABASE: {
+    url: "",
+    cle_anon: ""
+  },
+
+  /*
    * Mot de passe simple, DÉSACTIVÉ par défaut.
    * Limite : sur un site statique (GitHub Pages), il masque seulement l'affichage.
    * Les fichiers (plans, données) restent téléchargeables par qui connaît leur adresse.

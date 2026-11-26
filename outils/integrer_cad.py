@@ -21,19 +21,26 @@ DONNEES = RACINE / "data" / "donnees.json"
 
 # Premier appariement (anciens locaux dessinés sur les scans → salles DXF)
 # Contours tracés à la main sur le plan vectoriel (salles non étiquetées dans le DXF)
-CONTOURS = {
-    "rdc-haut": {"cuisine": [[1490, 80], [2010, 80], [2155, 228], [2155, 385], [1490, 385]]},
-}
+CONTOURS = {}
 APPARIEMENT = {
+    "r1": {"escalier-r1": "Escalier", "escalier-ouest-r1": "Escalier #2", "escalier-est-r1": "Escalier #3",
+           "ascenseur-r1": "Ascenseur est"},
+    "sous-sol": {"parking": "Parking (allées)"},
+    "terrasse": {"chaufferie": "Chaufferie"},
     "rdc-bas": {"local-ecs": "Local ECS n°2", "machinerie": "Machinerie", "local-techn-3": "Local technique 3",
                 "local-techn-4": "Local technique 4", "local-techn-5": "Local technique 5",
                 "amphitheatre": "Cinéma", "patio-bas": "Street workout"},
     **{f"r{k}": {f"escalier-r{k}": "Escalier", f"escalier-ouest-r{k}": "Escalier #2",
                  f"escalier-est-r{k}": "Escalier #3", f"ascenseur-r{k}": "Ascenseur"} for k in (2, 3, 4)},
-    "rdc-haut": {"tgbt": "Local tableau électr.", "salle-restaurant": "Restaurant existant",
+    "rdc-haut": {"cuisine": "Cuisine salle des fêtes", "tgbt": "Local tableau électr.", "salle-restaurant": "Restaurant existant",
                  "hall-accueil": "Hall d'accueil", "patio": "Patio", "terrasse-accessible": "Terrasse",
                  "local-vmc-1": "Local tech. VMC 1", "local-vmc-2": "Local tech. VMC 2"},
 }
+RENOMMAGES = {"Ascenseur": "Ascenseur est", "Ascenseur, gaines, office": "Office", "Gaines": "Gaine G5",
+              # RDC haut (projet) et RDC bas
+              "Restaurant existant": "Salle polyvalente", "WC PMR": "Ascenseur", "Circulation #2": "Circulation résidents",
+              "Sanit. vest.": "Vestiaire personnel", "Bureau": "Local ménage", "Archives 2": "Stockage",
+              "Parking (allées)": "Parking (allées)"}
 ANCIENNES_ZONES = {  # texte des anciennes zones projet à conserver
     "Studio musique": "p-musique", "Escalade": "p-polyvalente", "Boxe": "p-boxe", "Danse": "p-danse",
     "Street workout": "p-workout", "Muscu": "p-muscu", "Vestiaire": "p-vestiaires", "Atelier Art": "p-art",
@@ -42,8 +49,9 @@ ANCIENNES_ZONES = {  # texte des anciennes zones projet à conserver
 }
 CATEGORIES = [
     ("sanitaires", r"\bwc\b|sanit|vestiaire|toilette"),
-    ("technique", r"local|tech|ecs|machinerie|vmc|tableau|archive|annexe|r[ée]serve|stockage|rangement|poubelle|reprographie|chaufferie|bureau"),
-    ("circulation", r"escalier|circulation|hall|entr[ée]e|accueil|tr[ée]mie|patio|plant[ée]e|ascenseur|couloir|palier"),
+    ("circulation", r"^place |rampe|parking|toiture|édicule"),
+    ("technique", r"gaine|vide-ordures|ascenseur|local|tech|ecs|machinerie|vmc|tableau|archive|annexe|r[ée]serve|stockage|rangement|poubelle|reprographie|chaufferie|bureau"),
+    ("circulation", r"escalier|circulation|hall|entr[ée]e|accueil|tr[ée]mie|patio|plant[ée]e|couloir|palier"),
     ("sport", r"boxe|danse|muscu|escalade|street|golf|sport"),
     ("culture", r"studio|atelier|cin[ée]ma|pop.?up|expo|art"),
     ("restauration", r"cuisine|restaurant|caf[ée]t|terrasse|self"),
@@ -58,8 +66,10 @@ def slug(s):
 
 def categorie(nom):
     n = nom.lower()
-    if re.match(r"ch\.? ", n):
+    if re.match(r"ch\.? |logement", n):
         return "hebergement"
+    if n.startswith("salle d'eau"):
+        return "sanitaires"
     for c, rx in CATEGORIES:
         if re.search(rx, n):
             return c
@@ -87,7 +97,13 @@ def integrer(nid, d):
     meta = json.loads((RACINE / "plans" / f"{nid}.salles.json").read_text(encoding="utf-8"))
     niv = next(n for n in d["niveaux"] if n["id"] == nid)
     ancien_plan = niv["plan"]
-    niv["plan"] = {"vecto": f"plans/{nid}.svg", "w": meta["w"], "h": meta["h"], "source": f"plans/cad/{nid}.dxf"}
+    niv["plan"] = {"vecto": f"plans/{nid}.svg", "w": meta["w"], "h": meta["h"], "source": f"plans/cad/{nid}.dxf",
+                   "origine_m": meta["origine_m"]}
+    # si l'origine du dessin a bougé (ajout d'un texte hors cadre…), on décale les formes placées à la main
+    dx = dy = 0
+    if "origine_m" in ancien_plan:
+        dx = (ancien_plan["origine_m"][0] - meta["origine_m"][0]) * meta["echelle"]
+        dy = (meta["origine_m"][1] - ancien_plan["origine_m"][1]) * meta["echelle"]
     niv["note"] = f"Plan vectoriel redessiné d'après le DOE ({meta['source']})."
     if nid in ("r3", "r4"):
         niv["note"] += " Identique au R+2 (relevé sur le plan du R+2)."
@@ -105,6 +121,17 @@ def integrer(nid, d):
         return {"type": "poly", "points": s["contour"]}
 
     locaux = [l for l in d["locaux"] if l["niveau"] == nid]
+    # salles renommées dans une nouvelle version du plan : on suit le local, ses données restent
+    for l in locaux:
+        ancien = l.get("salleCad")
+        if ancien and ancien not in salles and ancien in RENOMMAGES and RENOMMAGES[ancien] in salles:
+            if l["nom"] == ancien:
+                l["nom"] = RENOMMAGES[ancien]
+            l["salleCad"] = RENOMMAGES[ancien]
+        elif ancien and ancien not in salles:
+            l["forme"] = None
+            l["remarques"] = ((l.get("remarques") or "") + " Salle absente de la nouvelle version du plan : fiche conservée, à replacer en mode édition.").strip()
+            l["salleCad"] = None
     for l in locaux:
         if not l.get("salleCad") and l["id"] in APPARIEMENT.get(nid, {}):
             l["salleCad"] = APPARIEMENT[nid][l["id"]]
@@ -121,6 +148,15 @@ def integrer(nid, d):
         T, res = affine(paires)
         print(f"  {nid} : recalage sur {len(paires)} salles, écart max {res:.0f} unités ({res / meta['echelle']:.1f} m)")
 
+    if dx or dy:
+        for l in locaux:
+            f = l.get("forme")
+            if f and not l.get("salleCad"):
+                if f["type"] == "point":
+                    f["x"], f["y"] = round(f["x"] + dx, 1), round(f["y"] + dy, 1)
+                else:
+                    f["points"] = [[round(x + dx, 1), round(y + dy, 1)] for x, y in f["points"]]
+        print(f"  {nid} : origine déplacée, formes manuelles décalées de ({dx:.0f}, {dy:.0f})")
     pris = set()
     for l in locaux:
         s = salles.get(l.get("salleCad") or "")
@@ -184,12 +220,28 @@ def integrer(nid, d):
           f"{len(meta['zonesProjet'])} zones projet")
 
 
+def dedoublonner(d):
+    """Deux locaux sur la même salle : on garde celui qui porte des données, on retire le doublon vide créé automatiquement."""
+    vus, retires = {}, set()
+    for l in sorted(d["locaux"], key=lambda l: (not l.get("resume"), (l.get("source") or "").startswith("Plan vectoriel"))):
+        k = (l["niveau"], l.get("salleCad"))
+        if not k[1]:
+            continue
+        if k in vus and not (l.get("resume") or l.get("coupure") or l.get("equipements")):
+            retires.add(l["id"])
+        vus.setdefault(k, l["id"])
+    d["locaux"] = [l for l in d["locaux"] if l["id"] not in retires]
+    if retires:
+        print("  doublons vides retirés :", ", ".join(sorted(retires)))
+
+
 def main():
     if len(sys.argv) < 2:
         sys.exit(__doc__)
     d = json.loads(DONNEES.read_text(encoding="utf-8"))
     for nid in sys.argv[1:]:
         integrer(nid, d)
+    dedoublonner(d)
     d["version"] = d.get("version", 1) + 1
     DONNEES.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding="utf-8")
 

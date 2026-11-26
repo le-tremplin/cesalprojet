@@ -390,37 +390,37 @@ function rendreFiche() {
       <p class="source">${esc(l.source || "")}. Zonage interprété : ajustable en mode édition.</p>`;
     return;
   }
-  const onglets = [["essentiel", "Essentiel"]];
-  if (l.coupure && l.coupure.length) onglets.push(["couper", "Couper", l.coupure.length]);
-  if ((l.equipements && l.equipements.length) || (l.risques && l.risques.length)) onglets.push(["equip", "Équipements", (l.equipements || []).length + (l.risques || []).length]);
-  if (l.projet) onglets.push(["projet", "Projet"]);
-  onglets.push(["moi", "Sur place"]);
-  if (!onglets.find(o => o[0] === S.onglet)) S.onglet = "essentiel";
-
-  const verifie = memo.verifie;
+  const F = window.FICHES;
+  const onglets = F.ONGLETS.slice();
+  if (!onglets.find(o => o[0] === S.onglet) && S.onglet !== "couper") S.onglet = "essentiel";
   const lienNiv = l.lien && (niv(l.lien) || loc(l.lien));
+  const ref = (l.salleCad || "").match(/\d{3}/) ? l.salleCad : "";
   el.corps.innerHTML = `
     <div class="f-tete"><h2>${esc(l.nom)}</h2><button class="f-fermer" data-a="fermer" aria-label="Fermer">×</button></div>
     <div class="f-tags">
       <span class="tag"><i class="pastille" style="background:${c.couleur}"></i>${esc(c.nom)}</span>
-      <button class="tag" data-a="niveau">${esc(n ? n.court : l.niveau)} · ${esc(l.batiment || "")}</button>
+      <button class="tag" data-a="niveau">${esc(n ? n.court : l.niveau)}${l.batiment ? " · " + esc(l.batiment) : ""}</button>
+      ${l.surface ? `<span class="tag">${esc(l.surface)}</span>` : ""}
       <span class="tag fia fia-${esc(l.fiabilite)}" title="${esc(FIA[l.fiabilite] || "")}">${esc(l.fiabilite)} · ${esc(FIA[l.fiabilite] || "")}</span>
-      ${verifie ? `<span class="tag" style="border-color:var(--ok);color:var(--ok)">✓ vérifié sur place</span>` : ""}
     </div>
     <div class="f-actions">
       ${lienNiv ? `<button class="prim" data-a="lien">Aller : ${esc((niv(l.lien) || loc(l.lien)).nom)} →</button>` : ""}
-      ${l.coupure && l.coupure.length ? `<button class="prim" data-a="tab:couper">Couper / sécuriser</button>` : ""}
+      ${l.coupure && l.coupure.length ? `<button class="${S.onglet === "couper" ? "prim" : ""}" data-a="tab:couper">⚠ Couper / sécuriser</button>` : ""}
       <button data-a="recentrer">Recentrer</button>
       <button data-a="partager">Partager</button>
     </div>
-    <div class="onglets" role="tablist">${onglets.map(([k, t, nb]) => `<button role="tab" data-a="tab:${k}" class="${S.onglet === k ? "on" : ""}">${t}${nb ? `<span class="nb">${nb}</span>` : ""}</button>`).join("")}</div>
-    <div class="panneau">${panneau(l, memo)}</div>
+    <div class="f-etat"><span class="sauve ok"></span>${F.boutonCompte()}</div>
+    <div class="onglets" role="tablist">${onglets.map(([k, t]) => `<button role="tab" data-a="tab:${k}" class="${S.onglet === k ? "on" : ""}">${t}</button>`).join("")}</div>
+    <div class="panneau" id="f-panneau">${S.onglet === "couper" ? panneau(l, memo) : ""}</div>
     <div class="f-nav"><button data-a="prec">← Local précédent</button><button data-a="suiv">Local suivant →</button></div>
-    <p class="source">Source : ${esc(l.source || "—")}${l.remarques ? `<br>${esc(l.remarques)}` : ""}</p>`;
-  const ph = el.corps.querySelector("#photo-in");
-  if (ph) ph.onchange = e => photo(e.target.files[0], l.id);
-  const ta = el.corps.querySelector("#notes");
-  if (ta) ta.oninput = () => { const m = stock.get("perso:" + l.id, {}); m.notes = ta.value; stock.set("perso:" + l.id, m); };
+    <p class="source fiche-meta"></p>
+    <p class="source">Identifiant : ${esc(l.id)}${l.remarques ? `<br>${esc(l.remarques)}` : ""}</p>`;
+  if (S.onglet !== "couper") F.monter(el.corps.querySelector("#f-panneau"), l, S.onglet);
+  else F.Sauvegarde.afficher(F.Sauvegarde.etat);
+  el.corps.querySelector("[data-compte]") && (el.corps.querySelector("[data-compte]").onclick = e => {
+    if (e.currentTarget.dataset.compte === "entrer") F.dialogueConnexion(() => rendreFiche());
+    else { F.Auth.deconnexion(); F.oublier(); rendreFiche(); toast("Déconnecté."); }
+  });
 }
 function panneau(l, memo) {
   if (S.onglet === "essentiel") {
