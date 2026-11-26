@@ -214,7 +214,17 @@ function choisirNiveau(id, o = {}) {
   if (change) {
     S.w = n.plan.w; S.h = n.plan.h; S.hd = false;
     el.ct.style.width = S.w + "px"; el.ct.style.height = S.h + "px";
-    if (n.plan.svg) {
+    if (n.plan.vecto) {
+      // plan vectoriel (DXF converti) : SVG chargé puis inséré pour que app.css / cad.css le stylent
+      el.img.hidden = true; el.img.removeAttribute("src");
+      el.psvg.hidden = false; el.psvg.innerHTML = "";
+      chargerVecto(n.plan.vecto).then(txt => {
+        if (S.niveau !== n) return;
+        el.psvg.innerHTML = txt;
+        const s = el.psvg.querySelector("svg");
+        if (s) { s.setAttribute("width", S.w); s.setAttribute("height", S.h); }
+      }).catch(() => toast("Plan indisponible hors ligne."));
+    } else if (n.plan.svg) {
       el.img.hidden = true; el.img.removeAttribute("src");
       el.psvg.hidden = false;
       el.psvg.innerHTML = `<svg xmlns="${NS}" viewBox="0 0 ${S.w} ${S.h}" width="${S.w}" height="${S.h}">${n.plan.svg}</svg>`;
@@ -230,6 +240,15 @@ function choisirNiveau(id, o = {}) {
   }
   dessiner();
   if (o.url) majUrl({ niveau: id });
+}
+
+const cacheVecto = new Map();
+function chargerVecto(url) {
+  if (!cacheVecto.has(url)) {
+    cacheVecto.set(url, fetch(url).then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
+      .catch(e => { cacheVecto.delete(url); throw e; }));
+  }
+  return cacheVecto.get(url);
 }
 
 // ---------------------------------------------------------------- dessin des zones
@@ -259,10 +278,14 @@ function dessiner() {
   const n = S.niveau; if (!n) return;
   const gz = svg("g", {}, c), ge = svg("g", {}, c), gp = svg("g", {}, c);
   const legende = new Map();
+  // sur un plan vectoriel, les noms des salles sont déjà dessinés : pas d'étiquette en double
+  const vecto = !!n.plan.vecto;
+  el.vp.classList.toggle("vecto", vecto);
   if (S.etat === "projet") {
     (S.data.zonesProjet || []).filter(z => z.niveau === n.id && !S.cachees.has(z.categorie)).forEach(z => {
       const col = cat(z.categorie).couleur; legende.set(z.categorie, col);
       forme2svg(z.forme, { class: "z z-projet", fill: col, "data-id": z.id, "data-kind": "projet" }, gz);
+      if (vecto) return;
       const [x, y] = centre(z.forme);
       const t = svg("text", { x, y, class: "etiq etiq-projet", "text-anchor": "middle", "dominant-baseline": "middle" }, ge);
       t.textContent = z.nom;
@@ -278,11 +301,13 @@ function dessiner() {
       g.style.transform = "scale(var(--inv))";
       svg("circle", { cx: l.forme.x, cy: l.forme.y, r: 26, class: "halo", fill: col }, g);
       svg("circle", { cx: l.forme.x, cy: l.forme.y, r: 13, class: "aff", fill: col, stroke: "#fff", "stroke-width": 3 }, g);
-      const t = svg("text", { x: l.forme.x + 20, y: l.forme.y + 5, class: "etiq", "font-size": 14 }, g);
-      t.textContent = l.nom;
+      if (!(vecto && l.salleCad)) {
+        const t = svg("text", { x: l.forme.x + 20, y: l.forme.y + 5, class: "etiq", "font-size": 14 }, g);
+        t.textContent = l.nom;
+      }
     } else {
       forme2svg(l.forme, { class: "z z-local" + (S.sel && S.sel.id === l.id ? " sel" : ""), fill: col, stroke: col, "data-id": l.id, "data-kind": "local" }, gz);
-      if (S.etat === "existant" && l.categorie !== "batiment") {
+      if (S.etat === "existant" && l.categorie !== "batiment" && !(vecto && l.salleCad)) {
         const [x, y] = centre(l.forme);
         const t = svg("text", { x, y, class: "etiq", "text-anchor": "middle", "dominant-baseline": "middle" }, ge);
         t.textContent = l.nom;
@@ -503,6 +528,7 @@ async function partager(l) {
 // ---------------------------------------------------------------- calques
 function etat(e) {
   S.etat = e; stock.set("etat", e);
+  document.body.classList.toggle("etat-projet", e === "projet");
   document.querySelectorAll(".segment button").forEach(b => { const on = b.dataset.etat === e; b.classList.toggle("on", on); b.setAttribute("aria-checked", on); });
   dessiner();
 }

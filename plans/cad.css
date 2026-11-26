@@ -1,0 +1,21 @@
+/* Style des plans vectoriels (calques DXF A-*). Utilisé par le site et par l'aperçu. */
+.plan-cad{background:#fbfaf6}
+.plan-cad path,.plan-cad circle{fill:none;stroke:#2f3328;stroke-width:.8;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
+.plan-cad .h{stroke:none}
+.plan-cad .l-a-murs-hachures .h{fill:#3d4136}
+.plan-cad .l-a-murs path{stroke-width:1.5}
+.plan-cad .l-a-poteaux circle,.plan-cad .l-a-poteaux .h{fill:#2f3328}
+.plan-cad .l-a-portes path{stroke:#55594e;stroke-width:.7}
+.plan-cad .l-a-escaliers path,.plan-cad .l-a-escaliers circle{stroke:#55594e;stroke-width:.7}
+.plan-cad .l-a-garde-corps path{stroke:#7b7c72;stroke-width:.8;stroke-dasharray:4 2}
+.plan-cad .l-a-equipements path{stroke:#7b7c72;stroke-width:.7}
+.plan-cad .l-a-demolition path{stroke:#2f3328;stroke-width:1.2}
+.plan-cad .l-a-ouvertures-nouvelles{display:none}
+.plan-cad text{fill:#2f3328;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;stroke:none}
+.plan-cad .l-a-salles-texte text{font-weight:700}
+.plan-cad .l-a-salles-surfaces text{fill:#6b6a60}
+/* vue Projet : démolitions en pointillé terre cuite, ouvertures nouvelles visibles */
+.etat-projet .plan-cad .l-a-demolition path{stroke:#b5654a;stroke-dasharray:6 4}
+.etat-projet .plan-cad .l-a-ouvertures-nouvelles{display:inline}
+.etat-projet .plan-cad .l-a-ouvertures-nouvelles path{stroke:#a8432f;stroke-width:1.4}
+.plan-cad .l-a-fenetres path{stroke:#55594e;stroke-width:.6}

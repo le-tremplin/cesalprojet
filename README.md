@@ -33,6 +33,20 @@ Changer d'adresse : modifier `URL_BASE` dans `config.js`, puis :
     python3 outils/generer_qr.py
     python3 outils/generer_qr.py --local tgbt   # QR d'un local précis, si besoin
 
+## Plans vectoriels (DAO)
+Les plans affichés sont des SVG générés à partir de DXF (calques A-MURS, A-PORTES, A-FENETRES, A-ESCALIERS, A-SALLES-TEXTE…), unités en mètres :
+- `plans/cad/rdc-bas.dxf`, `plans/cad/rdc-haut.dxf` : plans du groupe ;
+- `plans/cad/r2.dxf`, `r3.dxf`, `r4.dxf` : reconstruits par `outils/foyer_etage.py` à partir du DOE Ex10a.
+
+Après modification d'un DXF (dans n'importe quel logiciel de DAO, en gardant les calques) :
+
+    pip install ezdxf shapely numpy
+    python3 outils/dxf_vers_svg.py plans/cad/rdc-haut.dxf plans/rdc-haut.svg
+    python3 outils/integrer_cad.py rdc-haut
+
+Les fiches existantes sont conservées : le lien fiche ↔ salle se fait par le champ `salleCad` (nom de la salle dans le DXF).
+Les niveaux R+1, sous-sol et terrasse sont encore affichés à partir des scans.
+
 ## Fichiers
 - `index.html`, `app.css`, `app.js` : l'appli (aucune dépendance externe)
 - `edition.js` : mode édition (`?edition=1`)

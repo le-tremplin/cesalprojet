@@ -1,12 +1,13 @@
 /* Service worker : garde l'appli, les plans et les données pour un usage hors ligne.
  * Changer VERSION à chaque mise en ligne pour forcer la mise à jour du cache. */
-const VERSION = "tremplin-v1";
+const VERSION = "tremplin-v3";
 const COQUILLE = [
   "./", "index.html", "app.css", "app.js", "edition.js", "config.js", "manifest.webmanifest",
   "data/donnees.json", "icones/icone.svg", "icones/icone-192.png", "icones/icone-512.png",
-  "plans/sous-sol-l.webp", "plans/rdc-bas-l.webp", "plans/rdc-haut-l.webp", "plans/r1-l.webp", "plans/r3-l.webp"
+  "plans/cad.css", "plans/rdc-bas.svg", "plans/rdc-haut.svg", "plans/r2.svg", "plans/r3.svg", "plans/r4.svg",
+  "plans/sous-sol-l.webp", "plans/r1-l.webp"
 ];
-const PLANS_HD = ["plans/sous-sol.webp", "plans/rdc-bas.webp", "plans/rdc-haut.webp", "plans/r1.webp", "plans/r3.webp"];
+const PLANS_HD = ["plans/sous-sol.webp", "plans/r1.webp"];
 
 self.addEventListener("install", e => {
   e.waitUntil((async () => {

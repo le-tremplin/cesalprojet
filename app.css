@@ -82,6 +82,11 @@ button{font:inherit;color:inherit;cursor:pointer}
 .z{cursor:pointer;transition:fill-opacity .2s,stroke-width .2s}
 .z-local{fill-opacity:.16;stroke-width:3;vector-effect:non-scaling-stroke}
 .z-local:hover,.z-local.sel{fill-opacity:.32;stroke-width:4}
+/* plan vectoriel : salles presque transparentes, le dessin CAD reste lisible */
+.vecto .z-local{fill-opacity:.07;stroke-opacity:.35;stroke-width:1.5}
+.vecto .z-local:hover,.vecto .z-local.sel{fill-opacity:.22;stroke-opacity:1;stroke-width:3}
+.vecto .z-projet{fill-opacity:.38}
+.vecto #plan-svg .plan-cad{background:transparent}
 .z-projet{fill-opacity:.55;stroke:#fff;stroke-width:2;vector-effect:non-scaling-stroke}
 .z-projet:hover{fill-opacity:.75}
 .etiq{font-weight:700;paint-order:stroke;stroke:var(--papier);stroke-linejoin:round;pointer-events:none;fill:var(--anthracite)}
