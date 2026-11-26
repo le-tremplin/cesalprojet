@@ -163,7 +163,8 @@ class Conv:
         """Gaines techniques et cages d'ascenseur : chaque contour fermé est un local à part."""
         out = []
         for calque, genre in (("A-GAINES", "gaine"), ("A-ASCENSEURS", "ascenseur"), ("A-STATIONNEMENT", "place"),
-                              ("A-RAMPES", "rampe"), ("A-ESCALIERS", "escalier"), ("A-TOITURES", "toiture")):
+                              ("A-RAMPES", "rampe"), ("A-ESCALIERS", "escalier"), ("A-TOITURES", "toiture"),
+                              ("A-LOGEMENTS", "logement")):
             textes = [(Point(t.dxf.insert.x, t.dxf.insert.y) if not t.dxf.hasattr("align_point") else Point(t.dxf.align_point.x, t.dxf.align_point.y), t.dxf.text)
                       for t in self.msp.query(f'TEXT[layer=="{calque}"]')]
             for e in self.msp.query(f'LWPOLYLINE[layer=="{calque}"]'):
@@ -238,6 +239,46 @@ class Conv:
             x, y = self.P(pt.x, pt.y)
             out.append({"nom": nom, "surface": surf, "x": round(x, 1), "y": round(y, 1), "source": src,
                         "contour": [[round(a, 1), round(b, 1)] for a, b in (self.P(*c) for c in list(geo.exterior.coords)[:-1])]})
+        # espaces ouverts : deux étiquettes dans la même cellule (ex. cafétéria dans le hall) →
+        # partage de la cellule par une ligne perpendiculaire aux deux étiquettes, à la surface écrite sur le plan
+        from shapely.ops import split as couper
+        from shapely.geometry import LineString as LS
+        polys = [Polygon([((a / ECHELLE) + self.x0, self.y1 - b / ECHELLE) for a, b in o["contour"]]).buffer(0) for o in out]
+        for i, oi in enumerate(out):
+            for j, oj in enumerate(out):
+                if i == j or oi["source"] != "murs" or oj["source"] != "murs":
+                    continue
+                A, B = polys[i], polys[j]
+                if A.area < B.area and A.intersection(B).area > 0.9 * A.area:
+                    try:
+                        cible = float(oi["surface"].replace(" m²", "").replace(",", "."))
+                    except ValueError:
+                        continue
+                    pa = Point((oi["x"] / ECHELLE) + self.x0, self.y1 - oi["y"] / ECHELLE)
+                    pb = Point((oj["x"] / ECHELLE) + self.x0, self.y1 - oj["y"] / ECHELLE)
+                    dx, dy = pb.x - pa.x, pb.y - pa.y
+                    n_ = math.hypot(dx, dy) or 1
+                    ux, uy = dx / n_, dy / n_
+                    lo, hi, piece = 0.0, n_, None
+                    for _ in range(30):
+                        t = (lo + hi) / 2
+                        cx_, cy_ = pa.x + ux * t, pa.y + uy * t
+                        ligne = LS([(cx_ - uy * 200, cy_ + ux * 200), (cx_ + uy * 200, cy_ - ux * 200)])
+                        morceaux = [g for g in couper(B, ligne).geoms]
+                        cote = [g for g in morceaux if g.buffer(0.01).contains(pa)]
+                        if not cote:
+                            lo = t
+                            continue
+                        piece = cote[0]
+                        lo, hi = (t, hi) if piece.area < cible else (lo, t)
+                    if piece is not None and abs(piece.area - cible) < 0.15 * cible:
+                        reste = B.difference(piece.buffer(0.01))
+                        if isinstance(reste, MultiPolygon):
+                            reste = max(reste.geoms, key=lambda q: q.area)
+                        polys[i], polys[j] = piece, reste
+                        oi["contour"] = [[round(a, 1), round(b, 1)] for a, b in (self.P(*q) for q in list(piece.exterior.coords)[:-1])]
+                        oj["contour"] = [[round(a, 1), round(b, 1)] for a, b in (self.P(*q) for q in list(reste.exterior.coords)[:-1])]
+                        oi["source"] = oj["source"] = "partage"
         # pièces fermées sans étiquette : chacune devient un local à identifier
         deja = unary_union([Polygon([((a / ECHELLE) + self.x0, self.y1 - b / ECHELLE) for a, b in o["contour"]]).buffer(0) for o in out])
         k = 0
@@ -255,8 +296,8 @@ class Conv:
         for g, genre, nom in self.boites():
             c = g.representative_point()
             x, y = self.P(c.x, c.y)
-            libelle = {"gaine": "Gaine technique", "ascenseur": "Ascenseur", "place": "Place", "rampe": "Rampe", "escalier": "Escalier", "toiture": "Toiture"}[genre]
-            if nom and genre in ("place", "rampe", "escalier", "toiture"):
+            libelle = {"gaine": "Gaine technique", "ascenseur": "Ascenseur", "place": "Place", "rampe": "Rampe", "escalier": "Escalier", "toiture": "Toiture", "logement": "Logement"}[genre]
+            if nom and genre in ("place", "rampe", "escalier", "toiture", "logement"):
                 libelle = ("Place " + nom) if genre == "place" else nom
             elif nom:
                 if " " in nom and not nom.startswith("Asc."):

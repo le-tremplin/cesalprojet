@@ -1,13 +1,14 @@
 /* Service worker : garde l'appli, les plans et les données pour un usage hors ligne.
  * Changer VERSION à chaque mise en ligne pour forcer la mise à jour du cache. */
-const VERSION = "tremplin-v4";
+const VERSION = "tremplin-v5";
 const COQUILLE = [
   "./", "index.html", "app.css", "app.js", "fiches.js", "edition.js", "config.js", "manifest.webmanifest",
   "data/donnees.json", "icones/icone.svg", "icones/icone-192.png", "icones/icone-512.png",
   "plans/cad.css", "plans/rdc-bas.svg", "plans/rdc-haut.svg", "plans/r1.svg", "plans/r2.svg", "plans/r3.svg",
   "plans/r4.svg", "plans/sous-sol.svg", "plans/terrasse.svg"
 ];
-const PLANS_HD = [];
+// fiches préremplies : mises en cache à la première consultation de chaque niveau
+const PLANS_HD = ["data/fiches/sous-sol.json", "data/fiches/rdc-bas.json", "data/fiches/rdc-haut.json", "data/fiches/terrasse.json", "data/fiches/site.json"];
 
 self.addEventListener("install", e => {
   e.waitUntil((async () => {
@@ -28,7 +29,7 @@ self.addEventListener("fetch", e => {
   const req = e.request;
   if (req.method !== "GET" || new URL(req.url).origin !== location.origin) return;
   const url = new URL(req.url);
-  const reseauDabord = req.mode === "navigate" || /donnees\.json$|config\.js$/.test(url.pathname);
+  const reseauDabord = req.mode === "navigate" || /donnees\.json$|config\.js$|\/fiches\/.+\.json$/.test(url.pathname);
   e.respondWith((async () => {
     const c = await caches.open(VERSION);
     if (reseauDabord) {

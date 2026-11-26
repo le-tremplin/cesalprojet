@@ -193,32 +193,54 @@ def rdc_haut():
     renommer(msp, "Circulation", "Circulation résidents", pres=(55.2, 30.1))
     for t in msp.query('TEXT[layer=="A-SALLES-TEXTE"]'):
         if t.dxf.text == "Circulation résidents":
-            t.dxf.height = 0.3
+            t.dxf.height = 0.26
+            t.set_placement((55.9, 27.05), align=TextEntityAlignment.MIDDLE_CENTER)
+    for t in msp.query('TEXT[layer=="A-SALLES-SURFACES"]'):
+        p_ = t.dxf.insert
+        if 53.8 < p_.x < 56.5 and 29.2 < p_.y < 30.0:
+            t.set_placement((55.9, 26.75), align=TextEntityAlignment.MIDDLE_CENTER)
     texte(msp, "A-ANNOTATIONS", "ESPACE RÉSIDENTS — accès aux logements", 55.0, 32.4, 0.3)
     texte(msp, "A-ANNOTATIONS", "ESPACE PUBLIC — exposition", 54.5, 19.8, 0.3)
     zone(msp, [(51.6, 19.2), (57.4, 19.2), (57.4, 26.1), (51.6, 26.1)], (143, 160, 126))
     zone(msp, [(51.3, 26.35), (55.3, 26.35), (57.8, 27.2), (57.9, 28.9), (57.8, 30.6), (55.3, 31.5), (51.3, 31.5), (51.3, 29.6), (52.1, 29.6), (52.1, 26.35)], (139, 125, 156))
 
-    # ---------------- escalier en demi-colimaçon (volée nord, quartier tournant, volée sud)
-    supprimer(msp, "A-ESCALIERS", 53.3, 28.5, 55.2, 31.8)
-    cx, cy, r_in, r_out = 55.25, 28.95, 1.00, 2.10
-    xa = 53.45
-    for k in range(7):                                                          # volée nord (montée vers l'est)
-        x = xa + k * (cx - xa) / 6
-        msp.add_line((x, cy + r_in), (x, cy + r_out), dxfattribs={"layer": "A-ESCALIERS"})
-    for k in range(10):                                                         # marches rayonnantes (demi-tour)
-        a = math.radians(90 - k * 20)
-        msp.add_line((cx + r_in * math.cos(a), cy + r_in * math.sin(a)), (cx + r_out * math.cos(a), cy + r_out * math.sin(a)), dxfattribs={"layer": "A-ESCALIERS"})
-    for k in range(7):                                                          # volée sud (retour vers l'ouest)
-        x = cx - k * (cx - xa) / 6
-        msp.add_line((x, cy - r_out), (x, cy - r_in), dxfattribs={"layer": "A-ESCALIERS"})
-    msp.add_lwpolyline([(xa, cy + r_in), (cx, cy + r_in)], dxfattribs={"layer": "A-ESCALIERS"})
-    msp.add_arc((cx, cy), r_in, -90, 90, dxfattribs={"layer": "A-ESCALIERS"})       # jour central
-    msp.add_lwpolyline([(cx, cy - r_in), (xa, cy - r_in)], dxfattribs={"layer": "A-ESCALIERS"})
-    msp.add_line((xa + 0.2, cy + (r_in + r_out) / 2), (cx, cy + (r_in + r_out) / 2), dxfattribs={"layer": "A-ESCALIERS"})  # ligne de foulée
-    msp.add_arc((cx, cy), (r_in + r_out) / 2, -90, 90, dxfattribs={"layer": "A-ESCALIERS"})
-    msp.add_line((cx, cy - (r_in + r_out) / 2), (xa + 0.5, cy - (r_in + r_out) / 2), dxfattribs={"layer": "A-ESCALIERS"})
-    texte(msp, "A-ESCALIERS", "Escalier demi-colimaçon", 54.2, cy, 0.2)
+    # ---------------- escalier demi-colimaçon (demi-tournant balancé) dans la cage existante
+    # Cage relevée sur le DXF du groupe (mur A1) : intérieur x 53,33 → 56,88, y 27,95 → 31,50,
+    # extrémité est arrondie (rayon intérieur ≈ 1,58 m centré en (55,30 ; 29,73)). La cage est celle de
+    # l'escalier principal du foyer, au même emplacement à tous les étages : on ne touche à aucun mur.
+    supprimer(msp, "A-ESCALIERS", 53.3, 27.8, 57.0, 31.8)
+    xw, cx, cy = 53.45, 55.30, 30.07          # départ des volées, centre du demi-tour
+    y_n, y_s = 31.45, 28.68                   # face nord ; au sud, nu du muret de départ (E9)
+    r_in, r_out = 0.30, 1.36                  # jour central, rayon extérieur des balancements
+    emm = 1.24                                # emmarchement (≥ 1,20 m)
+    gir = 0.28                                # giron sur la ligne de foulée
+    # volée sud (départ depuis la circulation, montée vers l'est) et volée nord (retour vers l'ouest)
+    n_droit = int((cx - xw) / gir)
+    for k in range(n_droit + 1):
+        x = xw + k * (cx - xw) / n_droit
+        msp.add_line((x, y_s), (x, y_s + emm), dxfattribs={"layer": "A-ESCALIERS"})
+        msp.add_line((x, y_n - emm), (x, y_n), dxfattribs={"layer": "A-ESCALIERS"})
+    # 7 marches balancées sur le demi-tour (giron constant sur la ligne de foulée à 0,50 m du jour)
+    for k in range(8):
+        a_ = math.radians(-90 + k * 180 / 7)
+        msp.add_line((cx + r_in * math.cos(a_), cy + r_in * math.sin(a_)),
+                     (cx + r_out * math.cos(a_), cy + r_out * math.sin(a_)), dxfattribs={"layer": "A-ESCALIERS"})
+    # limon central (jour) et mur d'échiffre entre les volées
+    msp.add_line((xw, y_s + emm), (cx, y_s + emm), dxfattribs={"layer": "A-ESCALIERS"})
+    msp.add_line((xw, y_n - emm), (cx, y_n - emm), dxfattribs={"layer": "A-ESCALIERS"})
+    msp.add_arc((cx, cy), r_in, -90, 90, dxfattribs={"layer": "A-ESCALIERS"})
+    msp.add_lwpolyline([(xw + 0.3, cy - 0.20), (cx, cy - 0.20), (cx, cy + 0.20), (xw + 0.3, cy + 0.20)], close=True,
+                       dxfattribs={"layer": "A-ESCALIERS"})
+    # ligne de foulée et flèche de montée
+    rf = r_in + 0.50
+    msp.add_line((xw + 0.2, y_s + emm / 2), (cx, y_s + emm / 2), dxfattribs={"layer": "A-ESCALIERS"})
+    msp.add_arc((cx, cy), cy - (y_s + emm / 2), -90, 90, dxfattribs={"layer": "A-ESCALIERS"})
+    msp.add_line((cx, y_n - emm / 2), (xw + 0.4, y_n - emm / 2), dxfattribs={"layer": "A-ESCALIERS"})
+    msp.add_line((xw + 0.4, y_n - emm / 2), (xw + 0.65, y_n - emm / 2 + 0.12), dxfattribs={"layer": "A-ESCALIERS"})
+    msp.add_line((xw + 0.4, y_n - emm / 2), (xw + 0.65, y_n - emm / 2 - 0.12), dxfattribs={"layer": "A-ESCALIERS"})
+    texte(msp, "A-ESCALIERS", "Escalier principal — demi-tournant balancé", 54.30, cy, 0.17)
+    texte(msp, "A-ANNOTATIONS", "départ", xw + 0.35, y_s + 0.25, 0.16)
+    texte(msp, "A-ANNOTATIONS", "Nb de marches à confirmer (hauteur d'étage non documentée)", 55.2, 32.05, 0.15)
 
     for t in msp.query('TEXT[layer=="A-CARTOUCHE"]'):
         if "PROJET" in t.dxf.text:

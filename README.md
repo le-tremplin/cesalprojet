@@ -40,8 +40,8 @@ A-ESCALIERS, A-GAINES, A-ASCENSEURS, A-STATIONNEMENT, A-RAMPES, A-TOITURES, A-EQ
 | Niveau | Source DXF | Produit par |
 |---|---|---|
 | RDC haut, RDC bas | `plans/cad/origine/*-groupe.dxf` (plans du groupe, jamais modifiés) | `outils/projet_rdc.py` (salle des fêtes, ascenseur, double porte à badge, escalier demi-colimaçon, Stockage) |
-| R+1 (projet, logements) | `plans/cad/r1.dxf` | `outils/foyer_etage.py 1` |
-| R+2, R+3, R+4 | `plans/cad/r2.dxf` … | `outils/foyer_etage.py 2` (3, 4) — d'après le DOE Ex10a |
+| R+1, R+4 (structure conservée, chambres aménagées) | `plans/cad/r1.dxf`, `r4.dxf` | `outils/foyer_etage.py 1` (4) — d'après le DOE Ex09a/Ex10a |
+| R+2, R+3 (logements regroupés) | `plans/cad/r2.dxf`, `r3.dxf` | `outils/foyer_etage.py 2` (3) |
 | Sous-sol | `plans/cad/sous-sol.dxf` | `outils/sous_sol.py` — d'après le DOE Ex07c |
 | Toiture | `plans/cad/terrasse.dxf` | `outils/toiture.py` — d'après le DOE Ex12bis |
 
@@ -55,13 +55,21 @@ Chaque pièce fermée, gaine, ascenseur, place de parking ou zone de toiture dev
 Le lien fiche ↔ salle se fait par le champ `salleCad` : une géométrie qui change ne fait perdre aucune donnée.
 Une pièce sans nom dans le DXF apparaît comme « Local à identifier n ».
 
+## Fiches préremplies
+`outils/fiches_auto.py` remplit les fiches (Essentiel, Actuel, Futur, Budget) de tous les locaux dans `data/fiches/<niveau>.json`,
+à partir des plans et du dossier d'étude. Chaque information porte sa provenance : **Plan**, **Projet**, **Estimation**,
+**À vérifier sur site**. Les budgets sont calculés par le code (quantités × prix unitaires de ratios d'étude) : ce sont des
+estimations à faire valider par un économiste. Relancer le script après une modification des plans
+(`python3 outils/fiches_auto.py`) : les corrections faites par les comptes autorisés, enregistrées dans la base, ne sont jamais écrasées.
+
 ## Fiches, budgets et photos : base Supabase
-Sans configuration, le site fonctionne en « mode local » (données gardées sur l'appareil, signalé à l'écran).
+Sans configuration, le site est en consultation seule ; `?edition=1` permet au propriétaire de corriger sur son appareil.
 Pour partager les données entre appareils et utilisateurs :
 1. Créer un projet sur supabase.com (région Europe).
 2. SQL Editor → New query → coller `supabase/schema.sql` → Run.
-3. Authentication → Users → Add user (cocher « Auto confirm ») pour chaque membre ; puis attribuer les rôles
-   (requête en fin de `schema.sql`) : `admin` (tout, dont budget et photos) ou `editeur` (textes des fiches).
+3. Authentication → Users → Add user (cocher « Auto confirm ») pour chaque membre, puis désigner le propriétaire
+   (requête en fin de `schema.sql`). Le propriétaire attribue ensuite, depuis le site (bouton « Utilisateurs »),
+   le rôle `admin` avec des droits au choix (fiches, budgets, photos) ; les autres comptes restent en consultation.
 4. Authentication → Sign In / Providers : désactiver « Allow new users to sign up ».
 5. Project Settings → API : copier « Project URL » et la clé « anon public » dans `config.js` (bloc `SUPABASE`).
 

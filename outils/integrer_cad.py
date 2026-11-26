@@ -129,9 +129,12 @@ def integrer(nid, d):
                 l["nom"] = RENOMMAGES[ancien]
             l["salleCad"] = RENOMMAGES[ancien]
         elif ancien and ancien not in salles:
-            l["forme"] = None
-            l["remarques"] = ((l.get("remarques") or "") + " Salle absente de la nouvelle version du plan : fiche conservée, à replacer en mode édition.").strip()
-            l["salleCad"] = None
+            if (l.get("source") or "").startswith("Plan vectoriel") and not (l.get("resume") or l.get("coupure")):
+                l["_retirer"] = True          # salle auto-générée disparue du plan, sans donnée propre
+            else:
+                l["forme"] = None
+                l["remarques"] = ((l.get("remarques") or "") + " Salle absente de la nouvelle version du plan : fiche conservée, à replacer en mode édition.").strip()
+                l["salleCad"] = None
     for l in locaux:
         if not l.get("salleCad") and l["id"] in APPARIEMENT.get(nid, {}):
             l["salleCad"] = APPARIEMENT[nid][l["id"]]
@@ -241,6 +244,10 @@ def main():
     d = json.loads(DONNEES.read_text(encoding="utf-8"))
     for nid in sys.argv[1:]:
         integrer(nid, d)
+    avant = len(d["locaux"])
+    d["locaux"] = [l for l in d["locaux"] if not l.get("_retirer")]
+    if avant != len(d["locaux"]):
+        print(f"  {avant - len(d['locaux'])} salles obsolètes retirées (sauvegarde dans data/sauvegardes/)")
     dedoublonner(d)
     d["version"] = d.get("version", 1) + 1
     DONNEES.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding="utf-8")

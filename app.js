@@ -37,6 +37,44 @@ const zp = id => (S.data.zonesProjet || []).find(z => z.id === id);
 const cat = id => S.data.categories[id] || { nom: id, couleur: "#888" };
 const FIA = { C: "Constat", H: "Hypothèse", P: "Préconisation" };
 
+// ---------------------------------------------------------------- charte graphique par fonction (tout le bâtiment)
+// L'ordre compte : la première règle qui correspond au nom du local l'emporte.
+const PALETTE = [
+  ["gaine", "Gaines techniques", "#8e7cc3", /gaine|vide-ordures|v\.o\.|^v[bh] |trappe|débouché|sortie ventilation/i],
+  ["ascenseur", "Ascenseurs", "#6c5fa7", /ascenseur|machinerie/i],
+  ["circulation", "Circulations", "#dedad0", /^dégagement/i],
+  ["technique", "Locaux techniques", "#a99bd6", /local tech|tableau|tgbt|ecs|vmc|chaufferie|transfo|local à identifier|^local$|soufflage/i],
+  ["danse", "Danse", "#e9a3b9", /danse/i],
+  ["boxe", "Boxe", "#6f95cf", /boxe/i],
+  ["muscu", "Musculation", "#8fb573", /muscu/i],
+  ["escalade", "Escalade", "#5fae9f", /escalade/i],
+  ["street", "Street workout", "#b6c45c", /street/i],
+  ["golf", "Golf, cinéma", "#8aa1b1", /golf|cinéma|amphi/i],
+  ["musique", "Musique", "#d18bb0", /musique/i],
+  ["art", "Ateliers d'art", "#e4b363", /atelier|art\b|pop.?up/i],
+  ["fetes", "Salle des fêtes", "#f0a37a", /salle polyvalente|bar\b|scène/i],
+  ["cuisine", "Cuisines, restauration", "#e98c6a", /cuisine|restaurant|cafét|réserve cuisine|terrasse$|^terrasse/i],
+  ["sanitaire", "Sanitaires", "#7fcbcf", /wc|sanitaire|salle d.eau|vestiaire/i],
+  ["stockage", "Stockage, archives", "#e8cf86", /stockage|archive|réserve|rangement|ménage|poubelle|office/i],
+  ["accueil", "Accueil, exposition", "#9cc7e3", /accueil|hall|expo|entrée|reprographie/i],
+  ["logement", "Logements", "#f2b98c", /^logement/i],
+  ["chambre", "Chambres", "#f6d3b3", /^ch\.|chambre/i],
+  ["place", "Stationnement", "#bcd0e2", /^place|parking/i],
+  ["rampe", "Rampes", "#cfc7b3", /rampe/i],
+  ["toiture", "Toitures", "#d9d2bf", /toiture|édicule/i],
+  ["exterieur", "Extérieurs", "#b9d3a8", /patio|plantée|trémie|zone/i],
+  ["circulation", "Circulations", "#dedad0", /circulation|couloir|dégagement|escalier|palier|sas|accès/i],
+];
+const COUL_CAT = { batiment: ["batiment", "Bâtiments", "#c9c3b4"], securite: ["securite", "Sécurité, coupures", "#c0503a"],
+  hebergement: ["chambre", "Chambres", "#f6d3b3"], sanitaires: ["sanitaire", "Sanitaires", "#7fcbcf"],
+  sport: ["muscu", "Sport", "#8fb573"], culture: ["art", "Ateliers d'art", "#e4b363"], restauration: ["cuisine", "Cuisines, restauration", "#e98c6a"],
+  technique: ["technique", "Locaux techniques", "#a99bd6"], circulation: ["circulation", "Circulations", "#dedad0"] };
+function fonction(x) {
+  if (x.categorie === "securite" || x.categorie === "batiment") return COUL_CAT[x.categorie];
+  const r = PALETTE.find(p => p[3].test(x.nom || ""));
+  return r ? r.slice(0, 3) : (COUL_CAT[x.categorie] || ["autre", "Autres", "#cfcabd"]);
+}
+
 function toast(t, ms = 2200) {
   const n = $("#toast"); n.textContent = t; n.hidden = false;
   clearTimeout(toast.t); toast.t = setTimeout(() => (n.hidden = true), ms);
@@ -283,7 +321,7 @@ function dessiner() {
   el.vp.classList.toggle("vecto", vecto);
   if (S.etat === "projet") {
     (S.data.zonesProjet || []).filter(z => z.niveau === n.id && !S.cachees.has(z.categorie)).forEach(z => {
-      const col = cat(z.categorie).couleur; legende.set(z.categorie, col);
+      const [fk, fn, col] = fonction(z); legende.set(fk, [fn, col]);
       forme2svg(z.forme, { class: "z z-projet", fill: col, "data-id": z.id, "data-kind": "projet" }, gz);
       if (vecto) return;
       const [x, y] = centre(z.forme);
@@ -291,10 +329,12 @@ function dessiner() {
       t.textContent = z.nom;
     });
   }
-  S.data.locaux.filter(l => l.niveau === n.id && l.forme && !S.cachees.has(l.categorie)).forEach(l => {
+  const aire = f => { if (!f || f.type !== "poly") return 0; let a = 0; const p = f.points; for (let i = 0; i < p.length; i++) { const q = p[(i + 1) % p.length]; a += p[i][0] * q[1] - q[0] * p[i][1]; } return Math.abs(a / 2); };
+  // les grands espaces d'abord : les petits locaux restent au-dessus et cliquables
+  S.data.locaux.filter(l => l.niveau === n.id && l.forme && !S.cachees.has(l.categorie)).sort((a, b) => aire(b.forme) - aire(a.forme)).forEach(l => {
     if (S.etat === "projet" && !["technique", "securite", "circulation", "batiment"].includes(l.categorie)) return;
-    const col = cat(l.categorie).couleur;
-    legende.set(l.categorie, col);
+    const [fk, fn, col] = fonction(l);
+    legende.set(fk, [fn, col]);
     if (l.forme.type === "point") {
       const g = svg("g", { class: "repere" + (/localiser/i.test(l.resume + l.remarques) ? " alocaliser" : ""), "data-id": l.id, "data-kind": "local" }, gp);
       g.style.transformOrigin = `${l.forme.x}px ${l.forme.y}px`;
@@ -306,7 +346,7 @@ function dessiner() {
         t.textContent = l.nom;
       }
     } else {
-      forme2svg(l.forme, { class: "z z-local" + (S.sel && S.sel.id === l.id ? " sel" : ""), fill: col, stroke: col, "data-id": l.id, "data-kind": "local" }, gz);
+      forme2svg(l.forme, { class: "z z-local" + (S.sel && S.sel.id === l.id ? " sel" : ""), fill: col, stroke: "#2f3328", "data-id": l.id, "data-kind": "local" }, gz);
       if (S.etat === "existant" && l.categorie !== "batiment" && !(vecto && l.salleCad)) {
         const [x, y] = centre(l.forme);
         const t = svg("text", { x, y, class: "etiq", "text-anchor": "middle", "dominant-baseline": "middle" }, ge);
@@ -319,7 +359,7 @@ function dessiner() {
   const lg = $("#legende");
   if (legende.size) {
     lg.hidden = false;
-    lg.innerHTML = [...legende].map(([k, col]) => `<span><i style="background:${col}"></i>${esc(cat(k).nom)}</span>`).join("");
+    lg.innerHTML = [...legende].map(([k, [nom, col]]) => `<span><i style="background:${col}"></i>${esc(nom)}</span>`).join("");
   } else lg.hidden = true;
   if (S.sel) marquer(S.sel, false);
 }
@@ -398,7 +438,7 @@ function rendreFiche() {
   el.corps.innerHTML = `
     <div class="f-tete"><h2>${esc(l.nom)}</h2><button class="f-fermer" data-a="fermer" aria-label="Fermer">×</button></div>
     <div class="f-tags">
-      <span class="tag"><i class="pastille" style="background:${c.couleur}"></i>${esc(c.nom)}</span>
+      <span class="tag"><i class="pastille" style="background:${fonction(l)[2]}"></i>${esc(fonction(l)[1])}</span>
       <button class="tag" data-a="niveau">${esc(n ? n.court : l.niveau)}${l.batiment ? " · " + esc(l.batiment) : ""}</button>
       ${l.surface ? `<span class="tag">${esc(l.surface)}</span>` : ""}
       <span class="tag fia fia-${esc(l.fiabilite)}" title="${esc(FIA[l.fiabilite] || "")}">${esc(l.fiabilite)} · ${esc(FIA[l.fiabilite] || "")}</span>
@@ -417,8 +457,9 @@ function rendreFiche() {
     <p class="source">Identifiant : ${esc(l.id)}${l.remarques ? `<br>${esc(l.remarques)}` : ""}</p>`;
   if (S.onglet !== "couper") F.monter(el.corps.querySelector("#f-panneau"), l, S.onglet);
   else F.Sauvegarde.afficher(F.Sauvegarde.etat);
-  el.corps.querySelector("[data-compte]") && (el.corps.querySelector("[data-compte]").onclick = e => {
-    if (e.currentTarget.dataset.compte === "entrer") F.dialogueConnexion(() => rendreFiche());
+  el.corps.querySelectorAll("[data-compte]").forEach(b => b.onclick = e => {
+    if (e.currentTarget.dataset.compte === "droits") F.dialogueDroits();
+    else if (e.currentTarget.dataset.compte === "entrer") F.dialogueConnexion(() => rendreFiche());
     else { F.Auth.deconnexion(); F.oublier(); rendreFiche(); toast("Déconnecté."); }
   });
 }
@@ -627,7 +668,7 @@ async function demarrer() {
 
 // interface pour le mode édition (edition.js)
 window.TREMPLIN = {
-  S, EDITION, stock, toast, ouvrir, fermerFiche, choisirNiveau, dessiner, marquer, rendreFiche, ecranVersPlan,
+  fonction, S, EDITION, stock, toast, ouvrir, fermerFiche, choisirNiveau, dessiner, marquer, rendreFiche, ecranVersPlan,
   niv, loc, zp, cat, svg, forme2svg, surTap: null, surSelection: null,
   pret: null
 };

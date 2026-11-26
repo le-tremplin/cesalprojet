@@ -20,10 +20,10 @@ const euros = n => (Number(n) || 0).toLocaleString("fr-FR", { style: "currency",
 // ------------------------------------------------------------------ définition des champs
 const CHAMPS = {
   essentiel: [
-    ["reference", "Numéro ou référence", "court"], ["fonction_actuelle", "Fonction actuelle", "court"],
+    ["reference", "Numéro ou référence", "court"], ["configuration", "Configuration"], ["fonction_actuelle", "Fonction actuelle", "court"],
     ["fonction_future", "Fonction future", "court"], ["surface", "Surface (m²)", "court"],
     ["capacite", "Capacité d'accueil", "court"],
-    ["pmr", "Accessibilité PMR", "choix", ["", "Accessible", "Partiellement accessible", "Non accessible", "À vérifier"]],
+    ["pmr", "Accessibilité PMR", "court"],
     ["acces_circulation", "Accessibilité et circulation"], ["particularites", "Particularités techniques"],
     ["contraintes", "Contraintes principales"]
   ],
@@ -49,12 +49,15 @@ const CATEGORIES_PHOTO = [["existant", "Existant"], ["futur", "Projet futur"], [
   ["references", "Références et inspirations"], ["autres", "Autres documents"]];
 
 // ------------------------------------------------------------------ session et droits
+const EDITION_LOCALE = new URLSearchParams(location.search).get("edition") === "1";
 const Auth = {
   session: ls.get("session", null),
   role: "lecteur",
+  perms: {},
   nom: "",
   async init() {
-    if (!EN_LIGNE) { this.role = "admin"; this.nom = "mode local"; return; }
+    // sans base : lecture seule ; ?edition=1 = poste du propriétaire (corrections gardées sur cet appareil)
+    if (!EN_LIGNE) { this.role = EDITION_LOCALE ? "proprietaire" : "lecteur"; this.nom = EDITION_LOCALE ? "propriétaire (local)" : ""; return; }
     if (!this.session) return;
     if (Date.now() / 1000 > (this.session.expires_at || 0) - 60) await this.rafraichir();
     await this.chargerRole();
@@ -86,15 +89,20 @@ const Auth = {
   async chargerRole() {
     if (!this.session) return;
     try {
-      const r = await api(`/rest/v1/profils?id=eq.${this.session.user.id}&select=role,nom`);
+      const r = await api(`/rest/v1/profils?id=eq.${this.session.user.id}&select=role,nom,permissions`);
       const p = (await r.json())[0];
-      this.role = p && ["admin", "editeur"].includes(p.role) ? p.role : "lecteur";
+      this.role = p && ["proprietaire", "admin"].includes(p.role) ? p.role : "lecteur";
+      this.perms = (p && p.permissions) || {};
       this.nom = (p && p.nom) || this.session.user.email;
     } catch { this.role = "lecteur"; }
   },
-  deconnexion() { this.session = null; this.role = "lecteur"; this.nom = ""; ls.del("session"); },
-  peutEditer() { return this.role === "admin" || this.role === "editeur"; },
-  estAdmin() { return this.role === "admin"; }
+  deconnexion() { this.session = null; this.role = "lecteur"; this.perms = {}; this.nom = ""; ls.del("session"); },
+  peut(droit) { return this.role === "proprietaire" || (this.role === "admin" && !!this.perms[droit]); },
+  peutEditer() { return this.peut("fiches"); },
+  peutBudget() { return this.peut("budget"); },
+  peutPhotos() { return this.peut("photos"); },
+  estProprietaire() { return this.role === "proprietaire"; },
+  estAdmin() { return this.peutPhotos(); }
 };
 
 async function api(chemin, opts = {}) {
@@ -126,6 +134,19 @@ const IDB = {
 
 // ------------------------------------------------------------------ données : fiches et photos
 const urlsLocales = new Map();
+const autoCache = new Map();
+function fichesAuto(niveau) {
+  if (!autoCache.has(niveau)) autoCache.set(niveau, fetch(`data/fiches/${niveau}.json`).then(r => r.ok ? r.json() : {}).catch(() => ({})));
+  return autoCache.get(niveau);
+}
+function fusion(auto, stocke) {
+  // la version corrigée (base) l'emporte champ par champ ; le contenu préremplli comble les vides
+  const out = { essentiel: {}, actuel: {}, futur: {}, budget: { tva: 20, lignes: [] } };
+  for (const o of ["essentiel", "actuel", "futur"]) out[o] = { ...((auto || {})[o] || {}), ...Object.fromEntries(Object.entries((stocke || {})[o] || {}).filter(([, v]) => v !== "" && v != null)) };
+  const sb = (stocke || {}).budget;
+  out.budget = sb && (sb.modifie || (sb.lignes || []).length) ? sb : JSON.parse(JSON.stringify((auto || {}).budget || { tva: 20, lignes: [] }));
+  return out;
+}
 const Base = {
   async lireFiche(id) {
     if (!EN_LIGNE) return ls.get("fiche:" + id, null);
@@ -227,7 +248,8 @@ const Sauvegarde = {
     this.etat = etat;
     document.querySelectorAll(".sauve").forEach(n => {
       n.className = "sauve " + etat;
-      n.textContent = etat === "ok" ? (this.heure ? `Enregistré à ${this.heure}` : (EN_LIGNE ? "À jour" : "Enregistré sur cet appareil"))
+      n.textContent = !Auth.peutEditer() && !Auth.peutBudget() ? "Consultation seule — contenu protégé"
+        : etat === "ok" ? (this.heure ? `Enregistré à ${this.heure}` : (EN_LIGNE ? "À jour" : "Corrections gardées sur cet appareil"))
         : etat === "attente" ? "Modifications en cours…" : etat === "envoi" ? "Enregistrement…"
         : "Échec de l'enregistrement — nouvel essai automatique" + (msg ? ` (${msg.slice(0, 60)})` : "");
     });
@@ -241,11 +263,15 @@ if (Object.keys(Sauvegarde.attente).length) setTimeout(() => Sauvegarde.envoyer(
 const vide = () => ({ essentiel: {}, actuel: {}, futur: {}, budget: { tva: 20, lignes: [] } });
 const etat = { id: null, contenu: vide(), maj: null, photos: [], filtre: "tout" };
 
+const ORIGINES = { "Plan": "o-plan", "Projet": "o-projet", "Estimation": "o-estim", "À vérifier sur site": "o-site" };
+function provenance(t) {
+  return esc(t).replace(/\[(Plan|Projet|Estimation|À vérifier sur site)\]/g, (m, k) => `<span class="origine ${ORIGINES[k]}">${k}</span>`);
+}
 function champ(onglet, [cle, libelle, type, options], valeur, modifiable) {
   const id = `f-${onglet}-${cle}`;
   if (!modifiable) {
     if (!valeur) return "";
-    return `<div class="lu"><b>${esc(libelle)}</b><p>${esc(valeur)}</p></div>`;
+    return `<div class="lu"><b>${esc(libelle)}</b><p>${provenance(valeur)}</p></div>`;
   }
   if (type === "choix") return `<label class="ch" for="${id}">${esc(libelle)}<select id="${id}" data-o="${onglet}" data-c="${cle}">${options.map(o => `<option ${o === valeur ? "selected" : ""}>${esc(o)}</option>`).join("")}</select></label>`;
   if (type === "court") return `<label class="ch" for="${id}">${esc(libelle)}<input id="${id}" data-o="${onglet}" data-c="${cle}" value="${esc(valeur || "")}"></label>`;
@@ -307,12 +333,13 @@ function htmlBudget(modifiable) {
     ${modifiable ? `<button class="puce prim" data-f="ligne+">+ Ajouter une ligne</button>` : ""}
     ${lignes.length ? `<h4>Sous-totaux par poste</h4><table class="tb tot"><tbody>${Object.entries(parPoste).map(([k, c]) => `<tr><td>${esc(k)}</td><td class="n">${euros(c.ht)} HT</td><td class="n">${euros(c.ttc)} TTC</td></tr>`).join("")}</tbody></table>
     <div class="totaux"><div><span>Total HT</span><b>${euros(tot.ht)}</b></div><div><span>TVA</span><b>${euros(tot.tv)}</b></div><div class="ttc"><span>Total TTC</span><b>${euros(tot.ttc)}</b></div></div>` : ""}
-    <p class="source">Estimation saisie par le groupe : aucun montant n'est proposé automatiquement.${!Auth.estAdmin() ? " Le budget est modifiable par un administrateur." : ""}</p></div>`;
+    ${b.hypotheses ? `<p class="hypotheses"><b>Hypothèses :</b> ${esc(b.hypotheses)}</p>` : ""}
+    <p class="source">${etat.auto && etat.auto.budget === b ? "Proposition préremplie (estimation), " : ""}montants calculés automatiquement à partir des quantités et des prix unitaires.${!Auth.peutBudget() ? " Modification réservée aux comptes autorisés." : ""}</p></div>`;
 }
 
 function rendrePanneau(box, l, onglet) {
   const c = etat.contenu, ed = Auth.peutEditer();
-  if (onglet === "budget") { box.innerHTML = htmlBudget(Auth.estAdmin()); return; }
+  if (onglet === "budget") { box.innerHTML = htmlBudget(Auth.peutBudget()); return; }
   if (onglet === "galerie") {
     const cats = etat.filtre === "tout" ? etat.photos : etat.photos.filter(p => p.categorie === etat.filtre);
     box.innerHTML = `<div class="filtres-photo">${[["tout", "Toutes"], ...CATEGORIES_PHOTO].map(([k, t]) => `<button class="puce ${etat.filtre === k ? "on" : ""}" data-f="filtre" data-k="${k}">${t} <span class="nb">${k === "tout" ? etat.photos.length : etat.photos.filter(p => p.categorie === k).length}</span></button>`).join("")}</div>
@@ -410,10 +437,11 @@ const FICHES = {
     if (etat.id !== l.id) {
       etat.id = l.id; etat.contenu = vide(); etat.photos = []; etat.filtre = "tout";
       box.innerHTML = `<p class="vide">Chargement de la fiche…</p>`;
-      const [d, ph] = await Promise.all([Base.lireFiche(l.id), Base.photos(l.id)]);
+      const [d, ph, autos] = await Promise.all([Base.lireFiche(l.id), Base.photos(l.id), fichesAuto(l.niveau)]);
       if (etat.id !== l.id) return;
       const enAttente = Sauvegarde.attente[l.id];
-      etat.contenu = Object.assign(vide(), (d && d.contenu) || {}, enAttente || {});
+      etat.auto = autos[l.id] || null;
+      etat.contenu = fusion(etat.auto, enAttente || (d && d.contenu) || null);
       etat.maj = d && d.updated_at ? d : null;
       etat.photos = ph;
     }
@@ -431,6 +459,7 @@ const FICHES = {
         const i = +t.closest("tr").dataset.i;
         const lg = etat.contenu.budget.lignes[i];
         lg[t.dataset.b] = ["quantite", "pu_ht", "tva"].includes(t.dataset.b) ? (t.value === "" ? "" : Number(t.value)) : t.value;
+        etat.contenu.budget.modifie = true;
         Sauvegarde.planifier(l.id, etat.contenu);
         // recalcul immédiat sans perdre le champ actif
         const tr = t.closest("tr"), b = etat.contenu.budget, ht = (+lg.quantite || 0) * (+lg.pu_ht || 0), ttc = ht * (1 + ((lg.tva ?? b.tva ?? 20) / 100));
@@ -444,13 +473,14 @@ const FICHES = {
       const f = b.dataset.f;
       if (f === "ligne+") {
         const bud = etat.contenu.budget = etat.contenu.budget || { tva: 20, lignes: [] };
+        bud.modifie = true;
         bud.lignes.push({ id: uid(), poste: POSTES[0], designation: "", quantite: "", unite: "m²", pu_ht: "", tva: bud.tva ?? 20 });
         Sauvegarde.planifier(l.id, etat.contenu); rendrePanneau(box, l, onglet);
         const n = box.querySelector("tbody tr:last-child [data-b='designation']"); n && n.focus();
       } else if (f === "ligne-x") {
         const i = +b.closest("tr").dataset.i, lg = etat.contenu.budget.lignes[i];
         if ((lg.designation || lg.pu_ht) && !confirm(`Supprimer la ligne « ${lg.designation || lg.poste} » ?`)) return;
-        etat.contenu.budget.lignes.splice(i, 1); Sauvegarde.planifier(l.id, etat.contenu); rendrePanneau(box, l, onglet);
+        etat.contenu.budget.lignes.splice(i, 1); etat.contenu.budget.modifie = true; Sauvegarde.planifier(l.id, etat.contenu); rendrePanneau(box, l, onglet);
       } else if (f === "ajouter") dialogueAjout(b.dataset.cat, recharger);
       else if (f === "voir") { const p = etat.photos.find(x => x.id === b.dataset.id); p && visionneuse(p, recharger); }
       else if (f === "filtre") { etat.filtre = b.dataset.k; rendrePanneau(box, l, onglet); }
@@ -459,9 +489,9 @@ const FICHES = {
   },
   oublier() { etat.id = null; },
   boutonCompte() {
-    if (!EN_LIGNE) return `<span class="compte local" title="Supabase n'est pas configuré : données gardées sur cet appareil">Mode local</span>`;
-    return Auth.session ? `<button class="compte" data-compte="sortir" title="${esc(Auth.nom)} · ${esc(Auth.role)}">${esc(Auth.role === "admin" ? "Admin" : Auth.role === "editeur" ? "Éditeur" : "Lecteur")} · Déconnexion</button>`
-      : `<button class="compte" data-compte="entrer">Connexion</button>`;
+    if (!EN_LIGNE) return `<span class="compte local" title="Base non configurée : consultation seule (propriétaire : ?edition=1)">${EDITION_LOCALE ? "Propriétaire · local" : "Consultation"}</span>`;
+    if (!Auth.session) return `<button class="compte" data-compte="entrer">Connexion</button>`;
+    return `${Auth.estProprietaire() ? `<button class="compte" data-compte="droits">Utilisateurs</button>` : ""}<button class="compte" data-compte="sortir" title="${esc(Auth.nom)}">${Auth.role === "proprietaire" ? "Propriétaire" : Auth.role === "admin" ? "Administrateur" : "Lecteur"} · Déconnexion</button>`;
   },
   dialogueConnexion(apres) {
     const m = modale(`<h3>Connexion</h3><p class="source">Réservée aux membres autorisés du projet.</p>
@@ -475,6 +505,31 @@ const FICHES = {
     };
     m.querySelector("#cx-ok").onclick = go;
     m.querySelector("#cx-m").onkeydown = e => { if (e.key === "Enter") go(); };
+  },
+  async dialogueDroits() {
+    const m = modale(`<h3>Utilisateurs et permissions</h3><p class="source">Chargement…</p>`);
+    try {
+      const r = await api("/rest/v1/profils?select=id,email,nom,role,permissions&order=email");
+      if (!r.ok) throw new Error("Accès refusé");
+      const l = await r.json();
+      const DR = [["fiches", "Fiches"], ["budget", "Budgets"], ["photos", "Photos"]];
+      m.querySelector(".boite").innerHTML = `<h3>Utilisateurs et permissions</h3>
+        <p class="source">Les comptes se créent dans Supabase (Authentication → Users). Ici, le propriétaire attribue les rôles et les droits.</p>
+        <table class="tb droits"><thead><tr><th>Compte</th><th>Rôle</th>${DR.map(d => `<th>${d[1]}</th>`).join("")}</tr></thead><tbody>
+        ${l.map(u => `<tr data-u="${esc(u.id)}"><td>${esc(u.nom || u.email || u.id)}<br><small>${esc(u.email || "")}</small></td>
+          <td><select data-r ${u.id === Auth.session.user.id ? "disabled" : ""}>${["lecteur", "admin", "proprietaire"].map(x => `<option ${x === u.role ? "selected" : ""}>${x}</option>`).join("")}</select></td>
+          ${DR.map(([k]) => `<td><input type="checkbox" data-p="${k}" ${(u.permissions || {})[k] ? "checked" : ""} ${u.role !== "admin" ? "disabled" : ""}></td>`).join("")}</tr>`).join("")}
+        </tbody></table><p class="source" id="dr-etat"></p><div class="actions"><button class="puce" data-m="fermer">Fermer</button></div>`;
+      m.querySelector("tbody").onchange = async e => {
+        const tr = e.target.closest("tr"); const id = tr.dataset.u;
+        const role = tr.querySelector("[data-r]").value;
+        const permissions = Object.fromEntries([...tr.querySelectorAll("[data-p]")].map(c => [c.dataset.p, c.checked]));
+        tr.querySelectorAll("[data-p]").forEach(c => c.disabled = role !== "admin");
+        if (role === "proprietaire" && !confirm("Donner le rôle de propriétaire (tous les droits) à ce compte ?")) { e.target.value = "admin"; return; }
+        const w = await api(`/rest/v1/profils?id=eq.${id}`, { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ role, permissions }) });
+        m.querySelector("#dr-etat").textContent = w.ok ? "Droits enregistrés." : "Échec de l'enregistrement.";
+      };
+    } catch (e) { m.querySelector(".boite").innerHTML = `<h3>Utilisateurs</h3><p>${esc(e.message)}</p><div class="actions"><button class="puce" data-m="fermer">Fermer</button></div>`; }
   },
   pret: Auth.init()
 };

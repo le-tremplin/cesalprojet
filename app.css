@@ -83,9 +83,10 @@ button{font:inherit;color:inherit;cursor:pointer}
 .z-local{fill-opacity:.16;stroke-width:3;vector-effect:non-scaling-stroke}
 .z-local:hover,.z-local.sel{fill-opacity:.32;stroke-width:4}
 /* plan vectoriel : salles presque transparentes, le dessin CAD reste lisible */
-.vecto .z-local{fill-opacity:.07;stroke-opacity:.35;stroke-width:1.5}
-.vecto .z-local:hover,.vecto .z-local.sel{fill-opacity:.22;stroke-opacity:1;stroke-width:3}
-.vecto .z-projet{fill-opacity:.38}
+.vecto .z-local{fill-opacity:.62;stroke-opacity:.18;stroke-width:1}
+.vecto .z-local:hover{fill-opacity:.85;stroke-opacity:.9;stroke-width:2.5}
+.vecto .z-local.sel{fill-opacity:.9;stroke:#2f3328!important;stroke-opacity:1;stroke-width:4}
+.vecto .z-projet{fill-opacity:.55}
 .vecto #plan-svg .plan-cad{background:transparent}
 .z-projet{fill-opacity:.55;stroke:#fff;stroke-width:2;vector-effect:non-scaling-stroke}
 .z-projet:hover{fill-opacity:.75}
@@ -103,7 +104,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 
 .zoom{position:absolute;right:12px;bottom:12px;display:flex;flex-direction:column;gap:6px;z-index:5}
 .zoom button{width:42px;height:42px;border-radius:12px;border:1px solid var(--ligne);background:var(--papier);font-size:20px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
-.legende{position:absolute;left:12px;bottom:12px;background:rgba(251,250,246,.94);border:1px solid var(--ligne);border-radius:12px;padding:8px 10px;font-size:12px;display:grid;gap:4px;max-width:60%;z-index:5}
+.legende{position:absolute;left:12px;bottom:12px;max-height:45%;overflow:auto;background:rgba(251,250,246,.94);border:1px solid var(--ligne);border-radius:12px;padding:8px 10px;font-size:12px;display:grid;gap:4px;max-width:60%;z-index:5}
 .legende span{display:flex;gap:6px;align-items:center}
 .legende i{width:12px;height:12px;border-radius:3px;display:inline-block}
 .astuce{position:absolute;left:50%;top:12px;transform:translateX(-50%);background:var(--anthracite);color:var(--ivoire);font-size:12.5px;padding:6px 12px;border-radius:999px;opacity:.9;transition:opacity .6s;pointer-events:none;white-space:nowrap}
@@ -292,3 +293,12 @@ button.tag{cursor:pointer}
 .modale .grand{margin:0}
 .modale .grand img{width:100%;max-height:60vh;object-fit:contain;background:#222;border-radius:12px}
 .rang2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+/* plan vectoriel au-dessus des aplats de couleur : les murs restent nets */
+.vecto .plan-svg{z-index:2}
+.vecto .calque{z-index:1}
+.vecto .flash,.vecto .flash-fin{filter:drop-shadow(0 0 2px #fff)}
+.origine{display:inline-block;font-size:10.5px;font-weight:800;padding:1px 6px;border-radius:6px;margin-right:4px;vertical-align:1px}
+.o-plan{background:#dfe9f3;color:#2c4f73}.o-projet{background:#e5efdc;color:#3f6230}
+.o-estim{background:#f6e6cf;color:#8a5a18}.o-site{background:#f4dcd6;color:#a8432f}
+.hypotheses{font-size:12.5px;background:var(--ivoire);border-radius:10px;padding:8px 10px;line-height:1.45}
+.droits td,.droits th{font-size:12px}.droits small{color:var(--gris)}

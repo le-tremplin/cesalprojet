@@ -35,3 +35,5 @@
 .plan-cad .l-a-toitures path{stroke:none}
 .plan-cad .l-a-toitures text{fill:#2f3328;font-weight:700}
 .plan-cad .l-a-toiture-details path{stroke:#7b7c72;stroke-width:.9;stroke-dasharray:8 4}
+.plan-cad .l-a-logements path{stroke:none}
+.plan-cad .l-a-logements text{font-weight:700;fill:#2f3328}
