@@ -1,11 +1,11 @@
 {
  "genere_le": "2026-11-26",
- "travaux_ht": 6938070,
- "travaux_ttc": 7877339,
- "aleas_ht": 693807,
- "honoraires_ht": 971330,
- "total_ht": 8603207,
- "total_ttc": 9830668,
+ "travaux_ht": 6939418,
+ "travaux_ttc": 7878957,
+ "aleas_ht": 693942,
+ "honoraires_ht": 971519,
+ "total_ht": 8604878,
+ "total_ttc": 9832675,
  "ratio_ht_m2": 1608,
  "par_batiment": [
   {
@@ -15,8 +15,8 @@
   },
   {
    "nom": "Bâtiment 1 · ERP sport, culture, restauration",
-   "ttc": 2988978,
-   "ht": 2586101
+   "ttc": 2990596,
+   "ht": 2587449
   },
   {
    "nom": "Salle des fêtes",
@@ -48,7 +48,7 @@
   },
   {
    "nom": "Aménagements spécifiques",
-   "ttc": 660627
+   "ttc": 661175
   }
  ],
  "chiffres": [

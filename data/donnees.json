@@ -1,5 +1,5 @@
 {
- "version": 14,
+ "version": 15,
  "majour": "2026-11-24",
  "site": {
   "nom": "Le Tremplin",
@@ -6287,22 +6287,6 @@
       2052.4
      ],
      [
-      802.0,
-      2052.4
-     ],
-     [
-      802.5,
-      2193.0
-     ],
-     [
-      1207.6,
-      2193.0
-     ],
-     [
-      1208.0,
-      2052.4
-     ],
-     [
       1210.5,
       2052.4
      ],
@@ -6336,6 +6320,22 @@
      ],
      [
       86.4,
+      2010.5
+     ],
+     [
+      303.0,
+      2010.0
+     ],
+     [
+      302.8,
+      1842.1
+     ],
+     [
+      86.4,
+      1842.0
+     ],
+     [
+      86.4,
       1839.6
      ],
      [
@@ -6349,7 +6349,7 @@
     ]
    },
    "resume": "",
-   "surface": "185,3 m²",
+   "surface": "193,6 m²",
    "acces": "",
    "equipements": [],
    "coupure": [],
@@ -24259,37 +24259,37 @@
     "type": "poly",
     "points": [
      [
-      1207.5,
-      2052.4
+      86.4,
+      1842.5
      ],
      [
-      1207.5,
-      2192.5
+      302.5,
+      1842.5
      ],
      [
-      802.5,
-      2192.5
+      302.5,
+      2010.0
      ],
      [
-      802.5,
-      2052.4
+      86.4,
+      2010.0
      ]
     ]
    },
    "resume": "",
-   "surface": "22,7 m²",
+   "surface": "14,5 m²",
    "acces": "",
    "equipements": [],
    "coupure": [],
    "risques": [],
-   "projet": "Bar ouvert sur la salle du restaurant, près de l'entrée depuis le hall ; approvisionnement par le couloir depuis la cuisine.",
+   "projet": "Bar dans l'angle nord-ouest de la salle, contre le mur nord ; passage de service à l'est du comptoir ; aucune porte ni accès n'est obstrué.",
    "source": "Plan vectoriel rdc-haut.dxf",
    "remarques": "",
    "photo": null,
    "lien": null,
    "salleCad": "Bar du restaurant",
    "affectation_actuelle": "Salles vides",
-   "affectation_future": "Bar du restaurant : comptoir de 6,5 m, arrière-bar réfrigéré, plonge à verres, 5 places assises au comptoir",
+   "affectation_future": "Bar du restaurant : comptoir de 3,1 m (4 places assises), arrière-bar réfrigéré de 4 m, plonge à verres",
    "contour_fixe": true
   }
  ],

@@ -3132,8 +3132,8 @@
   {
    "nom": "Bar du restaurant",
    "surface": "208,1 m²",
-   "x": 1002.5,
-   "y": 2207.5,
+   "x": 185.0,
+   "y": 2000.0,
    "source": "hachure",
    "contour": [
     [

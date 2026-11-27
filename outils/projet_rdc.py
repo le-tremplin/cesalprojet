@@ -169,13 +169,14 @@ def rdc_haut():
     texte(msp, "A-SALLES-TEXTE", "Dégagement de service", 28.6, 63.6, 0.2)
     texte(msp, "A-ANNOTATIONS", "SALLE DES FÊTES (bâtiment détaché)", 33.0, 66.3, 0.5)
 
-    # ---------------- bar du restaurant (bât. 1) : le long du mur nord de la partie est, près de l'entrée depuis le hall
-    rect(msp, "A-EQUIPEMENTS", 14.80, 26.40, 22.30, 26.95)                   # arrière-bar (rangements, réfrigérés)
-    rect(msp, "A-EQUIPEMENTS", 15.30, 25.05, 21.80, 25.70)                   # comptoir
-    rect(msp, "A-EQUIPEMENTS", 15.60, 26.45, 16.40, 26.90)                   # plonge à verres
-    for x in (16.0, 17.2, 18.4, 19.6, 20.8):                                 # tabourets
-        msp.add_circle((x, 24.65), 0.20, dxfattribs={"layer": "A-EQUIPEMENTS"})
-    texte(msp, "A-SALLES-TEXTE", "Bar du restaurant", 18.55, 23.90, 0.26)
+    # ---------------- bar du restaurant (bât. 1) : angle nord-ouest de la salle, contre le mur nord,
+    # à l'écart des portes (porte du couloir à x = 6,6 m, double porte de la terrasse à y = 20 m) et du local VMC 1
+    rect(msp, "A-EQUIPEMENTS", 0.35, 30.40, 4.30, 30.95)                     # arrière-bar contre le mur nord
+    rect(msp, "A-EQUIPEMENTS", 0.35, 29.15, 3.45, 29.75)                     # comptoir (passage de service à l'est)
+    rect(msp, "A-EQUIPEMENTS", 3.55, 30.45, 4.25, 30.90)                     # plonge à verres
+    for x in (0.80, 1.55, 2.30, 3.05):                                       # tabourets
+        msp.add_circle((x, 28.75), 0.20, dxfattribs={"layer": "A-EQUIPEMENTS"})
+    texte(msp, "A-SALLES-TEXTE", "Bar du restaurant", 2.2, 28.05, 0.24)
 
     # ---------------- foyer : WC PMR → ascenseur, accès côté escalier
     supprimer(msp, "A-PORTES", 49.3, 29.9, 50.7, 31.1)                         # porte du « WC »

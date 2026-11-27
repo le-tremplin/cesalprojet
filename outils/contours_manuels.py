@@ -61,11 +61,12 @@ def main():
     zones["entree-rdc-haut"] = ent.intersection(box(0, 0, 47.62, 99))
     zones["local-poubelles-rdc-haut"] = ent.intersection(box(47.68, 0, 99, 99))
 
-    # --- bar du restaurant (bât. 1) : bande le long du mur nord de la partie est (comptoir + arrière-bar + clients)
-    resto = poly_m(loc["restaurant-rdc-haut"]) if not loc["restaurant-rdc-haut"].get("contour_fixe") else None
-    if resto is None:
-        resto = unary_union([poly_m(loc["restaurant-rdc-haut"]), poly_m(loc["bar-du-restaurant-rdc-haut"])])
-    bar = resto.intersection(box(14.55, 24.20, 22.65, 27.10))
+    # --- bar du restaurant (bât. 1) : angle nord-ouest, contre le mur nord, hors débattement des portes
+    # salle entière du restaurant = hachure « Restaurant » du DXF (208 m²), recalculée à chaque fois
+    meta = json.loads((RACINE / "plans" / "rdc-haut.salles.json").read_text(encoding="utf-8"))
+    sr = next(x for x in meta["salles"] if x["nom"] == "Restaurant")
+    resto = Polygon([((a / c.ECHELLE) + cv.x0, cv.y1 - b / c.ECHELLE) for a, b in sr["contour"]]).buffer(0)
+    bar = resto.intersection(box(0.0, 27.85, 4.55, 31.2))
     zones["bar-du-restaurant-rdc-haut"] = bar
     zones["restaurant-rdc-haut"] = resto.difference(bar.buffer(0.01))
 
