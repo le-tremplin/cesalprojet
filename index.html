@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Le Tremplin · plans</title>
 <meta name="description" content="Plans interactifs et fiches des locaux du Tremplin, ancien CESAL de Bourges. Document d'étude BUT GCCD.">
-<meta name="theme-color" content="#2f3328">
+<meta name="theme-color" content="#223659">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icones/icone.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icones/icone-192.png">
@@ -24,7 +24,6 @@
       <input id="recherche" type="search" placeholder="Chercher un local…" autocomplete="off" aria-label="Chercher un local">
       <ul id="resultats" class="resultats" hidden></ul>
     </div>
-    <a class="urgence" href="tel:112" aria-label="Appeler le 112">112</a>
   </header>
 
   <main class="scene-zone">
@@ -32,9 +31,15 @@
 
     <section class="vue" id="vue" aria-label="Plan">
       <div class="vue-entete">
-        <div>
+        <div style="display:flex;gap:10px;align-items:flex-start">
+          <div class="nav-niv" aria-label="Changer de niveau">
+            <button id="niv-haut" aria-label="Niveau supérieur" title="Niveau supérieur (↑)">▲</button>
+            <button id="niv-bas" aria-label="Niveau inférieur" title="Niveau inférieur (↓)">▼</button>
+          </div>
+          <div>
           <h1 id="niv-titre">…</h1>
           <p id="niv-note" class="note"></p>
+          </div>
         </div>
         <div class="calques" role="group" aria-label="Affichage">
           <div class="segment" role="radiogroup" aria-label="État">

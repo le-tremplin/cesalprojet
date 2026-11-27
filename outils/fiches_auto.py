@@ -100,6 +100,7 @@ def fiche(l):
     src = l.get("source") or "plans vectoriels"
     num = (re.search(r"\d{3}", l["nom"]) or [None])[0] if re.search(r"\d{3}", l["nom"]) else ""
     E = {"reference": l["id"].upper() if not num else f"{niv.upper()}-{num}", "surface": f"[Plan] {sS}",
+         "surface_future": f"[Projet] Inchangée ({sS})" if S else "",
          "configuration": "", "fonction_actuelle": "", "fonction_future": "", "capacite": "", "pmr": "À vérifier",
          "acces_circulation": l.get("acces") and f"[Plan] {l['acces']}" or "", "particularites": "", "contraintes": ""}
     A, F, B, hyp = {}, {}, [], []
@@ -118,7 +119,9 @@ def fiche(l):
                  capacite=f"[Projet] {2 if couple else 1} personne{'s' if couple else ''}",
                  pmr="Accessible (chambre adaptée du DOE)" if pmr else "Non accessible",
                  particularites="[Plan] Plancher chauffant à eau noyé dans la dalle (1990) : aucun carottage ni trémie sans repérage des tubes.",
-                 contraintes="[Plan] Refends porteurs sur la trame de 3,10 m ; réseaux EU/EF/ECS dans la gaine voisine ; ventilation par la VMC collective.")
+                 contraintes="[Plan] Refends porteurs sur la trame de 3,10 m ; ventilation par la VMC collective. "
+                             "[À vérifier sur site] Le DOE ne dessine pas de gaine dans les noyaux sanitaires : passage des chutes et colonnes "
+                             "entre les cellules dos à dos à confirmer.")
         A = {"description": f"[Plan] Chambre de {sS} au {et}, desservie par le couloir central, éclairée par une fenêtre "
                              f"(double vitrage d'origine, lame d'air 8 mm, Uw ≈ 3 d'après le DPE 2020). Équipée d'origine d'une cellule "
                              f"sanitaire préfabriquée (1990) et d'un bloc kitchenette.",
@@ -164,6 +167,8 @@ def fiche(l):
                  configuration=f"[Projet] Deux anciennes chambres réunies ({sS}) par une baie de 2,40 m dans le refend ; une seule porte palière conservée ; "
                                f"kitchenette contre le refend (gaine), salle d'eau contre le noyau sanitaire.",
                  capacite="[Projet] 1 à 2 personnes", pmr="Non accessible (cheminements à vérifier)",
+                 surface=f"[Plan] Deux chambres d'environ {S / 2:.1f} m² chacune".replace(".", ","),
+                 surface_future=f"[Projet] {sS} (logement réuni, refend ouvert)",
                  particularites="[Plan] Gaine technique conservée en place à l'angle du refend, côté couloir.",
                  contraintes="[Estimation] Le refend entre les chambres est sur la trame porteuse : baie à dimensionner par un BET structure (ferroscan, note de calcul).")
         A = {"description": f"[Plan] Deux chambres d'environ 16 m² chacune au {et}, chacune avec sa cellule sanitaire préfabriquée et son bloc kitchenette, "
@@ -211,7 +216,13 @@ def fiche(l):
         if f == "vo":
             E["fonction_actuelle"] = "[Plan] Trémie de vide-ordures (V.O.) avec local de collecte au pied"
             E["fonction_future"] = "[Projet] Condamnation du vide-ordures et réaffectation de la trémie en gaine technique (proposition)."
-        A = {"description": f"[Plan] {'Vide-ordures' if f == 'vo' else 'Gaine technique'} relevé sur le DOE au {et}, même position aux autres niveaux.",
+        gid = (re.search(r"G\d", l["nom"]) or [None])[0] if re.search(r"G\d", l["nom"]) else ("VO" if f == "vo" else None)
+        TOIT = {"G3": "sortie de ventilation G3 (DOE Ex12bis)", "G4": "trappe de la gaine G4 dans la chaufferie (DOE Ex12bis)",
+                "VO": "débouché du vide-ordures (DOE Ex12bis)"}
+        vertical = ("[Plan] Même gaine aux R+1, R+2, R+3 et R+4, au même emplacement : vérifié par superposition des plans DOE Ex09a "
+                    "(R+1), Ex10a (R+2) et Ex11a (R+3) ; le R+4 reprend le R+3. "
+                    + (f"Débouché en toiture : {TOIT[gid]}." if gid in TOIT else "[À vérifier sur site] Débouché en toiture non identifié sur le plan de terrasse."))
+        A = {"description": f"[Plan] {'Vide-ordures' if f == 'vo' else 'Gaine technique'} relevé sur le DOE au {et}.\n" + (vertical if not dans_toit else ""),
              "problemes_techniques": "[À vérifier sur site] Nature et état des réseaux, calfeutrements coupe-feu, trappes d'accès.",
              "vigilance": "Ne pas déplacer ni supprimer : la gaine dessert les salles d'eau et kitchenettes voisines.", "observations": vigil_site}
         F = {"description": "[Projet] Gaine conservée ; repérage des réseaux ; raccordement des nouvelles salles d'eau et kitchenettes ; "
@@ -384,6 +395,18 @@ def fiche(l):
         B = [L(*x[:2], S * x[2] if x[3] == "m²" and x[2] < 5 and S else x[2], x[3], x[4], x[5] if len(x) > 5 else 20) for x in M.get("budget", [])]
         B += finitions(S, 20, sol=M.get("sol", ("PVC / linoléum U3P3", 48)), luminaire=M.get("lum")) if M.get("finitions", True) else []
 
+    # affectation actuelle constatée par le groupe : prioritaire sur la lecture des plans (l'affectation future ne change pas)
+    if l.get("affectation_actuelle"):
+        aff = l["affectation_actuelle"]
+        cours = "cours" in aff.lower()
+        precision = (" Une salle de cours est équipée de chaises, de tables, d'un bureau et d'un tableau." if cours else "")
+        E["fonction_actuelle"] = f"[Constat] {aff}.{precision}"
+        A["description"] = f"[Constat] Affectation actuelle : {aff.lower() if not aff.startswith('Espace') else aff}.{precision}\n" + A.get("description", "")
+        if cours:
+            A["equipements"] = "[Constat] Mobilier de salle de cours (tables, chaises, bureau, tableau) à déposer.\n" + A.get("equipements", "[À vérifier sur site]")
+            B.insert(0, L("Dépose", "Dépose et évacuation du mobilier de salle de cours", 1, "forfait", 600, 20))
+        if "vide" in aff.lower():
+            A["equipements"] = "[Constat] Salles vides : aucun équipement à déposer."
     if l.get("coupure"):
         A["securite_circulation"] = (A.get("securite_circulation", "") + "\n[Plan] Consignes de coupure : voir le bouton « Couper / sécuriser ».").strip()
     if l.get("remarques"):

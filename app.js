@@ -225,6 +225,20 @@ function toucher(cx, cy) {
 $("#z-plus").onclick = () => { const r = el.vp.getBoundingClientRect(); el.ct.classList.add("anime"); zoomA(1.6, r.width / 2, r.height / 2); setTimeout(() => el.ct.classList.remove("anime"), 650); };
 $("#z-moins").onclick = () => { const r = el.vp.getBoundingClientRect(); el.ct.classList.add("anime"); zoomA(1 / 1.6, r.width / 2, r.height / 2); setTimeout(() => el.ct.classList.remove("anime"), 650); };
 $("#z-tout").onclick = () => ajuster(true);
+// navigation verticale entre niveaux : boutons ▲ ▼ et flèches du clavier
+function niveauVoisin(sens) {
+  const ordre = S.data.niveaux.filter(x => x.id !== "site").map(x => x.id);
+  const i = ordre.indexOf(S.niveau.id);
+  const j = i < 0 ? (sens < 0 ? 0 : -1) : i + sens;
+  if (j >= 0 && j < ordre.length) { fermerFiche(true); choisirNiveau(ordre[j], { url: true }); }
+}
+$("#niv-haut").onclick = () => niveauVoisin(-1);
+$("#niv-bas").onclick = () => niveauVoisin(1);
+addEventListener("keydown", e => {
+  if (e.target.closest("input,textarea,select") || !$("#accueil").hidden) return;
+  if (e.key === "ArrowUp" || e.key === "PageUp") { e.preventDefault(); niveauVoisin(-1); }
+  if (e.key === "ArrowDown" || e.key === "PageDown") { e.preventDefault(); niveauVoisin(1); }
+});
 new ResizeObserver(() => { if (!S.niveau) return; S.sel && S.sel.forme ? centrerSur(S.sel.forme) : ajuster(); }).observe(el.vp);
 
 // ---------------------------------------------------------------- niveaux
@@ -248,6 +262,9 @@ function choisirNiveau(id, o = {}) {
   S.niveau = n;
   document.querySelectorAll(".niv").forEach(b => b.classList.toggle("on", b.dataset.niv === id));
   $("#niv-titre").textContent = n.nom;
+  const ordre = S.data.niveaux.filter(x => x.id !== "site").map(x => x.id), i = ordre.indexOf(id);
+  $("#niv-haut").disabled = i <= 0; $("#niv-bas").disabled = i < 0 || i >= ordre.length - 1;
+  if (change) { el.ct.classList.remove("fondu"); void el.ct.offsetWidth; el.ct.classList.add("fondu"); }
   const note = $("#niv-note"); note.textContent = n.note || ""; note.classList.toggle("suppose", /supposé|non fourni/i.test(n.note || ""));
   if (change) {
     S.w = n.plan.w; S.h = n.plan.h; S.hd = false;
@@ -449,6 +466,7 @@ function rendreFiche() {
       <button data-a="recentrer">Recentrer</button>
       <button data-a="partager">Partager</button>
     </div>
+    <div class="synthese" id="f-synthese"><div class="chargement"></div></div>
     <div class="f-etat"><span class="sauve ok"></span>${F.boutonCompte()}</div>
     <div class="onglets" role="tablist">${onglets.map(([k, t]) => `<button role="tab" data-a="tab:${k}" class="${S.onglet === k ? "on" : ""}">${t}</button>`).join("")}</div>
     <div class="panneau" id="f-panneau">${S.onglet === "couper" ? panneau(l, memo) : ""}</div>
@@ -456,7 +474,7 @@ function rendreFiche() {
     <p class="source fiche-meta"></p>
     <p class="source">Identifiant : ${esc(l.id)}${l.remarques ? `<br>${esc(l.remarques)}` : ""}</p>`;
   if (S.onglet !== "couper") F.monter(el.corps.querySelector("#f-panneau"), l, S.onglet);
-  else F.Sauvegarde.afficher(F.Sauvegarde.etat);
+  else { F.monter(null, l, "couper"); F.Sauvegarde.afficher(F.Sauvegarde.etat); }
   el.corps.querySelectorAll("[data-compte]").forEach(b => b.onclick = e => {
     if (e.currentTarget.dataset.compte === "droits") F.dialogueDroits();
     else if (e.currentTarget.dataset.compte === "entrer") F.dialogueConnexion(() => rendreFiche());
@@ -469,7 +487,7 @@ function panneau(l, memo) {
     return `<p class="f-resume">${esc(l.resume || "")}</p>
       ${lignes.map(([k, v]) => `<div class="ligne"><b>${k}</b><span>${esc(v)}</span></div>`).join("")}
       ${(l.risques || []).slice(0, 2).map(r => `<div class="risque ${esc(r.niveau)}" style="margin-top:10px"><b>${esc(r.niveau)}</b><span>${esc(r.texte)}</span></div>`).join("")}
-      <div class="appels">${(S.data.urgences || []).map(u => `<a href="tel:${esc(u.numero)}">${esc(u.numero)}<small>${esc(u.nom)}</small></a>`).join("")}</div>`;
+`;
   }
   if (S.onglet === "couper") {
     const faits = session.get("coupure:" + l.id, []);
@@ -477,7 +495,6 @@ function panneau(l, memo) {
     return `<div class="progres"><span>${nb} / ${tot} fait${nb > 1 ? "s" : ""}</span><div class="barre-p"><i style="width:${(100 * nb / tot) | 0}%"></i></div>
         ${nb ? `<button class="puce" data-a="raz">Recommencer</button>` : ""}</div>
       <ol class="etapes">${l.coupure.map((k, i) => `<li><button class="etape ${faits.includes(i) ? "fait" : ""}" data-a="etape:${i}"><span class="num"><span>${i + 1}</span></span><span>${esc(k.texte)}</span><span class="f" title="${esc(FIA[k.fiabilite] || "")}">${esc(k.fiabilite)}</span></button></li>`).join("")}</ol>
-      <div class="appels">${(S.data.urgences || []).map(u => `<a href="tel:${esc(u.numero)}">${esc(u.numero)}<small>${esc(u.nom)}</small></a>`).join("")}</div>
       <p class="source">Touchez une étape pour la cocher. Les étapes marquées H sont des hypothèses d'étude.</p>`;
   }
   if (S.onglet === "equip") {
@@ -614,7 +631,6 @@ function accueil() {
     <p class="sous" style="margin:0">Plans interactifs · locaux techniques</p>
     <h1>${esc(C.NOM || "Le Tremplin")}</h1>
     <p class="sous">${esc(C.SOUS_TITRE || "")} · ${esc(S.data.site.adresse || "")}</p>
-    <div class="urg">${(S.data.urgences || []).map(u => `<a href="tel:${esc(u.numero)}"><b>${esc(u.numero)}</b><span>${esc(u.nom)}</span></a>`).join("")}</div>
     <div class="bloc"><h2>Locaux techniques et coupures</h2>
       <div class="tuiles">${tech.map(l => `<button class="tuile" data-id="${esc(l.id)}" ${dl()}><i style="background:${cat(l.categorie).couleur}"></i><b>${esc(l.nom)}</b><small>${esc((niv(l.niveau) || {}).nom || "")}${l.fiabilite === "H" ? " · à confirmer" : ""}</small></button>`).join("")}</div></div>
     <div class="bloc"><h2>Choisir un niveau</h2>

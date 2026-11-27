@@ -20,8 +20,8 @@ const euros = n => (Number(n) || 0).toLocaleString("fr-FR", { style: "currency",
 // ------------------------------------------------------------------ définition des champs
 const CHAMPS = {
   essentiel: [
-    ["reference", "Numéro ou référence", "court"], ["configuration", "Configuration"], ["fonction_actuelle", "Fonction actuelle", "court"],
-    ["fonction_future", "Fonction future", "court"], ["surface", "Surface (m²)", "court"],
+    ["reference", "Numéro ou référence", "court"], ["configuration", "Configuration"], ["surface_future", "Surface future", "court"], ["fonction_actuelle", "Fonction actuelle", "court"],
+    ["fonction_future", "Fonction future", "court"], ["surface", "Surface actuelle", "court"],
     ["capacite", "Capacité d'accueil", "court"],
     ["pmr", "Accessibilité PMR", "court"],
     ["acces_circulation", "Accessibilité et circulation"], ["particularites", "Particularités techniques"],
@@ -100,7 +100,8 @@ const Auth = {
   peut(droit) { return this.role === "proprietaire" || (this.role === "admin" && !!this.perms[droit]); },
   peutEditer() { return this.peut("fiches"); },
   peutBudget() { return this.peut("budget"); },
-  peutPhotos() { return this.peut("photos"); },
+  // sans base configurée, les photos restent sur l'appareil : l'import est ouvert (les fiches restent protégées)
+  peutPhotos() { return !EN_LIGNE || this.peut("photos"); },
   estProprietaire() { return this.role === "proprietaire"; },
   estAdmin() { return this.peutPhotos(); }
 };
@@ -263,9 +264,9 @@ if (Object.keys(Sauvegarde.attente).length) setTimeout(() => Sauvegarde.envoyer(
 const vide = () => ({ essentiel: {}, actuel: {}, futur: {}, budget: { tva: 20, lignes: [] } });
 const etat = { id: null, contenu: vide(), maj: null, photos: [], filtre: "tout" };
 
-const ORIGINES = { "Plan": "o-plan", "Projet": "o-projet", "Estimation": "o-estim", "À vérifier sur site": "o-site" };
+const ORIGINES = { "Plan": "o-plan", "Projet": "o-projet", "Estimation": "o-estim", "Constat": "o-plan", "À vérifier sur site": "o-site" };
 function provenance(t) {
-  return esc(t).replace(/\[(Plan|Projet|Estimation|À vérifier sur site)\]/g, (m, k) => `<span class="origine ${ORIGINES[k]}">${k}</span>`);
+  return esc(t).replace(/\[(Plan|Projet|Estimation|Constat|À vérifier sur site)\]/g, (m, k) => `<span class="origine ${ORIGINES[k]}">${k}</span>`);
 }
 function champ(onglet, [cle, libelle, type, options], valeur, modifiable) {
   const id = `f-${onglet}-${cle}`;
@@ -292,7 +293,7 @@ function dossier(l, onglet) {
   }
   if (onglet === "futur" && l.projet) blocs.push(`<p>${esc(l.projet)}</p>`);
   if (!blocs.length) return "";
-  return `<details class="dossier" open><summary>Dossier d'étude${l.source ? ` · ${esc(l.source)}` : ""}</summary>${blocs.join("")}</details>`;
+  return `<details class="dossier"><summary>Dossier d'étude${l.source ? ` · ${esc(l.source)}` : ""}</summary>${blocs.join("")}</details>`;
 }
 
 function htmlPhotos(cats, titre) {
@@ -337,6 +338,32 @@ function htmlBudget(modifiable) {
     <p class="source">${etat.auto && etat.auto.budget === b ? "Proposition préremplie (estimation), " : ""}montants calculés automatiquement à partir des quantités et des prix unitaires.${!Auth.peutBudget() ? " Modification réservée aux comptes autorisés." : ""}</p></div>`;
 }
 
+// synthèse en tête de fiche : existant / projet / budget, lisible en un coup d'œil
+const net = t => String(t || "").replace(/\[(Plan|Projet|Estimation|Constat|À vérifier sur site)\]\s*/g, "").trim();
+const bref = t => { const x = net(t); const p = x.split(/(?<=\.)\s+(?=[A-ZÀ-Ý])/)[0]; return p.replace(/\.$/, ""); };
+function totalTTC(b) {
+  return (b && b.lignes || []).reduce((a, x) => { const ht = (+x.quantite || 0) * (+x.pu_ht || 0); return a + ht * (1 + ((x.tva ?? b.tva ?? 20) / 100)); }, 0);
+}
+function rendreSynthese(l) {
+  const z = document.getElementById("f-synthese"); if (!z) return;
+  const e = etat.contenu.essentiel || {}, f = etat.contenu.futur || {}, b = etat.contenu.budget || {};
+  const ttc = totalTTC(b), n = (b.lignes || []).length;
+  const trav = net(f.travaux || f.description);
+  z.innerHTML = `<div class="cols">
+      <div class="bloc existant"><h5>Existant</h5><dl>
+        <dt>Affectation actuelle</dt><dd>${esc(bref(e.fonction_actuelle) || "À vérifier sur site")}</dd>
+        <dt>Surface actuelle</dt><dd>${esc(net(e.surface) || l.surface || "—")}</dd></dl></div>
+      <div class="bloc projet"><h5>Projet</h5><dl>
+        <dt>Affectation future</dt><dd>${esc(bref(e.fonction_future) || "À définir")}</dd>
+        <dt>Surface future</dt><dd>${esc(net(e.surface_future) || net(e.surface) || "—")}</dd></dl></div>
+    </div>
+    <div class="budget-cle" data-va="budget" role="button" tabindex="0"><div><span>Budget prévisionnel TTC</span><br><b>${n ? euros(ttc) : "Non chiffré"}</b></div>
+      <span>${n ? `${n} poste${n > 1 ? "s" : ""} · estimation à valider` : ""} →</span></div>
+    ${trav ? `<p class="travaux"><b>Travaux :</b> ${esc(trav.length > 190 ? trav.slice(0, 187) + "…" : trav)}</p>` : ""}`;
+  const go = () => { const t = document.querySelector('[data-a="tab:budget"]'); t && t.click(); };
+  z.querySelector(".budget-cle").onclick = go;
+  z.querySelector(".budget-cle").onkeydown = ev => { if (ev.key === "Enter") go(); };
+}
 function rendrePanneau(box, l, onglet) {
   const c = etat.contenu, ed = Auth.peutEditer();
   if (onglet === "budget") { box.innerHTML = htmlBudget(Auth.peutBudget()); return; }
@@ -382,7 +409,7 @@ function modale(html) {
   return m;
 }
 function dialogueAjout(categorie, apres) {
-  const m = modale(`<h3>Ajouter des photos</h3>
+  const m = modale(`<h3>Ajouter des photos</h3>${EN_LIGNE ? "" : `<p class="source">Base non configurée : les photos sont gardées sur cet appareil uniquement.</p>`}
     <label class="ch">Fichiers (sur cet ordinateur)<input type="file" id="ph-f" accept="image/*" multiple></label>
     <label class="ch">Catégorie<select id="ph-c">${CATEGORIES_PHOTO.map(([k, t]) => `<option value="${k}" ${k === categorie ? "selected" : ""}>${t}</option>`).join("")}</select></label>
     <label class="ch">Légende<input id="ph-l" placeholder="Ex. fissure en pied de mur, façade sud"></label>
@@ -445,8 +472,10 @@ const FICHES = {
       etat.maj = d && d.updated_at ? d : null;
       etat.photos = ph;
     }
+    if (!box) { rendreSynthese(l); return; }        // onglet « Couper » : seule la synthèse est remplie
     const recharger = async () => { etat.photos = await Base.photos(l.id); rendrePanneau(box, l, onglet); };
     rendrePanneau(box, l, onglet);
+    rendreSynthese(l);
     const pied = document.querySelector(".fiche-meta");
     if (pied) pied.innerHTML = etat.maj ? `Dernière modification : ${new Date(etat.maj.updated_at).toLocaleString("fr-FR")}${etat.maj.maj_par ? " · " + esc(etat.maj.maj_par) : ""}` : "";
     box.oninput = e => {
@@ -455,6 +484,7 @@ const FICHES = {
         etat.contenu[t.dataset.o] = { ...(etat.contenu[t.dataset.o] || {}), [t.dataset.c]: t.value };
         if (t.tagName === "TEXTAREA") ajuster(t);
         Sauvegarde.planifier(l.id, etat.contenu);
+        rendreSynthese(l);
       } else if (t.dataset.b) {
         const i = +t.closest("tr").dataset.i;
         const lg = etat.contenu.budget.lignes[i];
@@ -464,7 +494,7 @@ const FICHES = {
         // recalcul immédiat sans perdre le champ actif
         const tr = t.closest("tr"), b = etat.contenu.budget, ht = (+lg.quantite || 0) * (+lg.pu_ht || 0), ttc = ht * (1 + ((lg.tva ?? b.tva ?? 20) / 100));
         const cs = tr.querySelectorAll(".calc"); cs[0].textContent = euros(ht); cs[1].textContent = euros(ttc);
-        clearTimeout(box._tot); box._tot = setTimeout(() => { const f = document.activeElement; const sel = f && f.dataset.b && [f.closest("tr").dataset.i, f.dataset.b]; rendrePanneau(box, l, onglet); if (sel) { const n = box.querySelector(`tr[data-i="${sel[0]}"] [data-b="${sel[1]}"]`); n && n.focus(); } }, 900);
+        clearTimeout(box._tot); box._tot = setTimeout(() => { rendreSynthese(l); const f = document.activeElement; const sel = f && f.dataset.b && [f.closest("tr").dataset.i, f.dataset.b]; rendrePanneau(box, l, onglet); if (sel) { const n = box.querySelector(`tr[data-i="${sel[0]}"] [data-b="${sel[1]}"]`); n && n.focus(); } }, 900);
       }
     };
     box.onchange = box.oninput;

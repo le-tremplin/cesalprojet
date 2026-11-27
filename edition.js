@@ -13,24 +13,24 @@ const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": 
 const css = document.createElement("style");
 css.textContent = `
 .ed{position:fixed;right:12px;top:68px;width:min(380px,calc(100vw - 24px));max-height:calc(100vh - 90px);overflow:auto;z-index:40;
- background:#fffdf7;border:2px solid #b5654a;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.25);font-size:13px}
+ background:#fffdf7;border:2px solid #BA7652;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.25);font-size:13px}
 .ed.reduit .ed-corps{display:none}
 @media (min-width:1000px){.ed{left:212px;right:auto;top:auto;bottom:40px;max-height:70vh}}
-.ed-tete{position:sticky;top:0;background:#b5654a;color:#fff;padding:10px 12px;display:flex;gap:8px;align-items:center;font-weight:700}
+.ed-tete{position:sticky;top:0;background:#BA7652;color:#fff;padding:10px 12px;display:flex;gap:8px;align-items:center;font-weight:700}
 .ed-tete button{margin-left:auto;background:rgba(255,255,255,.2);border:0;color:#fff;border-radius:8px;padding:4px 8px}
 .ed-corps{padding:10px 12px;display:grid;gap:8px}
 .ed .rang{display:flex;gap:6px;flex-wrap:wrap}
 .ed button.b{border:1px solid #d9d5c9;background:#f2f0ea;border-radius:9px;padding:7px 9px;font-size:12.5px;font-weight:600}
-.ed button.b.p{background:#2f3328;color:#f2f0ea;border-color:#2f3328}
+.ed button.b.p{background:#223659;color:#f2f0ea;border-color:#223659}
 .ed button.b.d{color:#a8432f}
 .ed label{display:grid;gap:3px;font-weight:600;color:#6b6a60;font-size:11.5px}
-.ed input,.ed select,.ed textarea{font:inherit;font-size:13px;padding:6px 8px;border:1px solid #d9d5c9;border-radius:8px;background:#fff;color:#2f3328;width:100%}
+.ed input,.ed select,.ed textarea{font:inherit;font-size:13px;padding:6px 8px;border:1px solid #d9d5c9;border-radius:8px;background:#fff;color:#223659;width:100%}
 .ed textarea{min-height:54px;resize:vertical}
 .ed .aide{color:#6b6a60;font-size:11.5px;line-height:1.35}
-.ed .mode{background:#2f3328;color:#fff;padding:8px 10px;border-radius:9px;font-weight:600}
-.ed h3{margin:6px 0 0;font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:#b5654a}
-.trace{fill:#b5654a;fill-opacity:.2;stroke:#b5654a;stroke-width:3;vector-effect:non-scaling-stroke;stroke-dasharray:8 5;pointer-events:none}
-.trace-pt{fill:#b5654a;pointer-events:none}`;
+.ed .mode{background:#223659;color:#fff;padding:8px 10px;border-radius:9px;font-weight:600}
+.ed h3{margin:6px 0 0;font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:#BA7652}
+.trace{fill:#BA7652;fill-opacity:.2;stroke:#BA7652;stroke-width:3;vector-effect:non-scaling-stroke;stroke-dasharray:8 5;pointer-events:none}
+.trace-pt{fill:#BA7652;pointer-events:none}`;
 document.head.appendChild(css);
 
 const box = document.createElement("div");

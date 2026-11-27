@@ -1,39 +1,39 @@
 /* Style des plans vectoriels (calques DXF A-*). Utilisé par le site et par l'aperçu. */
-.plan-cad{background:#fbfaf6}
-.plan-cad path,.plan-cad circle{fill:none;stroke:#2f3328;stroke-width:.8;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
+.plan-cad{background:#fbf8f2}
+.plan-cad path,.plan-cad circle{fill:none;stroke:#223659;stroke-width:.8;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
 .plan-cad .h{stroke:none}
-.plan-cad .l-a-murs-hachures .h{fill:#3d4136}
+.plan-cad .l-a-murs-hachures .h{fill:#2b3f63}
 .plan-cad .l-a-murs path{stroke-width:1.5}
-.plan-cad .l-a-poteaux circle,.plan-cad .l-a-poteaux .h{fill:#2f3328}
-.plan-cad .l-a-portes path{stroke:#55594e;stroke-width:.7}
-.plan-cad .l-a-escaliers path,.plan-cad .l-a-escaliers circle{stroke:#55594e;stroke-width:.7}
-.plan-cad .l-a-garde-corps path{stroke:#7b7c72;stroke-width:.8;stroke-dasharray:4 2}
-.plan-cad .l-a-equipements path{stroke:#7b7c72;stroke-width:.7}
-.plan-cad .l-a-demolition path{stroke:#2f3328;stroke-width:1.2}
+.plan-cad .l-a-poteaux circle,.plan-cad .l-a-poteaux .h{fill:#223659}
+.plan-cad .l-a-portes path{stroke:#4a5a78;stroke-width:.7}
+.plan-cad .l-a-escaliers path,.plan-cad .l-a-escaliers circle{stroke:#4a5a78;stroke-width:.7}
+.plan-cad .l-a-garde-corps path{stroke:#7d8798;stroke-width:.8;stroke-dasharray:4 2}
+.plan-cad .l-a-equipements path{stroke:#7d8798;stroke-width:.7}
+.plan-cad .l-a-demolition path{stroke:#223659;stroke-width:1.2}
 .plan-cad .l-a-ouvertures-nouvelles{display:none}
-.plan-cad text{fill:#2f3328;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;stroke:none}
+.plan-cad text{fill:#223659;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;stroke:none}
 .plan-cad .l-a-salles-texte text{font-weight:700}
-.plan-cad .l-a-salles-surfaces text{fill:#6b6a60}
+.plan-cad .l-a-salles-surfaces text{fill:#5d6677}
 /* vue Projet : démolitions en pointillé terre cuite, ouvertures nouvelles visibles */
-.etat-projet .plan-cad .l-a-demolition path{stroke:#b5654a;stroke-dasharray:6 4}
+.etat-projet .plan-cad .l-a-demolition path{stroke:#BA7652;stroke-dasharray:6 4}
 .etat-projet .plan-cad .l-a-ouvertures-nouvelles{display:inline}
-.etat-projet .plan-cad .l-a-ouvertures-nouvelles path{stroke:#a8432f;stroke-width:1.4}
-.plan-cad .l-a-fenetres path{stroke:#55594e;stroke-width:.6}
-.plan-cad .l-a-gaines path{stroke:#a8432f;stroke-width:1}
-.plan-cad .l-a-gaines .h{fill:#b5654a;fill-opacity:.35}
-.plan-cad .l-a-gaines text,.plan-cad .l-a-ascenseurs text{fill:#a8432f;font-weight:700}
+.etat-projet .plan-cad .l-a-ouvertures-nouvelles path{stroke:#9A5B3B;stroke-width:1.4}
+.plan-cad .l-a-fenetres path{stroke:#4a5a78;stroke-width:.6}
+.plan-cad .l-a-gaines path{stroke:#9A5B3B;stroke-width:1}
+.plan-cad .l-a-gaines .h{fill:#BA7652;fill-opacity:.35}
+.plan-cad .l-a-gaines text,.plan-cad .l-a-ascenseurs text{fill:#9A5B3B;font-weight:700}
 .plan-cad .l-a-ascenseurs path{stroke:#5b7083;stroke-width:1}
 .plan-cad .l-a-equipements path{stroke:#9a9b90;stroke-width:.6}
 .plan-cad .l-a-stationnement path{stroke:#5b7083;stroke-width:.7;stroke-dasharray:5 3}
 .plan-cad .l-a-stationnement text{fill:#5b7083;font-weight:600}
 .plan-cad .l-a-rampes path{stroke:#8a8c80;stroke-width:.6}
-.plan-cad .l-a-rampes text{fill:#2f3328;font-weight:700}
-.plan-cad .l-a-annotations path{stroke:#b5654a;stroke-width:2}
-.plan-cad .l-a-annotations text{fill:#b5654a;font-weight:800;letter-spacing:.05em}
+.plan-cad .l-a-rampes text{fill:#223659;font-weight:700}
+.plan-cad .l-a-annotations path{stroke:#BA7652;stroke-width:2}
+.plan-cad .l-a-annotations text{fill:#BA7652;font-weight:800;letter-spacing:.05em}
 .plan-cad .l-a-escaliers text{font-weight:700}
-.plan-cad .l-a-acrotere path{stroke:#2f3328;stroke-width:1.3}
+.plan-cad .l-a-acrotere path{stroke:#223659;stroke-width:1.3}
 .plan-cad .l-a-toitures path{stroke:none}
-.plan-cad .l-a-toitures text{fill:#2f3328;font-weight:700}
-.plan-cad .l-a-toiture-details path{stroke:#7b7c72;stroke-width:.9;stroke-dasharray:8 4}
+.plan-cad .l-a-toitures text{fill:#223659;font-weight:700}
+.plan-cad .l-a-toiture-details path{stroke:#7d8798;stroke-width:.9;stroke-dasharray:8 4}
 .plan-cad .l-a-logements path{stroke:none}
-.plan-cad .l-a-logements text{font-weight:700;fill:#2f3328}
+.plan-cad .l-a-logements text{font-weight:700;fill:#223659}

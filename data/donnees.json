@@ -6,16 +6,6 @@
   "sous_titre": "ancien CESAL, Bourges",
   "adresse": "25 rue Louis Mallet, 18000 Bourges"
  },
- "urgences": [
-  {
-   "numero": "18",
-   "nom": "Pompiers"
-  },
-  {
-   "numero": "112",
-   "nom": "Urgences (Europe)"
-  }
- ],
  "categories": {
   "technique": {
    "nom": "Locaux techniques",
@@ -248,10 +238,6 @@
    ],
    "coupure": [
     {
-     "texte": "Alerter : 18 ou 112.",
-     "fiabilite": "C"
-    },
-    {
      "texte": "Couper la coupure générale du TGBT, sans s'exposer, si la consigne le permet.",
      "fiabilite": "H"
     },
@@ -336,10 +322,6 @@
     }
    ],
    "coupure": [
-    {
-     "texte": "Alerter : 18 ou 112.",
-     "fiabilite": "C"
-    },
     {
      "texte": "Fermer la vanne gaz générale extérieure (voir niveau Site).",
      "fiabilite": "H"
@@ -517,10 +499,6 @@
     }
    ],
    "coupure": [
-    {
-     "texte": "Alerter : 18 ou 112.",
-     "fiabilite": "C"
-    },
     {
      "texte": "Arrêt d'urgence de la cuisson et fermeture de la vanne gaz cuisine.",
      "fiabilite": "H"
@@ -818,10 +796,6 @@
    ],
    "coupure": [
     {
-     "texte": "Alerter : 18 ou 112.",
-     "fiabilite": "C"
-    },
-    {
      "texte": "Évacuer à pied par les escaliers, jamais par la rampe en sens inverse.",
      "fiabilite": "H"
     },
@@ -865,10 +839,6 @@
    "acces": "",
    "equipements": [],
    "coupure": [
-    {
-     "texte": "Alerter : 18 ou 112.",
-     "fiabilite": "C"
-    },
     {
      "texte": "Fermer la vanne (quart de tour), sans s'exposer.",
      "fiabilite": "H"
@@ -2546,7 +2516,8 @@
    "remarques": "",
    "photo": null,
    "lien": null,
-   "salleCad": "Cinéma"
+   "salleCad": "Cinéma",
+   "affectation_actuelle": "Amphithéâtre"
   },
   {
    "id": "patio-bas",
@@ -4033,7 +4004,8 @@
    "remarques": "",
    "photo": null,
    "lien": null,
-   "salleCad": "Studio musique"
+   "salleCad": "Studio musique",
+   "affectation_actuelle": "Salle de cours"
   },
   {
    "id": "escalade-rdc-bas",
@@ -4183,7 +4155,8 @@
    "remarques": "",
    "photo": null,
    "lien": null,
-   "salleCad": "Escalade"
+   "salleCad": "Escalade",
+   "affectation_actuelle": "Salle de cours"
   },
   {
    "id": "archives-2-rdc-bas",
@@ -4457,7 +4430,8 @@
    "remarques": "",
    "photo": null,
    "lien": null,
-   "salleCad": "Atelier Art"
+   "salleCad": "Atelier Art",
+   "affectation_actuelle": "Salle de cours"
   },
   {
    "id": "boxe-rdc-bas",
@@ -4563,7 +4537,8 @@
    "remarques": "",
    "photo": null,
    "lien": null,
-   "salleCad": "Boxe"
+   "salleCad": "Boxe",
+   "affectation_actuelle": "Salle de cours"
   },
   {
    "id": "danse-rdc-bas",
@@ -4665,7 +4640,8 @@
    "remarques": "",
    "photo": null,
    "lien": null,
-   "salleCad": "Danse"
+   "salleCad": "Danse",
+   "affectation_actuelle": "Espace partagé : en partie un local technique, en partie une salle de cours"
   },
   {
    "id": "muscu-rdc-bas",
@@ -4763,7 +4739,8 @@
    "remarques": "",
    "photo": null,
    "lien": null,
-   "salleCad": "Muscu"
+   "salleCad": "Muscu",
+   "affectation_actuelle": "Salle de cours"
   },
   {
    "id": "vestiaire-rdc-bas",
@@ -4853,7 +4830,8 @@
    "remarques": "",
    "photo": null,
    "lien": null,
-   "salleCad": "Vestiaire"
+   "salleCad": "Vestiaire",
+   "affectation_actuelle": "Salles de cours"
   },
   {
    "id": "annexe-rdc-bas",
@@ -5877,7 +5855,8 @@
    "remarques": "",
    "photo": null,
    "lien": null,
-   "salleCad": "Cuisine"
+   "salleCad": "Cuisine",
+   "affectation_actuelle": "Salles vides"
   },
   {
    "id": "reserve-rdc-haut",
@@ -6035,7 +6014,8 @@
    "remarques": "",
    "photo": null,
    "lien": null,
-   "salleCad": "Vestiaire"
+   "salleCad": "Vestiaire",
+   "affectation_actuelle": "Bureau du personnel"
   },
   {
    "id": "stockage-rdc-haut",
@@ -6081,7 +6061,8 @@
    "remarques": "",
    "photo": null,
    "lien": null,
-   "salleCad": "Stockage"
+   "salleCad": "Stockage",
+   "affectation_actuelle": "Bureau du personnel"
   },
   {
    "id": "accueil-rdc-haut",
@@ -6147,7 +6128,8 @@
    "remarques": "",
    "photo": null,
    "lien": null,
-   "salleCad": "Accueil"
+   "salleCad": "Accueil",
+   "affectation_actuelle": "Bureau du personnel"
   },
   {
    "id": "entree-rdc-haut",
@@ -6557,7 +6539,8 @@
    "remarques": "",
    "photo": null,
    "lien": null,
-   "salleCad": "Restaurant"
+   "salleCad": "Restaurant",
+   "affectation_actuelle": "Salles vides"
   },
   {
    "id": "reserves-rdc-haut",
@@ -6755,7 +6738,8 @@
    "remarques": "",
    "photo": null,
    "lien": null,
-   "salleCad": "Simulateur de golf"
+   "salleCad": "Simulateur de golf",
+   "affectation_actuelle": "Salle d'archives"
   },
   {
    "id": "wc-rdc-haut",
@@ -6959,7 +6943,8 @@
    "remarques": "",
    "photo": null,
    "lien": null,
-   "salleCad": "Pop up vêtement"
+   "salleCad": "Pop up vêtement",
+   "affectation_actuelle": "Salle de cours"
   },
   {
    "id": "zone-plantee-rdc-haut",

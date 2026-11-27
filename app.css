@@ -1,15 +1,20 @@
-/* Le Tremplin · plans interactifs. Palette tirée des planches A0. */
+/* Le Tremplin · plans interactifs.
+ * Identité : bleu nuit #223659 (structure, titres, navigation), terre cuite #BA7652 (interaction, mise en évidence),
+ * écru #F1E5D1 (fonds secondaires, panneaux), blanc #FFFFFF (fonds de lecture). */
 :root{
-  --ivoire:#f2f0ea; --papier:#fbfaf6; --anthracite:#2f3328; --gris:#6b6a60; --ligne:#d9d5c9;
-  --terre:#b5654a; --sauge:#8fa07e; --bois:#c9a66b; --nuit:#2c3e5c; --bleugris:#5b7083;
-  --rouge:#a8432f; --ok:#5c7f4f;
-  --r:14px; --ombre:0 10px 30px rgba(47,51,40,.18);
+  --nuit:#223659; --nuit-2:#2e4670; --terre:#BA7652; --terre-fonce:#9A5B3B; --ecru:#F1E5D1; --blanc:#FFFFFF;
+  --ivoire:var(--ecru); --papier:var(--blanc); --anthracite:var(--nuit); --gris:#5D6677; --ligne:#E4D8C3;
+  --sauge:#7d9a86; --bois:#c9a66b; --bleugris:#4f6a8f;
+  --rouge:#A2472F; --ok:#4F7A5A;
+  --r:12px; --ombre:0 12px 32px rgba(34,54,89,.16); --ombre-legere:0 2px 10px rgba(34,54,89,.08);
+  --fond-plan:#FBF8F2;
   --haut:56px; --rail:64px;
   font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   color:var(--anthracite); background:var(--ivoire);
 }
 *{box-sizing:border-box}
-html,body{margin:0;height:100%;background:var(--ivoire);overscroll-behavior:none}
+html,body{margin:0;height:100%;background:var(--blanc);overscroll-behavior:none}
+body{-webkit-font-smoothing:antialiased}
 button{font:inherit;color:inherit;cursor:pointer}
 [hidden]{display:none!important}
 #app{display:grid;grid-template-rows:var(--haut) 1fr auto;height:100dvh;height:100vh;height:100dvh}
@@ -68,7 +73,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .filtres button.off{opacity:.45;text-decoration:line-through}
 
 .viewport{position:relative;flex:1;min-height:0;overflow:hidden;background:
-  radial-gradient(circle at 1px 1px,rgba(47,51,40,.12) 1px,transparent 0) 0 0/18px 18px,var(--ivoire);
+  radial-gradient(circle at 1px 1px,rgba(34,54,89,.09) 1px,transparent 0) 0 0/20px 20px,var(--fond-plan);
   touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
 .viewport.saisi{cursor:grabbing}
 .contenu{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform}
@@ -150,7 +155,7 @@ button.tag{cursor:pointer}
 .etapes{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .etape{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:12px;background:var(--ivoire);border:1.5px solid transparent;cursor:pointer;transition:all .2s;text-align:left;width:100%;font-size:15px;line-height:1.35}
 .etape .num{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--anthracite);color:var(--ivoire);font-weight:800;font-size:13px;transition:all .25s}
-.etape.fait{background:#e8efe3;border-color:var(--ok)}
+.etape.fait{background:#e7efe7;border-color:var(--ok)}
 .etape.fait .num{background:var(--ok)}
 .etape.fait .num::after{content:"✓"}
 .etape.fait .num span{display:none}
@@ -186,7 +191,7 @@ button.tag{cursor:pointer}
 .photo input{position:absolute;inset:0;opacity:0;cursor:pointer}
 .verif{display:flex;gap:10px;align-items:center;padding:12px;border-radius:12px;background:var(--ivoire);border:1.5px solid var(--ligne);width:100%;text-align:left;font-weight:600;font-size:14px}
 .verif .case{width:22px;height:22px;border-radius:6px;border:2px solid var(--gris);display:grid;place-items:center;flex:none}
-.verif.on{border-color:var(--ok);background:#e8efe3}.verif.on .case{background:var(--ok);border-color:var(--ok);color:#fff}
+.verif.on{border-color:var(--ok);background:#e7efe7}.verif.on .case{background:var(--ok);border-color:var(--ok);color:#fff}
 .verif.on .case::after{content:"✓";font-size:14px}
 .f-nav{display:flex;justify-content:space-between;gap:8px;margin-top:16px}
 .f-nav button{flex:1;border:1px solid var(--ligne);background:var(--ivoire);border-radius:10px;padding:9px;font-size:13px}
@@ -286,7 +291,7 @@ button.tag{cursor:pointer}
 .budget .tb td[data-l="Désignation"]{grid-column:1/-1}
 .budget .tb.tot tr{display:table-row;border:0}
 .budget .tb.tot td{display:table-cell;padding:4px}
-.modale{position:fixed;inset:0;z-index:95;background:rgba(30,32,26,.55);display:grid;place-items:center;padding:16px;animation:fondu .2s}
+.modale{position:fixed;inset:0;z-index:95;background:rgba(34,54,89,.55);display:grid;place-items:center;padding:16px;animation:fondu .2s}
 .modale .boite{background:var(--papier);border-radius:18px;padding:18px;width:min(560px,100%);max-height:90vh;overflow:auto;display:grid;gap:10px;box-shadow:var(--ombre)}
 .modale h3{margin:0}
 .modale .actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
@@ -302,3 +307,95 @@ button.tag{cursor:pointer}
 .o-estim{background:#f6e6cf;color:#8a5a18}.o-site{background:#f4dcd6;color:#a8432f}
 .hypotheses{font-size:12.5px;background:var(--ivoire);border-radius:10px;padding:8px 10px;line-height:1.45}
 .droits td,.droits th{font-size:12px}.droits small{color:var(--gris)}
+
+/* =========================================================================
+   Identité 2026-11 : navigation, hiérarchie des fiches, transitions sobres
+   ========================================================================= */
+.barre{background:var(--nuit);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+.logo{background:var(--terre)}
+.recherche input{background:rgba(255,255,255,.10)}
+.recherche input:focus{outline:2px solid var(--terre);background:rgba(255,255,255,.16)}
+/* rail des niveaux */
+.niveaux{background:var(--blanc);border-right:1px solid var(--ligne);padding:12px 8px;gap:2px}
+.niv{border-radius:10px;transition:background .2s}
+.niv:hover{background:var(--ecru)}
+.niv .etage{background:var(--blanc);border-color:var(--ligne);color:var(--nuit)}
+.niv.on{background:var(--ecru)}
+.niv.on::before{content:"";position:absolute;left:-8px;top:8px;bottom:8px;width:3px;border-radius:2px;background:var(--terre)}
+.niv.on .etage{background:var(--nuit);border-color:var(--nuit);color:var(--blanc);transform:none}
+.niv.on .lib{font-weight:700;color:var(--nuit)}
+.niv .compte{background:var(--terre)}
+/* en-tête du niveau */
+.vue-entete{padding:14px 16px 8px;border-bottom:1px solid var(--ligne);background:var(--blanc)}
+.vue-entete h1{font-size:19px;color:var(--nuit);letter-spacing:-.01em}
+.nav-niv{display:inline-flex;gap:4px;margin-right:4px}
+.nav-niv button{width:34px;height:34px;border-radius:10px;border:1px solid var(--ligne);background:var(--blanc);color:var(--nuit);font-size:15px;transition:background .2s,border-color .2s}
+.nav-niv button:hover:not(:disabled){background:var(--ecru);border-color:var(--terre)}
+.nav-niv button:disabled{opacity:.35;cursor:default}
+.segment{background:var(--ecru);border-color:var(--ligne)}
+.segment button.on{background:var(--nuit);color:var(--blanc)}
+.puce{background:var(--blanc);color:var(--nuit)}
+.puce:hover{border-color:var(--terre)}
+.puce[aria-expanded="true"],.puce.on,.puce.prim{background:var(--nuit);color:var(--blanc);border-color:var(--nuit)}
+/* changement de niveau : fondu discret, sans déplacement */
+.contenu.fondu{animation:apparition .28s ease}
+@keyframes apparition{from{opacity:0}to{opacity:1}}
+.zoom button,.legende{border-color:var(--ligne);box-shadow:var(--ombre-legere)}
+.zoom button{background:var(--blanc);color:var(--nuit)}
+.zoom button:hover{border-color:var(--terre)}
+.astuce{background:var(--nuit)}
+.legende{background:rgba(255,255,255,.96)}
+/* fiche */
+.fiche{background:var(--blanc)}
+.f-tete h2{color:var(--nuit);font-size:21px;letter-spacing:-.01em}
+.f-fermer{background:var(--ecru);color:var(--nuit)}
+.f-actions button,.f-actions a{background:var(--blanc);border-color:var(--ligne);color:var(--nuit)}
+.f-actions button:hover{border-color:var(--terre)}
+.f-actions .prim{background:var(--terre);border-color:var(--terre);color:var(--blanc)}
+.onglets{background:var(--blanc)}
+.onglets button.on{color:var(--nuit);border-color:var(--terre)}
+.onglets button:hover{color:var(--nuit)}
+.tag{background:var(--ecru);border-color:transparent;color:var(--nuit)}
+.ch input,.ch select,.ch textarea{background:var(--blanc)}
+.ch input:focus,.ch select:focus,.ch textarea:focus{border-color:var(--terre);box-shadow:0 0 0 3px rgba(186,118,82,.15)}
+.dossier{background:var(--ecru)}
+.lu b{color:var(--terre-fonce);text-transform:uppercase;letter-spacing:.04em;font-size:11px}
+/* synthèse : existant / projet / budget */
+.synthese{display:grid;gap:8px;margin:4px 0 14px}
+.synthese .cols{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.synthese .bloc{border-radius:12px;padding:10px 12px;display:grid;gap:6px;align-content:start}
+.synthese .bloc h5{margin:0;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:800}
+.synthese .existant{background:var(--ecru)}
+.synthese .existant h5{color:var(--terre-fonce)}
+.synthese .projet{background:var(--nuit);color:var(--blanc)}
+.synthese .projet h5{color:#e9c9b5}
+.synthese dl{margin:0;display:grid;gap:5px}
+.synthese dt{font-size:10.5px;opacity:.75}
+.synthese dd{margin:0;font-size:13.5px;font-weight:600;line-height:1.3}
+.synthese .budget-cle{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--ligne);border-radius:12px;padding:10px 12px;background:var(--blanc);cursor:pointer;transition:border-color .2s}
+.synthese .budget-cle:hover{border-color:var(--terre)}
+.synthese .budget-cle b{font-size:18px;color:var(--nuit)}
+.synthese .budget-cle span{font-size:11.5px;color:var(--gris)}
+.synthese .travaux{font-size:13px;color:var(--gris);line-height:1.45;margin:0}
+.synthese .chargement{height:92px;border-radius:12px;background:linear-gradient(90deg,var(--ecru),#f8f1e5,var(--ecru));background-size:200% 100%;animation:reflet 1.2s linear infinite}
+@keyframes reflet{to{background-position:-200% 0}}
+.totaux .ttc{background:var(--nuit)}
+.origine{border-radius:5px}
+.o-plan{background:#e3e8f1;color:var(--nuit)}.o-projet{background:var(--nuit);color:var(--blanc)}
+.o-estim{background:#f3e3d7;color:var(--terre-fonce)}.o-site{background:#fbe9e4;color:var(--rouge)}
+/* accueil */
+.accueil{background:var(--nuit)}
+.tuile{background:rgba(241,229,209,.08)}
+.tuile:hover{background:rgba(186,118,82,.35)}
+.coupe button:hover{background:var(--terre)}
+.acc .entrer{background:var(--terre);color:var(--blanc)}
+.pied{background:var(--blanc)}
+@media (max-width:999px){.fiche{border-top:3px solid var(--terre)}}
+@media (max-width:640px){
+  .vue-entete{padding:10px 12px 8px;gap:8px}
+  .vue-entete h1{font-size:16px}
+  .vue-entete .note{display:none}
+  .nav-niv button{width:30px;height:30px;font-size:13px}
+  .synthese .cols{grid-template-columns:1fr 1fr}
+  .synthese dd{font-size:12.5px}
+}
