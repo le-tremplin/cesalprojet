@@ -18,7 +18,7 @@ from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.pens.transformPen import TransformPen
 
 RACINE = Path(__file__).resolve().parent.parent
-ENCRE, FOND = "#2f3328", "#f2f0ea"
+ENCRE, FOND = "#223659", "#F1E5D1"
 SOUS_TITRE = "Le Tremplin · ancien CESAL, Bourges"
 POLICES = {
     "gras": ["/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", "C:/Windows/Fonts/arialbd.ttf",
