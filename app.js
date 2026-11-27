@@ -657,7 +657,7 @@ $("#btn-accueil").onclick = accueil;
 // ---------------------------------------------------------------- synthèse finale du projet
 let syntheseP = null;
 function chargerSynthese() {
-  if (!syntheseP) syntheseP = fetch("data/synthese.json").then(r => r.ok ? r.json() : null).catch(() => null);
+  if (!syntheseP) syntheseP = fetch("data/synthese.json", { cache: "no-cache" }).then(r => r.ok ? r.json() : null).catch(() => null);
   return syntheseP;
 }
 const eur = n => Math.round(n).toLocaleString("fr-FR") + " €";

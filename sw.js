@@ -1,6 +1,6 @@
 /* Service worker : garde l'appli, les plans et les données pour un usage hors ligne.
  * Changer VERSION à chaque mise en ligne pour forcer la mise à jour du cache. */
-const VERSION = "tremplin-v12";
+const VERSION = "tremplin-v13";
 const COQUILLE = [
   "./", "index.html", "app.css", "app.js", "fiches.js", "edition.js", "config.js", "manifest.webmanifest",
   "data/donnees.json", "data/photos.json", "data/synthese.json", "icones/logo-clair.svg", "icones/logo-court-clair.svg", "icones/logo.svg", "icones/icone.svg", "icones/icone-192.png", "icones/icone-512.png",
@@ -29,7 +29,7 @@ self.addEventListener("fetch", e => {
   const req = e.request;
   if (req.method !== "GET" || new URL(req.url).origin !== location.origin) return;
   const url = new URL(req.url);
-  const reseauDabord = req.mode === "navigate" || /donnees\.json$|config\.js$|\/fiches\/.+\.json$/.test(url.pathname);
+  const reseauDabord = req.mode === "navigate" || /\/data\/.+\.json$|config\.js$|\.js$|\.css$/.test(url.pathname);
   e.respondWith((async () => {
     const c = await caches.open(VERSION);
     if (reseauDabord) {

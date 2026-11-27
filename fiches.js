@@ -138,11 +138,11 @@ const urlsLocales = new Map();
 const autoCache = new Map();
 let dossierPhotos = null;
 function photosDossier() {
-  if (!dossierPhotos) dossierPhotos = fetch("data/photos.json").then(r => r.ok ? r.json() : {}).catch(() => ({}));
+  if (!dossierPhotos) dossierPhotos = fetch("data/photos.json", { cache: "no-cache" }).then(r => r.ok ? r.json() : {}).catch(() => ({}));
   return dossierPhotos;
 }
 function fichesAuto(niveau) {
-  if (!autoCache.has(niveau)) autoCache.set(niveau, fetch(`data/fiches/${niveau}.json`).then(r => r.ok ? r.json() : {}).catch(() => ({})));
+  if (!autoCache.has(niveau)) autoCache.set(niveau, fetch(`data/fiches/${niveau}.json`, { cache: "no-cache" }).then(r => r.ok ? r.json() : {}).catch(() => ({})));
   return autoCache.get(niveau);
 }
 function fusion(auto, stocke) {
