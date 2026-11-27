@@ -415,7 +415,7 @@ def fiche(l):
             A["equipements"] = "[Constat] Salles vides : aucun équipement à déposer."
     if l.get("affectation_future"):
         E["fonction_future"] = f"[Projet] {l['affectation_future']}."
-        F["description"] = f"[Projet] {l['affectation_future']}. Les travaux sont détaillés dans la fiche de chaque local."
+        F["description"] = f"[Projet] {l['affectation_future']}." + (" Les travaux sont détaillés dans la fiche de chaque local." if f == "batiment" else "")
         F["nouvelle_fonction"] = l["affectation_future"]
     if f == "batiment" and l.get("affectation_actuelle"):
         A["description"] = f"[Constat] {l['affectation_actuelle']}.\n[Plan] {l.get('resume') or ''}".strip()
@@ -483,8 +483,9 @@ MODELES = {
                   contraintes="Effectif ERP à calculer ; isolation acoustique vis-à-vis des riverains (émergence 5 dB(A) le jour, 3 la nuit).", pmr="Accessible de plain-pied (à vérifier)",
                   budget=[("Aménagements spécifiques", "Traitement acoustique", 1, "m²", 65), ("Équipements", "Sonorisation et éclairage scénique", 1, "forfait", 9000),
                           ("Mobilier", "Tables et chaises empilables", 1, "forfait", 12000)], lum="gradables"),
-    "bar": dict(actuel="Self du restaurant", futur="Bar de la salle des fêtes", futur_long="Bar ouvert sur la salle : comptoir maçonné, arrière-bar réfrigéré, évier.",
-                budget=[("Aménagements spécifiques", "Comptoir et arrière-bar", 1, "forfait", 9500), ("Plomberie", "Évier et alimentation", 1, "forfait", 1500)], sol=("carrelage", 75)),
+    "bar": dict(actuel="Self du restaurant", futur="Bar", futur_long="Bar ouvert sur la salle : comptoir, arrière-bar réfrigéré, plonge à verres.",
+                budget=[("Aménagements spécifiques", "Comptoir et arrière-bar", 1, "forfait", 9500), ("Plomberie", "Évier, plonge à verres et alimentation", 1, "forfait", 1800),
+                        ("Équipements", "Équipements de bar (lave-verres, machine à café, réfrigération)", 1, "forfait", 6500)], sol=("carrelage", 75)),
     "cuisine": dict(actuel="Cuisine", futur="Cuisine", futur_long="Cuisine sur les réseaux existants : plans de travail inox, plonge, cuisson sous hotte, marche en avant (R2.1).",
                     contraintes="Rejet d'extraction à 8 m des fenêtres ; séparateur à graisses (R2.2).",
                     budget=[("Équipements", "Équipement de cuisine (inox, plonge, cuisson)", 1, "forfait", 38000), ("Chauffage et ventilation", "Hotte et extraction", 1, "forfait", 14000),
@@ -523,10 +524,67 @@ MODELES = {
 }
 
 
+# Lots communs (enveloppe, génie climatique, sécurité, amiante…) : portés par la fiche du bâtiment, jamais par les locaux.
+# Quantités mesurées sur les plans vectoriels et le dossier (D1 à D5, R1, R2) ; prix = ratios d'étude HT 2026.
+# Pas de double compte : les fenêtres des chambres, la PAC du foyer (chaufferie), les ascenseurs existants, le TGBT
+# et les toitures du foyer (fiches de toiture) sont déjà dans les fiches des locaux.
+LOTS = {
+    "foyer": [
+        ("Installation de chantier", "Installation de chantier, base vie, protections (site occupé)", 1, "forfait", 45000, 10),
+        ("Gros œuvre", "Échafaudages de façade", 1960, "m²", 18, 10),
+        ("Gros œuvre", "Isolation thermique par l'extérieur, fibre de bois 160 mm, enduit chaux", 1570, "m²", 165, 5.5),
+        ("Gros œuvre", "Traitement des ponts thermiques des balcons filants (habillage isolant)", 118, "ml", 180, 5.5),
+        ("Menuiseries", "Fenêtres des couloirs et parties communes (Uw ≤ 1,3)", 40, "u", 1100, 5.5),
+        ("Chauffage et ventilation", "VMC hygroréglable B collective : caissons en toiture, reprise des réseaux", 1, "forfait", 62000, 5.5),
+        ("Aménagements spécifiques", "Sécurité incendie habitation : désenfumage des couloirs, détection, éclairage de sécurité", 1, "forfait", 48000, 10),
+        ("Démolition", "Repérage amiante avant travaux (foyer)", 1, "forfait", 18000, 10),
+        ("Démolition", "Provision désamiantage (colles, joints — selon repérage)", 1, "forfait", 60000, 10),
+    ],
+    "bat-1": [
+        ("Installation de chantier", "Installation de chantier, base vie, clôtures", 1, "forfait", 38000, 20),
+        ("Gros œuvre", "Isolation thermique par l'extérieur (façades RDC haut et RDC bas hors sol)", 920, "m²", 165, 5.5),
+        ("Menuiseries", "Menuiseries extérieures aluminium (vitrages, portes, ERP)", 260, "m²", 650, 5.5),
+        ("Gros œuvre", "Toitures-terrasses : isolation et étanchéité neuves", 1318, "m²", 145, 5.5),
+        ("Gros œuvre", "Réfection des verrières (étanchéité, désenfumage, protections solaires)", 1, "forfait", 80000, 20),
+        ("Gros œuvre", "Provision de renforcement de la terrasse du restaurant (5 kN/m², planche D3)", 1, "forfait", 200000, 20),
+        ("Chauffage et ventilation", "Production de chaleur et rafraîchissement (PAC), émetteurs, régulation GTB", 3074, "m²", 90, 5.5),
+        ("Électricité", "Distribution électrique générale ERP, courants faibles", 3074, "m²", 60, 20),
+        ("Aménagements spécifiques", "SSI de catégorie A, désenfumage, éclairage de sécurité (ERP 3e catégorie probable)", 3074, "m²", 45, 20),
+        ("Équipements", "Second ascenseur entre RDC bas et RDC haut (accessibilité)", 1, "u", 85000, 20),
+        ("Aménagements spécifiques", "Accessibilité : signalétique, bandes de guidage, cheminements", 1, "forfait", 25000, 20),
+        ("Démolition", "Repérage amiante avant travaux et provision de retrait", 1, "forfait", 55000, 20),
+    ],
+    "bat-restaurant": [
+        ("Installation de chantier", "Installation de chantier", 1, "forfait", 9000, 20),
+        ("Gros œuvre", "Isolation thermique par l'extérieur", 160, "m²", 165, 5.5),
+        ("Menuiseries", "Menuiseries extérieures aluminium", 30, "m²", 650, 5.5),
+        ("Gros œuvre", "Toiture-terrasse : isolation et étanchéité", 260, "m²", 145, 5.5),
+        ("Chauffage et ventilation", "PAC et VMC double flux de la salle des fêtes", 239, "m²", 160, 5.5),
+        ("Électricité", "Distribution électrique générale", 239, "m²", 70, 20),
+        ("Aménagements spécifiques", "Sécurité incendie ERP (détection, alarme, éclairage de sécurité)", 239, "m²", 40, 20),
+    ],
+    "regards": [
+        ("Gros œuvre", "Réseaux séparatifs EU / EP, branchements, regards en limite de propriété", 1, "forfait", 65000, 20),
+        ("Aménagements spécifiques", "Abords : cheminements accessibles, éclairage extérieur, plantations", 1, "forfait", 55000, 20),
+    ],
+    "parking": [
+        ("Gros œuvre", "Réparation des bétons : purge, passivation des aciers, ragréage (provision)", 2875, "m²", 25, 20),
+        ("Électricité", "Infrastructure collective de recharge (pré-équipement des places)", 1, "forfait", 35000, 20),
+    ],
+}
+ALEAS, HONORAIRES = 0.10, 0.14   # aléas de travaux ; MOE, BET structure et fluides, contrôle technique, SPS, OPC
+
+
 def main():
     out = {}
     for l in D["locaux"]:
-        out.setdefault(l["niveau"], {})[l["id"]] = fiche(l)
+        x = fiche(l)
+        if l["id"] in LOTS:
+            x["budget"]["lignes"] += [L(*lot) for lot in LOTS[l["id"]]]
+            x["budget"]["hypotheses"] = ("Lots communs du bâtiment (enveloppe, génie climatique, sécurité, amiante), hors postes déjà chiffrés "
+                                         "dans les fiches des locaux. Quantités mesurées sur les plans ; TVA 5,5 % sur les travaux d'économie "
+                                         "d'énergie, 10 % sur les autres travaux des logements, 20 % sur l'ERP. ") + AVERT
+        out.setdefault(l["niveau"], {})[l["id"]] = x
     dossier = RACINE / "data" / "fiches"
     dossier.mkdir(exist_ok=True)
     total = 0
@@ -555,7 +613,8 @@ def synthese(out):
     postes = {}
     for niv, fiches in out.items():
         for i, x in fiches.items():
-            g = ("Salle des fêtes" if i in SALLE_DES_FETES else "Foyer · logements" if niv in FOYER
+            g = ("Salle des fêtes" if i in SALLE_DES_FETES else "Foyer · logements" if niv in FOYER or i == "foyer"
+                 else "Bâtiment 1 · ERP sport, culture, restauration" if i in ("bat-1", "bat-1-sous-sol")
                  else "Parking et abords" if niv in ("sous-sol", "site") else "Bâtiment 1 · ERP sport, culture, restauration")
             groupes[g] += ttc(x["budget"])
             groupes_ht[g] += ht(x["budget"])
@@ -563,10 +622,19 @@ def synthese(out):
                 postes[ln["poste"]] = postes.get(ln["poste"], 0) + (ln["quantite"] or 0) * ln["pu_ht"] * (1 + ln["tva"] / 100)
     L_ = D["locaux"]
     nb = lambda f: sum(1 for l in L_ if f(l))
+    tht = sum(groupes_ht.values())
+    tttc = sum(groupes.values())
+    tva_moy = tttc / tht - 1 if tht else 0.2
+    aleas, hono = tht * ALEAS, tht * HONORAIRES
+    op_ht = tht + aleas + hono
+    op_ttc = tttc + aleas * (1 + tva_moy) + hono * 1.2          # honoraires : TVA 20 %
     data = {
         "genere_le": DATE,
-        "total_ttc": round(sum(groupes.values())), "total_ht": round(sum(groupes_ht.values())),
-        "par_batiment": [{"nom": k, "ttc": round(v)} for k, v in groupes.items()],
+        "travaux_ht": round(tht), "travaux_ttc": round(tttc),
+        "aleas_ht": round(aleas), "honoraires_ht": round(hono),
+        "total_ht": round(op_ht), "total_ttc": round(op_ttc),
+        "ratio_ht_m2": round(op_ht / 5350),
+        "par_batiment": [{"nom": k, "ttc": round(v), "ht": round(groupes_ht[k])} for k, v in groupes.items()],
         "postes": [{"nom": k, "ttc": round(v)} for k, v in sorted(postes.items(), key=lambda kv: -kv[1])[:5]],
         "chiffres": [
             {"valeur": "≈ 5 350 m²", "libelle": "de plancher hors parking, 3 bâtiments"},
@@ -584,11 +652,13 @@ def synthese(out):
             {"titre": "Réseaux", "texte": "Gaines techniques fixes sur les 4 étages ; plancher chauffant de 1990 à inspecter avant tout percement."},
         ],
         "comparaison": "Ordre de grandeur des planches A0 (ratios, toute l'opération) : 7,5 à 12,7 M€ HT.",
-        "avertissement": "Somme des budgets prévisionnels des fiches : estimations d'étude, hors enveloppe extérieure (isolation, "
-                         "façades), honoraires et aléas. À valider par un économiste de la construction.",
+        "avertissement": f"Travaux = budgets des fiches des locaux + lots communs des bâtiments ; aléas {ALEAS:.0%} et honoraires "
+                         f"{HONORAIRES:.0%} (maîtrise d'œuvre, BET, contrôle technique, SPS, OPC). Hors foncier, mobilier non chiffré, "
+                         "révision des prix et frais financiers. Estimation d'étude à valider par un économiste de la construction.",
     }
     (RACINE / "data" / "synthese.json").write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(f"synthèse : {data['total_ttc']:,} € TTC".replace(",", " "), [(g["nom"], g["ttc"]) for g in data["par_batiment"]])
+    print(f"travaux {tht/1e6:.2f} M€ HT · opération {op_ht/1e6:.2f} M€ HT / {op_ttc/1e6:.2f} M€ TTC · {data['ratio_ht_m2']} € HT/m²",
+          [(g["nom"], round(g["ht"] / 1e6, 2)) for g in data["par_batiment"]])
 
 
 if __name__ == "__main__":

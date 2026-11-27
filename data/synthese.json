@@ -1,45 +1,54 @@
 {
  "genere_le": "2026-11-26",
- "total_ttc": 4975004,
- "total_ht": 4345583,
+ "travaux_ht": 6938070,
+ "travaux_ttc": 7877339,
+ "aleas_ht": 693807,
+ "honoraires_ht": 971330,
+ "total_ht": 8603207,
+ "total_ttc": 9830668,
+ "ratio_ht_m2": 1608,
  "par_batiment": [
   {
    "nom": "Foyer · logements",
-   "ttc": 3142665
+   "ttc": 3777109,
+   "ht": 3411204
   },
   {
    "nom": "Bâtiment 1 · ERP sport, culture, restauration",
-   "ttc": 1172387
+   "ttc": 2988978,
+   "ht": 2586101
   },
   {
    "nom": "Salle des fêtes",
-   "ttc": 211878
+   "ttc": 390927,
+   "ht": 340495
   },
   {
    "nom": "Parking et abords",
-   "ttc": 448074
+   "ttc": 720324,
+   "ht": 600270
   }
  ],
  "postes": [
   {
+   "nom": "Gros œuvre",
+   "ttc": 1704326
+  },
+  {
    "nom": "Plomberie",
-   "ttc": 965553
+   "ttc": 968073
+  },
+  {
+   "nom": "Chauffage et ventilation",
+   "ttc": 793477
   },
   {
    "nom": "Équipements",
-   "ttc": 579060
+   "ttc": 696660
   },
   {
-   "nom": "Revêtements de sols",
-   "ttc": 540569
-  },
-  {
-   "nom": "Peinture",
-   "ttc": 481838
-  },
-  {
-   "nom": "Gros œuvre",
-   "ttc": 440167
+   "nom": "Aménagements spécifiques",
+   "ttc": 660627
   }
  ],
  "chiffres": [
@@ -87,5 +96,5 @@
   }
  ],
  "comparaison": "Ordre de grandeur des planches A0 (ratios, toute l'opération) : 7,5 à 12,7 M€ HT.",
- "avertissement": "Somme des budgets prévisionnels des fiches : estimations d'étude, hors enveloppe extérieure (isolation, façades), honoraires et aléas. À valider par un économiste de la construction."
+ "avertissement": "Travaux = budgets des fiches des locaux + lots communs des bâtiments ; aléas 10% et honoraires 14% (maîtrise d'œuvre, BET, contrôle technique, SPS, OPC). Hors foncier, mobilier non chiffré, révision des prix et frais financiers. Estimation d'étude à valider par un économiste de la construction."
 }

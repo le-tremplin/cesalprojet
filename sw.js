@@ -1,6 +1,6 @@
 /* Service worker : garde l'appli, les plans et les données pour un usage hors ligne.
  * Changer VERSION à chaque mise en ligne pour forcer la mise à jour du cache. */
-const VERSION = "tremplin-v9";
+const VERSION = "tremplin-v10";
 const COQUILLE = [
   "./", "index.html", "app.css", "app.js", "fiches.js", "edition.js", "config.js", "manifest.webmanifest",
   "data/donnees.json", "data/photos.json", "data/synthese.json", "icones/logo-clair.svg", "icones/logo-court-clair.svg", "icones/logo.svg", "icones/icone.svg", "icones/icone-192.png", "icones/icone-512.png",

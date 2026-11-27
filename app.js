@@ -663,18 +663,19 @@ function chargerSynthese() {
 const eur = n => Math.round(n).toLocaleString("fr-FR") + " €";
 const meur = n => (n / 1e6).toLocaleString("fr-FR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " M€";
 function htmlSynthese(sy, sombre) {
-  const max = Math.max(...sy.par_batiment.map(b => b.ttc));
+  const max = Math.max(...sy.par_batiment.map(b => b.ht));
   return `<h2>Synthèse du projet</h2>
     <div class="sf-grille">
-      <div class="sf-budget"><span>Budget prévisionnel total</span><b>${meur(sy.total_ttc)} TTC</b><small>${meur(sy.total_ht)} HT · somme des fiches</small>
-        <ul class="sf-barres">${sy.par_batiment.map(b => `<li><span>${esc(b.nom)}</span><i style="width:${(100 * b.ttc / max).toFixed(0)}%"></i><em>${meur(b.ttc)}</em></li>`).join("")}</ul></div>
+      <div class="sf-budget"><span>Coût prévisionnel de l'opération</span><b>${meur(sy.total_ht)} HT</b><small>${meur(sy.total_ttc)} TTC · ${sy.ratio_ht_m2.toLocaleString("fr-FR")} € HT/m²</small>
+        <dl class="sf-decomp"><dt>Travaux</dt><dd>${meur(sy.travaux_ht)}</dd><dt>Aléas</dt><dd>${meur(sy.aleas_ht)}</dd><dt>Honoraires et études</dt><dd>${meur(sy.honoraires_ht)}</dd></dl>
+        <ul class="sf-barres">${sy.par_batiment.map(b => `<li><span>${esc(b.nom)}</span><i style="width:${(100 * b.ht / max).toFixed(0)}%"></i><em>${meur(b.ht)} HT</em></li>`).join("")}</ul></div>
       <div class="sf-chiffres">${sy.chiffres.map(c => `<div><b>${esc(c.valeur)}</b><span>${esc(c.libelle)}</span></div>`).join("")}</div>
       <div class="sf-enjeux"><h3>Enjeux principaux</h3>${sy.enjeux.map(e => `<p><b>${esc(e.titre)}</b>${esc(e.texte)}</p>`).join("")}</div>
     </div>
     <p class="sf-note">${esc(sy.comparaison)} ${esc(sy.avertissement)}</p>`;
 }
 const tiroir = $("#tiroir-synthese"), btnSy = $("#btn-synthese");
-chargerSynthese().then(sy => { if (sy) $("#ps-total").textContent = meur(sy.total_ttc) + " TTC"; });
+chargerSynthese().then(sy => { if (sy) $("#ps-total").textContent = meur(sy.total_ht) + " HT"; });
 btnSy.onclick = async () => {
   const ouvert = tiroir.hidden;
   if (ouvert) { const sy = await chargerSynthese(); tiroir.innerHTML = sy ? `<button class="f-fermer sf-fermer" aria-label="Fermer">×</button>` + htmlSynthese(sy) : "<p>Synthèse indisponible.</p>"; }

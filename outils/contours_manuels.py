@@ -61,6 +61,14 @@ def main():
     zones["entree-rdc-haut"] = ent.intersection(box(0, 0, 47.62, 99))
     zones["local-poubelles-rdc-haut"] = ent.intersection(box(47.68, 0, 99, 99))
 
+    # --- bar du restaurant (bât. 1) : bande le long du mur nord de la partie est (comptoir + arrière-bar + clients)
+    resto = poly_m(loc["restaurant-rdc-haut"]) if not loc["restaurant-rdc-haut"].get("contour_fixe") else None
+    if resto is None:
+        resto = unary_union([poly_m(loc["restaurant-rdc-haut"]), poly_m(loc["bar-du-restaurant-rdc-haut"])])
+    bar = resto.intersection(box(14.55, 24.20, 22.65, 27.10))
+    zones["bar-du-restaurant-rdc-haut"] = bar
+    zones["restaurant-rdc-haut"] = resto.difference(bar.buffer(0.01))
+
     for i, g in zones.items():
         if i not in loc:
             print("absent :", i)

@@ -442,3 +442,5 @@ button.tag{cursor:pointer}
 .accueil .sf-enjeux{border-color:rgba(241,229,209,.25)}
 .accueil .sf-enjeux h3{color:var(--ecru)}.accueil .sf-enjeux p{color:rgba(241,229,209,.85)}.accueil .sf-enjeux p b{color:#f0c9b1}
 .accueil .sf-note{color:rgba(241,229,209,.65)}
+.sf-decomp{display:grid;grid-template-columns:1fr auto;gap:3px 10px;margin:10px 0 2px;padding:8px 0;border-top:1px solid rgba(255,255,255,.15);border-bottom:1px solid rgba(255,255,255,.15);font-size:12.5px}
+.sf-decomp dt{opacity:.75}.sf-decomp dd{margin:0;font-weight:700;text-align:right}

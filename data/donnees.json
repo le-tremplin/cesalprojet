@@ -1,5 +1,5 @@
 {
- "version": 13,
+ "version": 14,
  "majour": "2026-11-24",
  "site": {
   "nom": "Le Tremplin",
@@ -6284,26 +6284,22 @@
      ],
      [
       407.4,
-      2046.7
-     ],
-     [
-      407.4,
-      2049.5
-     ],
-     [
-      407.4,
       2052.4
      ],
      [
-      413.1,
+      802.0,
       2052.4
      ],
      [
-      678.9,
-      2052.4
+      802.5,
+      2193.0
      ],
      [
-      685.2,
+      1207.6,
+      2193.0
+     ],
+     [
+      1208.0,
       2052.4
      ],
      [
@@ -6311,24 +6307,8 @@
       2052.4
      ],
      [
-      1317.6,
-      2159.5
-     ],
-     [
-      1322.0,
-      2163.9
-     ],
-     [
       1481.9,
       2323.8
-     ],
-     [
-      1457.6,
-      2348.2
-     ],
-     [
-      1455.6,
-      2350.2
      ],
      [
       1250.8,
@@ -6343,24 +6323,12 @@
       2391.1
      ],
      [
-      1087.0,
-      2391.1
-     ],
-     [
-      1086.4,
-      2390.6
-     ],
-     [
       1084.7,
       2388.8
      ],
      [
       1082.3,
       2391.2
-     ],
-     [
-      783.4,
-      2392.7
      ],
      [
       86.4,
@@ -6376,24 +6344,12 @@
      ],
      [
       303.9,
-      1940.0
-     ],
-     [
-      303.9,
-      1942.8
-     ],
-     [
-      303.9,
-      1945.7
-     ],
-     [
-      309.6,
       1945.7
      ]
     ]
    },
    "resume": "",
-   "surface": "208,1 m²",
+   "surface": "185,3 m²",
    "acces": "",
    "equipements": [],
    "coupure": [],
@@ -6404,7 +6360,8 @@
    "photo": null,
    "lien": null,
    "salleCad": "Restaurant",
-   "affectation_actuelle": "Salles vides"
+   "affectation_actuelle": "Salles vides",
+   "contour_fixe": true
   },
   {
    "id": "reserves-rdc-haut",
@@ -24289,781 +24246,54 @@
    "photo": null,
    "lien": null,
    "salleCad": "Gaine S9"
+  },
+  {
+   "id": "bar-du-restaurant-rdc-haut",
+   "nom": "Bar du restaurant",
+   "niveau": "rdc-haut",
+   "batiment": "Bât. 1",
+   "categorie": "restauration",
+   "fiabilite": "P",
+   "qr": false,
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      1207.5,
+      2052.4
+     ],
+     [
+      1207.5,
+      2192.5
+     ],
+     [
+      802.5,
+      2192.5
+     ],
+     [
+      802.5,
+      2052.4
+     ]
+    ]
+   },
+   "resume": "",
+   "surface": "22,7 m²",
+   "acces": "",
+   "equipements": [],
+   "coupure": [],
+   "risques": [],
+   "projet": "Bar ouvert sur la salle du restaurant, près de l'entrée depuis le hall ; approvisionnement par le couloir depuis la cuisine.",
+   "source": "Plan vectoriel rdc-haut.dxf",
+   "remarques": "",
+   "photo": null,
+   "lien": null,
+   "salleCad": "Bar du restaurant",
+   "affectation_actuelle": "Salles vides",
+   "affectation_future": "Bar du restaurant : comptoir de 6,5 m, arrière-bar réfrigéré, plonge à verres, 5 places assises au comptoir",
+   "contour_fixe": true
   }
  ],
  "zonesProjet": [
-  {
-   "id": "p-cuisine-rdc-haut",
-   "niveau": "rdc-haut",
-   "nom": "Cuisine",
-   "categorie": "restauration",
-   "forme": {
-    "type": "poly",
-    "points": [
-     [
-      472.5,
-      1410.7
-     ],
-     [
-      478.9,
-      1410.7
-     ],
-     [
-      742.4,
-      1410.7
-     ],
-     [
-      748.7,
-      1410.7
-     ],
-     [
-      946.2,
-      1410.7
-     ],
-     [
-      952.6,
-      1410.7
-     ],
-     [
-      1149.7,
-      1410.7
-     ],
-     [
-      1149.7,
-      1616.1
-     ],
-     [
-      952.6,
-      1616.1
-     ],
-     [
-      946.2,
-      1616.1
-     ],
-     [
-      748.7,
-      1616.1
-     ],
-     [
-      748.4,
-      1616.1
-     ],
-     [
-      748.4,
-      1614.9
-     ],
-     [
-      748.4,
-      1612.0
-     ],
-     [
-      742.7,
-      1612.0
-     ],
-     [
-      742.7,
-      1616.1
-     ],
-     [
-      742.7,
-      1618.1
-     ],
-     [
-      742.7,
-      1621.8
-     ],
-     [
-      742.7,
-      1672.6
-     ],
-     [
-      742.7,
-      1672.8
-     ],
-     [
-      742.7,
-      1676.0
-     ],
-     [
-      742.7,
-      1678.4
-     ],
-     [
-      742.7,
-      1678.8
-     ],
-     [
-      748.4,
-      1678.8
-     ],
-     [
-      748.4,
-      1678.4
-     ],
-     [
-      748.7,
-      1678.4
-     ],
-     [
-      1029.1,
-      1678.4
-     ],
-     [
-      1029.1,
-      1760.9
-     ],
-     [
-      748.7,
-      1760.9
-     ],
-     [
-      742.4,
-      1760.9
-     ],
-     [
-      478.5,
-      1760.9
-     ],
-     [
-      478.5,
-      1632.0
-     ],
-     [
-      478.5,
-      1626.3
-     ],
-     [
-      478.5,
-      1625.7
-     ],
-     [
-      478.5,
-      1622.5
-     ],
-     [
-      478.5,
-      1619.7
-     ],
-     [
-      472.8,
-      1619.7
-     ],
-     [
-      472.8,
-      1625.7
-     ],
-     [
-      472.8,
-      1626.3
-     ],
-     [
-      413.1,
-      1626.3
-     ],
-     [
-      413.0,
-      1626.3
-     ],
-     [
-      409.9,
-      1626.3
-     ],
-     [
-      407.4,
-      1626.3
-     ],
-     [
-      407.0,
-      1626.3
-     ],
-     [
-      407.0,
-      1632.0
-     ],
-     [
-      407.4,
-      1632.0
-     ],
-     [
-      407.4,
-      1632.3
-     ],
-     [
-      407.4,
-      1833.9
-     ],
-     [
-      309.6,
-      1833.9
-     ],
-     [
-      303.9,
-      1833.9
-     ],
-     [
-      86.4,
-      1833.9
-     ],
-     [
-      86.4,
-      1632.3
-     ],
-     [
-      86.4,
-      1626.0
-     ],
-     [
-      86.4,
-      1410.7
-     ]
-    ]
-   },
-   "texte": "",
-   "source": "Plan vectoriel rdc-haut.dxf (calque A-ZONES-PROJET)"
-  },
-  {
-   "id": "p-reserve-rdc-haut",
-   "niveau": "rdc-haut",
-   "nom": "Réserve",
-   "categorie": "technique",
-   "forme": {
-    "type": "poly",
-    "points": [
-     [
-      1397.2,
-      1616.1
-     ],
-     [
-      1278.3,
-      1616.1
-     ],
-     [
-      1272.0,
-      1616.1
-     ],
-     [
-      1155.5,
-      1616.1
-     ],
-     [
-      1155.5,
-      1410.7
-     ],
-     [
-      1351.3,
-      1410.7
-     ],
-     [
-      1358.2,
-      1410.7
-     ],
-     [
-      1451.9,
-      1410.7
-     ],
-     [
-      1527.2,
-      1486.1
-     ]
-    ]
-   },
-   "texte": "",
-   "source": "Plan vectoriel rdc-haut.dxf (calque A-ZONES-PROJET)"
-  },
-  {
-   "id": "p-vestiaire-rdc-haut",
-   "niveau": "rdc-haut",
-   "nom": "Vestiaire",
-   "categorie": "sanitaires",
-   "forme": {
-    "type": "poly",
-    "points": [
-     [
-      1531.3,
-      1490.1
-     ],
-     [
-      1717.4,
-      1676.2
-     ],
-     [
-      1527.6,
-      1866.1
-     ],
-     [
-      1341.4,
-      1679.9
-     ],
-     [
-      1399.5,
-      1621.8
-     ],
-     [
-      1401.2,
-      1621.8
-     ],
-     [
-      1401.2,
-      1620.2
-     ]
-    ]
-   },
-   "texte": "",
-   "source": "Plan vectoriel rdc-haut.dxf (calque A-ZONES-PROJET)"
-  },
-  {
-   "id": "p-stockage-rdc-haut",
-   "niveau": "rdc-haut",
-   "nom": "Stockage",
-   "categorie": "technique",
-   "forme": {
-    "type": "poly",
-    "points": [
-     [
-      1762.9,
-      2009.2
-     ],
-     [
-      1670.7,
-      2009.2
-     ],
-     [
-      1531.6,
-      1870.1
-     ],
-     [
-      1721.4,
-      1680.3
-     ],
-     [
-      1906.6,
-      1865.5
-     ]
-    ]
-   },
-   "texte": "",
-   "source": "Plan vectoriel rdc-haut.dxf (calque A-ZONES-PROJET)"
-  },
-  {
-   "id": "p-restaurant-rdc-haut",
-   "niveau": "rdc-haut",
-   "nom": "Restaurant",
-   "categorie": "restauration",
-   "forme": {
-    "type": "poly",
-    "points": [
-     [
-      407.4,
-      1945.7
-     ],
-     [
-      407.4,
-      2046.7
-     ],
-     [
-      407.4,
-      2049.5
-     ],
-     [
-      407.4,
-      2052.4
-     ],
-     [
-      413.1,
-      2052.4
-     ],
-     [
-      678.9,
-      2052.4
-     ],
-     [
-      685.2,
-      2052.4
-     ],
-     [
-      1210.5,
-      2052.4
-     ],
-     [
-      1317.6,
-      2159.5
-     ],
-     [
-      1322.0,
-      2163.9
-     ],
-     [
-      1481.9,
-      2323.8
-     ],
-     [
-      1457.6,
-      2348.2
-     ],
-     [
-      1455.6,
-      2350.2
-     ],
-     [
-      1250.8,
-      2554.9
-     ],
-     [
-      1090.4,
-      2394.5
-     ],
-     [
-      1090.3,
-      2391.1
-     ],
-     [
-      1087.0,
-      2391.1
-     ],
-     [
-      1086.4,
-      2390.6
-     ],
-     [
-      1084.7,
-      2388.8
-     ],
-     [
-      1082.3,
-      2391.2
-     ],
-     [
-      783.4,
-      2392.7
-     ],
-     [
-      86.4,
-      2396.2
-     ],
-     [
-      86.4,
-      1839.6
-     ],
-     [
-      303.9,
-      1839.6
-     ],
-     [
-      303.9,
-      1940.0
-     ],
-     [
-      303.9,
-      1942.8
-     ],
-     [
-      303.9,
-      1945.7
-     ],
-     [
-      309.6,
-      1945.7
-     ]
-    ]
-   },
-   "texte": "",
-   "source": "Plan vectoriel rdc-haut.dxf (calque A-ZONES-PROJET)"
-  },
-  {
-   "id": "p-simulateur-de-golf-rdc-haut",
-   "niveau": "rdc-haut",
-   "nom": "Simulateur de golf",
-   "categorie": "sport",
-   "forme": {
-    "type": "poly",
-    "points": [
-     [
-      2073.4,
-      3377.6
-     ],
-     [
-      1810.4,
-      3114.5
-     ],
-     [
-      1805.9,
-      3110.0
-     ],
-     [
-      1640.4,
-      2944.5
-     ],
-     [
-      1870.6,
-      2714.4
-     ],
-     [
-      2368.4,
-      3212.2
-     ],
-     [
-      2207.2,
-      3373.4
-     ]
-    ]
-   },
-   "texte": "",
-   "source": "Plan vectoriel rdc-haut.dxf (calque A-ZONES-PROJET)"
-  },
-  {
-   "id": "p-wc-rdc-haut",
-   "niveau": "rdc-haut",
-   "nom": "WC",
-   "categorie": "sanitaires",
-   "forme": {
-    "type": "poly",
-    "points": [
-     [
-      2222.9,
-      2551.1
-     ],
-     [
-      2222.9,
-      2547.0
-     ],
-     [
-      2222.9,
-      2455.3
-     ],
-     [
-      2488.8,
-      2455.3
-     ],
-     [
-      2523.2,
-      2489.7
-     ],
-     [
-      2293.4,
-      2719.5
-     ],
-     [
-      2173.9,
-      2600.1
-     ],
-     [
-      2221.2,
-      2552.7
-     ],
-     [
-      2222.9,
-      2552.7
-     ]
-    ]
-   },
-   "texte": "",
-   "source": "Plan vectoriel rdc-haut.dxf (calque A-ZONES-PROJET)"
-  },
-  {
-   "id": "p-wc-rdc-haut-2",
-   "niveau": "rdc-haut",
-   "nom": "WC",
-   "categorie": "sanitaires",
-   "forme": {
-    "type": "poly",
-    "points": [
-     [
-      2437.8,
-      2864.0
-     ],
-     [
-      2297.4,
-      2723.6
-     ],
-     [
-      2527.3,
-      2493.7
-     ],
-     [
-      2667.7,
-      2634.1
-     ]
-    ]
-   },
-   "texte": "",
-   "source": "Plan vectoriel rdc-haut.dxf (calque A-ZONES-PROJET)"
-  },
-  {
-   "id": "p-pop-up-vetement-rdc-haut",
-   "niveau": "rdc-haut",
-   "nom": "Pop up vêtement",
-   "categorie": "culture",
-   "forme": {
-    "type": "poly",
-    "points": [
-     [
-      2924.7,
-      3350.8
-     ],
-     [
-      2634.2,
-      3060.3
-     ],
-     [
-      2629.7,
-      3055.8
-     ],
-     [
-      2441.9,
-      2868.0
-     ],
-     [
-      2671.7,
-      2638.2
-     ],
-     [
-      2859.5,
-      2826.0
-     ],
-     [
-      2864.0,
-      2830.5
-     ],
-     [
-      3370.4,
-      3336.8
-     ]
-    ]
-   },
-   "texte": "",
-   "source": "Plan vectoriel rdc-haut.dxf (calque A-ZONES-PROJET)"
-  },
-  {
-   "id": "p-terrasse-rdc-haut",
-   "niveau": "rdc-haut",
-   "nom": "Terrasse",
-   "categorie": "restauration",
-   "forme": {
-    "type": "poly",
-    "points": [
-     [
-      86.4,
-      3342.3
-     ],
-     [
-      86.4,
-      2407.6
-     ],
-     [
-      501.1,
-      2405.5
-     ],
-     [
-      501.1,
-      2906.8
-     ],
-     [
-      1131.5,
-      2906.8
-     ],
-     [
-      1359.0,
-      2679.3
-     ],
-     [
-      1624.3,
-      2944.5
-     ],
-     [
-      1632.3,
-      2952.6
-     ],
-     [
-      1657.3,
-      2977.6
-     ],
-     [
-      1256.0,
-      3378.9
-     ]
-    ]
-   },
-   "texte": "",
-   "source": "Plan vectoriel rdc-haut.dxf (calque A-ZONES-PROJET)"
-  },
-  {
-   "id": "p-hall-d-expo-rdc-haut",
-   "niveau": "rdc-haut",
-   "nom": "Hall d'expo",
-   "categorie": "circulation",
-   "forme": {
-    "type": "poly",
-    "points": [
-     [
-      2655.0,
-      2442.5
-     ],
-     [
-      2655.0,
-      2097.5
-     ],
-     [
-      2945.0,
-      2097.5
-     ],
-     [
-      2945.0,
-      2442.5
-     ]
-    ]
-   },
-   "texte": "",
-   "source": "Plan vectoriel rdc-haut.dxf (calque A-ZONES-PROJET)"
-  },
-  {
-   "id": "p-circulation-residents-rdc-haut",
-   "niveau": "rdc-haut",
-   "nom": "Circulation résidents",
-   "categorie": "circulation",
-   "forme": {
-    "type": "poly",
-    "points": [
-     [
-      2680.0,
-      2085.0
-     ],
-     [
-      2680.0,
-      1922.5
-     ],
-     [
-      2640.0,
-      1922.5
-     ],
-     [
-      2640.0,
-      1827.5
-     ],
-     [
-      2840.0,
-      1827.5
-     ],
-     [
-      2965.0,
-      1872.5
-     ],
-     [
-      2970.0,
-      1957.5
-     ],
-     [
-      2965.0,
-      2042.5
-     ],
-     [
-      2840.0,
-      2085.0
-     ]
-    ]
-   },
-   "texte": "",
-   "source": "Plan vectoriel rdc-haut.dxf (calque A-ZONES-PROJET)"
-  },
   {
    "id": "p-studio-musique-rdc-bas",
    "niveau": "rdc-bas",
@@ -26055,6 +25285,778 @@
    },
    "texte": "",
    "source": "Plan vectoriel rdc-bas.dxf (calque A-ZONES-PROJET)"
+  },
+  {
+   "id": "p-cuisine-rdc-haut",
+   "niveau": "rdc-haut",
+   "nom": "Cuisine",
+   "categorie": "restauration",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      472.5,
+      1410.7
+     ],
+     [
+      478.9,
+      1410.7
+     ],
+     [
+      742.4,
+      1410.7
+     ],
+     [
+      748.7,
+      1410.7
+     ],
+     [
+      946.2,
+      1410.7
+     ],
+     [
+      952.6,
+      1410.7
+     ],
+     [
+      1149.7,
+      1410.7
+     ],
+     [
+      1149.7,
+      1616.1
+     ],
+     [
+      952.6,
+      1616.1
+     ],
+     [
+      946.2,
+      1616.1
+     ],
+     [
+      748.7,
+      1616.1
+     ],
+     [
+      748.4,
+      1616.1
+     ],
+     [
+      748.4,
+      1614.9
+     ],
+     [
+      748.4,
+      1612.0
+     ],
+     [
+      742.7,
+      1612.0
+     ],
+     [
+      742.7,
+      1616.1
+     ],
+     [
+      742.7,
+      1618.1
+     ],
+     [
+      742.7,
+      1621.8
+     ],
+     [
+      742.7,
+      1672.6
+     ],
+     [
+      742.7,
+      1672.8
+     ],
+     [
+      742.7,
+      1676.0
+     ],
+     [
+      742.7,
+      1678.4
+     ],
+     [
+      742.7,
+      1678.8
+     ],
+     [
+      748.4,
+      1678.8
+     ],
+     [
+      748.4,
+      1678.4
+     ],
+     [
+      748.7,
+      1678.4
+     ],
+     [
+      1029.1,
+      1678.4
+     ],
+     [
+      1029.1,
+      1760.9
+     ],
+     [
+      748.7,
+      1760.9
+     ],
+     [
+      742.4,
+      1760.9
+     ],
+     [
+      478.5,
+      1760.9
+     ],
+     [
+      478.5,
+      1632.0
+     ],
+     [
+      478.5,
+      1626.3
+     ],
+     [
+      478.5,
+      1625.7
+     ],
+     [
+      478.5,
+      1622.5
+     ],
+     [
+      478.5,
+      1619.7
+     ],
+     [
+      472.8,
+      1619.7
+     ],
+     [
+      472.8,
+      1625.7
+     ],
+     [
+      472.8,
+      1626.3
+     ],
+     [
+      413.1,
+      1626.3
+     ],
+     [
+      413.0,
+      1626.3
+     ],
+     [
+      409.9,
+      1626.3
+     ],
+     [
+      407.4,
+      1626.3
+     ],
+     [
+      407.0,
+      1626.3
+     ],
+     [
+      407.0,
+      1632.0
+     ],
+     [
+      407.4,
+      1632.0
+     ],
+     [
+      407.4,
+      1632.3
+     ],
+     [
+      407.4,
+      1833.9
+     ],
+     [
+      309.6,
+      1833.9
+     ],
+     [
+      303.9,
+      1833.9
+     ],
+     [
+      86.4,
+      1833.9
+     ],
+     [
+      86.4,
+      1632.3
+     ],
+     [
+      86.4,
+      1626.0
+     ],
+     [
+      86.4,
+      1410.7
+     ]
+    ]
+   },
+   "texte": "",
+   "source": "Plan vectoriel rdc-haut.dxf (calque A-ZONES-PROJET)"
+  },
+  {
+   "id": "p-reserve-rdc-haut",
+   "niveau": "rdc-haut",
+   "nom": "Réserve",
+   "categorie": "technique",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      1397.2,
+      1616.1
+     ],
+     [
+      1278.3,
+      1616.1
+     ],
+     [
+      1272.0,
+      1616.1
+     ],
+     [
+      1155.5,
+      1616.1
+     ],
+     [
+      1155.5,
+      1410.7
+     ],
+     [
+      1351.3,
+      1410.7
+     ],
+     [
+      1358.2,
+      1410.7
+     ],
+     [
+      1451.9,
+      1410.7
+     ],
+     [
+      1527.2,
+      1486.1
+     ]
+    ]
+   },
+   "texte": "",
+   "source": "Plan vectoriel rdc-haut.dxf (calque A-ZONES-PROJET)"
+  },
+  {
+   "id": "p-vestiaire-rdc-haut",
+   "niveau": "rdc-haut",
+   "nom": "Vestiaire",
+   "categorie": "sanitaires",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      1531.3,
+      1490.1
+     ],
+     [
+      1717.4,
+      1676.2
+     ],
+     [
+      1527.6,
+      1866.1
+     ],
+     [
+      1341.4,
+      1679.9
+     ],
+     [
+      1399.5,
+      1621.8
+     ],
+     [
+      1401.2,
+      1621.8
+     ],
+     [
+      1401.2,
+      1620.2
+     ]
+    ]
+   },
+   "texte": "",
+   "source": "Plan vectoriel rdc-haut.dxf (calque A-ZONES-PROJET)"
+  },
+  {
+   "id": "p-stockage-rdc-haut",
+   "niveau": "rdc-haut",
+   "nom": "Stockage",
+   "categorie": "technique",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      1762.9,
+      2009.2
+     ],
+     [
+      1670.7,
+      2009.2
+     ],
+     [
+      1531.6,
+      1870.1
+     ],
+     [
+      1721.4,
+      1680.3
+     ],
+     [
+      1906.6,
+      1865.5
+     ]
+    ]
+   },
+   "texte": "",
+   "source": "Plan vectoriel rdc-haut.dxf (calque A-ZONES-PROJET)"
+  },
+  {
+   "id": "p-restaurant-rdc-haut",
+   "niveau": "rdc-haut",
+   "nom": "Restaurant",
+   "categorie": "restauration",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      407.4,
+      1945.7
+     ],
+     [
+      407.4,
+      2046.7
+     ],
+     [
+      407.4,
+      2049.5
+     ],
+     [
+      407.4,
+      2052.4
+     ],
+     [
+      413.1,
+      2052.4
+     ],
+     [
+      678.9,
+      2052.4
+     ],
+     [
+      685.2,
+      2052.4
+     ],
+     [
+      1210.5,
+      2052.4
+     ],
+     [
+      1317.6,
+      2159.5
+     ],
+     [
+      1322.0,
+      2163.9
+     ],
+     [
+      1481.9,
+      2323.8
+     ],
+     [
+      1457.6,
+      2348.2
+     ],
+     [
+      1455.6,
+      2350.2
+     ],
+     [
+      1250.8,
+      2554.9
+     ],
+     [
+      1090.4,
+      2394.5
+     ],
+     [
+      1090.3,
+      2391.1
+     ],
+     [
+      1087.0,
+      2391.1
+     ],
+     [
+      1086.4,
+      2390.6
+     ],
+     [
+      1084.7,
+      2388.8
+     ],
+     [
+      1082.3,
+      2391.2
+     ],
+     [
+      783.4,
+      2392.7
+     ],
+     [
+      86.4,
+      2396.2
+     ],
+     [
+      86.4,
+      1839.6
+     ],
+     [
+      303.9,
+      1839.6
+     ],
+     [
+      303.9,
+      1940.0
+     ],
+     [
+      303.9,
+      1942.8
+     ],
+     [
+      303.9,
+      1945.7
+     ],
+     [
+      309.6,
+      1945.7
+     ]
+    ]
+   },
+   "texte": "",
+   "source": "Plan vectoriel rdc-haut.dxf (calque A-ZONES-PROJET)"
+  },
+  {
+   "id": "p-simulateur-de-golf-rdc-haut",
+   "niveau": "rdc-haut",
+   "nom": "Simulateur de golf",
+   "categorie": "sport",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      2073.4,
+      3377.6
+     ],
+     [
+      1810.4,
+      3114.5
+     ],
+     [
+      1805.9,
+      3110.0
+     ],
+     [
+      1640.4,
+      2944.5
+     ],
+     [
+      1870.6,
+      2714.4
+     ],
+     [
+      2368.4,
+      3212.2
+     ],
+     [
+      2207.2,
+      3373.4
+     ]
+    ]
+   },
+   "texte": "",
+   "source": "Plan vectoriel rdc-haut.dxf (calque A-ZONES-PROJET)"
+  },
+  {
+   "id": "p-wc-rdc-haut",
+   "niveau": "rdc-haut",
+   "nom": "WC",
+   "categorie": "sanitaires",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      2222.9,
+      2551.1
+     ],
+     [
+      2222.9,
+      2547.0
+     ],
+     [
+      2222.9,
+      2455.3
+     ],
+     [
+      2488.8,
+      2455.3
+     ],
+     [
+      2523.2,
+      2489.7
+     ],
+     [
+      2293.4,
+      2719.5
+     ],
+     [
+      2173.9,
+      2600.1
+     ],
+     [
+      2221.2,
+      2552.7
+     ],
+     [
+      2222.9,
+      2552.7
+     ]
+    ]
+   },
+   "texte": "",
+   "source": "Plan vectoriel rdc-haut.dxf (calque A-ZONES-PROJET)"
+  },
+  {
+   "id": "p-wc-rdc-haut-2",
+   "niveau": "rdc-haut",
+   "nom": "WC",
+   "categorie": "sanitaires",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      2437.8,
+      2864.0
+     ],
+     [
+      2297.4,
+      2723.6
+     ],
+     [
+      2527.3,
+      2493.7
+     ],
+     [
+      2667.7,
+      2634.1
+     ]
+    ]
+   },
+   "texte": "",
+   "source": "Plan vectoriel rdc-haut.dxf (calque A-ZONES-PROJET)"
+  },
+  {
+   "id": "p-pop-up-vetement-rdc-haut",
+   "niveau": "rdc-haut",
+   "nom": "Pop up vêtement",
+   "categorie": "culture",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      2924.7,
+      3350.8
+     ],
+     [
+      2634.2,
+      3060.3
+     ],
+     [
+      2629.7,
+      3055.8
+     ],
+     [
+      2441.9,
+      2868.0
+     ],
+     [
+      2671.7,
+      2638.2
+     ],
+     [
+      2859.5,
+      2826.0
+     ],
+     [
+      2864.0,
+      2830.5
+     ],
+     [
+      3370.4,
+      3336.8
+     ]
+    ]
+   },
+   "texte": "",
+   "source": "Plan vectoriel rdc-haut.dxf (calque A-ZONES-PROJET)"
+  },
+  {
+   "id": "p-terrasse-rdc-haut",
+   "niveau": "rdc-haut",
+   "nom": "Terrasse",
+   "categorie": "restauration",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      86.4,
+      3342.3
+     ],
+     [
+      86.4,
+      2407.6
+     ],
+     [
+      501.1,
+      2405.5
+     ],
+     [
+      501.1,
+      2906.8
+     ],
+     [
+      1131.5,
+      2906.8
+     ],
+     [
+      1359.0,
+      2679.3
+     ],
+     [
+      1624.3,
+      2944.5
+     ],
+     [
+      1632.3,
+      2952.6
+     ],
+     [
+      1657.3,
+      2977.6
+     ],
+     [
+      1256.0,
+      3378.9
+     ]
+    ]
+   },
+   "texte": "",
+   "source": "Plan vectoriel rdc-haut.dxf (calque A-ZONES-PROJET)"
+  },
+  {
+   "id": "p-hall-d-expo-rdc-haut",
+   "niveau": "rdc-haut",
+   "nom": "Hall d'expo",
+   "categorie": "circulation",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      2655.0,
+      2442.5
+     ],
+     [
+      2655.0,
+      2097.5
+     ],
+     [
+      2945.0,
+      2097.5
+     ],
+     [
+      2945.0,
+      2442.5
+     ]
+    ]
+   },
+   "texte": "",
+   "source": "Plan vectoriel rdc-haut.dxf (calque A-ZONES-PROJET)"
+  },
+  {
+   "id": "p-circulation-residents-rdc-haut",
+   "niveau": "rdc-haut",
+   "nom": "Circulation résidents",
+   "categorie": "circulation",
+   "forme": {
+    "type": "poly",
+    "points": [
+     [
+      2680.0,
+      2085.0
+     ],
+     [
+      2680.0,
+      1922.5
+     ],
+     [
+      2640.0,
+      1922.5
+     ],
+     [
+      2640.0,
+      1827.5
+     ],
+     [
+      2840.0,
+      1827.5
+     ],
+     [
+      2965.0,
+      1872.5
+     ],
+     [
+      2970.0,
+      1957.5
+     ],
+     [
+      2965.0,
+      2042.5
+     ],
+     [
+      2840.0,
+      2085.0
+     ]
+    ]
+   },
+   "texte": "",
+   "source": "Plan vectoriel rdc-haut.dxf (calque A-ZONES-PROJET)"
   }
  ]
 }
