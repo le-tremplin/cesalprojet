@@ -123,6 +123,31 @@ def main():
         ajouter(f"futur-realiste--{cle}", locaux, "futur", f"{lisible(cle)} : rendu réaliste (projet)")
     for f, locaux, cat, leg in GENERAL:
         ajouter(f, locaux, cat, leg)
+    # --- terrasses et toiture : vues aériennes (elles montrent les toitures et la terrasse du restaurant) et plans
+    toit = [l["id"] for l in D["locaux"] if l["niveau"] == "terrasse"]
+    for f, leg in [("futur-general--plan-toit", "Plan de toiture (projet)"),
+                   ("futur-general--vue-aerienne-nord-ouest", "Vue aérienne nord-ouest : toitures (projet)"),
+                   ("futur-general--vue-aerienne-sud-est", "Vue aérienne sud-est : toitures (projet)")]:
+        ajouter(f, toit, "futur" if "vue" in f else "autres", leg)
+    ext = [i for i in ("terrasse-accessible", "patio", "zone-plantee-rdc-haut", "tremie-verriere-rdc-haut", "patio-bas") if i in IDS]
+    for f, leg in [("futur-general--vue-aerienne-sud-est", "Vue aérienne sud-est : terrasse du restaurant et patio (projet)"),
+                   ("futur-general--vue-aerienne-nord-ouest", "Vue aérienne nord-ouest (projet)")]:
+        ajouter(f, ext, "futur", leg)
+    # --- tout local encore sans image : plan du projet de son niveau (et vue générale du niveau quand elle existe)
+    PLAN = {"rdc-haut": ("futur-general--plan-rdch", "futur-general--interieur-rdch"), "rdc-bas": ("futur-general--plan-rdcb", "futur-general--interieur-rdcb"),
+            "r1": ("futur-general--plan-e1", "futur-general--interieur-etage1"), "r2": ("futur-general--plan-e1", None),
+            "r3": ("futur-general--plan-e1", None), "r4": ("futur-general--plan-e4", None),
+            "sous-sol": ("futur-general--plan-ss", "futur-realiste--parking"), "terrasse": ("futur-general--plan-toit", None),
+            "site": ("futur-general--vue-aerienne-sud-est", None)}
+    for l in D["locaux"]:
+        if l["id"] in out or l["niveau"] not in PLAN:
+            continue
+        plan, vue = PLAN[l["niveau"]]
+        ajouter(plan, [l["id"]], "autres" if "plan" in plan else "futur", "Plan du niveau (projet)" if "plan" in plan else "Vue d'ensemble (projet)")
+        if vue:
+            ajouter(vue, [l["id"]], "futur", "Vue d'ensemble du niveau (projet)")
+    sans_photo = [l["id"] for l in D["locaux"] if l["id"] not in out]
+    print("locaux sans aucune image :", len(sans_photo), sans_photo[:10])
     (RACINE / "data" / "photos.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
     utilises = {p["fichier"] for v in out.values() for p in v}
     sans = sorted(dispo - {Path(u).stem for u in utilises})

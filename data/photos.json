@@ -3453,6 +3453,18 @@
    "categorie": "futur",
    "legende": "Street workout : rendu réaliste (projet)",
    "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-sud-est.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne sud-est : terrasse du restaurant et patio (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-nord-ouest.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne nord-ouest (projet)",
+   "date_prise": null
   }
  ],
  "foyer": [
@@ -3534,6 +3546,3576 @@
    "fichier": "photos/futur-general--plan-rdcb.webp",
    "categorie": "autres",
    "legende": "Plan du RDC bas (projet)",
+   "date_prise": null
+  }
+ ],
+ "chaufferie": [
+  {
+   "fichier": "photos/futur-general--plan-toit.webp",
+   "categorie": "autres",
+   "legende": "Plan de toiture (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-nord-ouest.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne nord-ouest : toitures (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-sud-est.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne sud-est : toitures (projet)",
+   "date_prise": null
+  }
+ ],
+ "sortie-ventilation-g3-terrasse": [
+  {
+   "fichier": "photos/futur-general--plan-toit.webp",
+   "categorie": "autres",
+   "legende": "Plan de toiture (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-nord-ouest.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne nord-ouest : toitures (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-sud-est.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne sud-est : toitures (projet)",
+   "date_prise": null
+  }
+ ],
+ "trappe-gaine-g4-terrasse": [
+  {
+   "fichier": "photos/futur-general--plan-toit.webp",
+   "categorie": "autres",
+   "legende": "Plan de toiture (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-nord-ouest.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne nord-ouest : toitures (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-sud-est.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne sud-est : toitures (projet)",
+   "date_prise": null
+  }
+ ],
+ "debouche-vide-ordures-terrasse": [
+  {
+   "fichier": "photos/futur-general--plan-toit.webp",
+   "categorie": "autres",
+   "legende": "Plan de toiture (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-nord-ouest.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne nord-ouest : toitures (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-sud-est.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne sud-est : toitures (projet)",
+   "date_prise": null
+  }
+ ],
+ "machinerie-ascenseur-terrasse": [
+  {
+   "fichier": "photos/futur-general--plan-toit.webp",
+   "categorie": "autres",
+   "legende": "Plan de toiture (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-nord-ouest.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne nord-ouest : toitures (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-sud-est.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne sud-est : toitures (projet)",
+   "date_prise": null
+  }
+ ],
+ "toiture-terrasse-ouest-axes-1-a-8-terrasse": [
+  {
+   "fichier": "photos/futur-general--plan-toit.webp",
+   "categorie": "autres",
+   "legende": "Plan de toiture (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-nord-ouest.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne nord-ouest : toitures (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-sud-est.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne sud-est : toitures (projet)",
+   "date_prise": null
+  }
+ ],
+ "toiture-terrasse-centrale-axes-9-a-19-terrasse": [
+  {
+   "fichier": "photos/futur-general--plan-toit.webp",
+   "categorie": "autres",
+   "legende": "Plan de toiture (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-nord-ouest.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne nord-ouest : toitures (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-sud-est.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne sud-est : toitures (projet)",
+   "date_prise": null
+  }
+ ],
+ "toiture-terrasse-est-et-aile-axes-20-a-28-terrasse": [
+  {
+   "fichier": "photos/futur-general--plan-toit.webp",
+   "categorie": "autres",
+   "legende": "Plan de toiture (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-nord-ouest.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne nord-ouest : toitures (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-sud-est.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne sud-est : toitures (projet)",
+   "date_prise": null
+  }
+ ],
+ "edicule-escalier-sud-ouest-acces-terrasse-main-courante-inox-terrasse": [
+  {
+   "fichier": "photos/futur-general--plan-toit.webp",
+   "categorie": "autres",
+   "legende": "Plan de toiture (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-nord-ouest.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne nord-ouest : toitures (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-sud-est.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne sud-est : toitures (projet)",
+   "date_prise": null
+  }
+ ],
+ "edicule-escalier-nord-porte-grillagee-au-4e-etage-terrasse": [
+  {
+   "fichier": "photos/futur-general--plan-toit.webp",
+   "categorie": "autres",
+   "legende": "Plan de toiture (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-nord-ouest.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne nord-ouest : toitures (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-sud-est.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne sud-est : toitures (projet)",
+   "date_prise": null
+  }
+ ],
+ "edicule-escalier-sud-est-terrasse": [
+  {
+   "fichier": "photos/futur-general--plan-toit.webp",
+   "categorie": "autres",
+   "legende": "Plan de toiture (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-nord-ouest.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne nord-ouest : toitures (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-sud-est.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne sud-est : toitures (projet)",
+   "date_prise": null
+  }
+ ],
+ "terrasse-accessible": [
+  {
+   "fichier": "photos/futur-general--vue-aerienne-sud-est.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne sud-est : terrasse du restaurant et patio (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-nord-ouest.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne nord-ouest (projet)",
+   "date_prise": null
+  }
+ ],
+ "patio": [
+  {
+   "fichier": "photos/futur-general--vue-aerienne-sud-est.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne sud-est : terrasse du restaurant et patio (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-nord-ouest.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne nord-ouest (projet)",
+   "date_prise": null
+  }
+ ],
+ "zone-plantee-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--vue-aerienne-sud-est.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne sud-est : terrasse du restaurant et patio (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-nord-ouest.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne nord-ouest (projet)",
+   "date_prise": null
+  }
+ ],
+ "tremie-verriere-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--vue-aerienne-sud-est.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne sud-est : terrasse du restaurant et patio (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--vue-aerienne-nord-ouest.webp",
+   "categorie": "futur",
+   "legende": "Vue aérienne nord-ouest (projet)",
+   "date_prise": null
+  }
+ ],
+ "tgbt": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "cuisine": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "vanne-gaz": [
+  {
+   "fichier": "photos/futur-general--vue-aerienne-sud-est.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble (projet)",
+   "date_prise": null
+  }
+ ],
+ "regards": [
+  {
+   "fichier": "photos/futur-general--vue-aerienne-sud-est.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble (projet)",
+   "date_prise": null
+  }
+ ],
+ "transfo": [
+  {
+   "fichier": "photos/futur-general--vue-aerienne-sud-est.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble (projet)",
+   "date_prise": null
+  }
+ ],
+ "entree-parking": [
+  {
+   "fichier": "photos/futur-general--vue-aerienne-sud-est.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-vmc-1": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-vmc-2": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "entree-hebergement": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-ecs": [
+  {
+   "fichier": "photos/futur-general--plan-rdcb.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdcb.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "machinerie": [
+  {
+   "fichier": "photos/futur-general--plan-rdcb.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdcb.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-techn-3": [
+  {
+   "fichier": "photos/futur-general--plan-rdcb.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdcb.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-techn-4": [
+  {
+   "fichier": "photos/futur-general--plan-rdcb.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdcb.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-techn-5": [
+  {
+   "fichier": "photos/futur-general--plan-rdcb.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdcb.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-techn-6": [
+  {
+   "fichier": "photos/futur-general--plan-rdcb.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdcb.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-r1": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-etage1.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-ouest-r1": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-etage1.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-est-r1": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-etage1.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "ascenseur-r1": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-etage1.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-r2": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-ouest-r2": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-est-r2": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "ascenseur-r2": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-r3": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-ouest-r3": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-est-r3": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "ascenseur-r3": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-r4": [
+  {
+   "fichier": "photos/futur-general--plan-e4.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-ouest-r4": [
+  {
+   "fichier": "photos/futur-general--plan-e4.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-est-r4": [
+  {
+   "fichier": "photos/futur-general--plan-e4.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "ascenseur-r4": [
+  {
+   "fichier": "photos/futur-general--plan-e4.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-rdc-bas": [
+  {
+   "fichier": "photos/futur-general--plan-rdcb.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdcb.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "wc-pmr-rdc-bas": [
+  {
+   "fichier": "photos/futur-general--plan-rdcb.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdcb.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "annexe-rdc-bas": [
+  {
+   "fichier": "photos/futur-general--plan-rdcb.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdcb.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-de-rangement-rdc-bas": [
+  {
+   "fichier": "photos/futur-general--plan-rdcb.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdcb.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-rdc-bas-2": [
+  {
+   "fichier": "photos/futur-general--plan-rdcb.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdcb.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-rdc-bas": [
+  {
+   "fichier": "photos/futur-general--plan-rdcb.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdcb.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "reserve-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "reprographie-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "vestiaire-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "stockage-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-poubelles-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "wc-pmr-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "hall-d-expo-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "reserves-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "wc-pmr-ascenseur-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "circulation-rdc-haut-2": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "sanit-vest-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "bureau-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "sanitaires-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "ascenseur-gaines-office-r2": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaines-r2": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "vide-ordures-r2": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-r2": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "ascenseur-gaines-office-r3": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaines-r3": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "vide-ordures-r3": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-r3": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "ascenseur-gaines-office-r4": [
+  {
+   "fichier": "photos/futur-general--plan-e4.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "couloir-r4": [
+  {
+   "fichier": "photos/futur-general--plan-e4.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaines-r4": [
+  {
+   "fichier": "photos/futur-general--plan-e4.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "vide-ordures-r4": [
+  {
+   "fichier": "photos/futur-general--plan-e4.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-r4": [
+  {
+   "fichier": "photos/futur-general--plan-e4.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "office-r1": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-etage1.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "couloir-r1": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-etage1.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-r1": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-etage1.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-g1-r1": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-etage1.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-g2-r1": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-etage1.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-g3-r1": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-etage1.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-g4-r1": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-etage1.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-g5-r1": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-etage1.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "vide-ordures-r1": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-etage1.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "ascenseur-nord-r1": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-etage1.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-g1-r2": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-g2-r2": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-g3-r2": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-g4-r2": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "ascenseur-nord-r2": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-g1-r3": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-g2-r3": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-g3-r3": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-g4-r3": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "ascenseur-nord-r3": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-g1-r4": [
+  {
+   "fichier": "photos/futur-general--plan-e4.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-g2-r4": [
+  {
+   "fichier": "photos/futur-general--plan-e4.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-g3-r4": [
+  {
+   "fichier": "photos/futur-general--plan-e4.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-g4-r4": [
+  {
+   "fichier": "photos/futur-general--plan-e4.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "ascenseur-nord-r4": [
+  {
+   "fichier": "photos/futur-general--plan-e4.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "sas-ouest-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "sas-est-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-poubelles-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-vh-2-9-m-air-frais-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-vb-1-3-m-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-vb-hachuree-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-vb-3-2-m-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-vb-1-8-m-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-vh-4-6-m-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-vb-1-2-m-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-a01-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-a02-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-a03-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-a04-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-a05-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-a06-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-a07-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-a08-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-a09-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-a10-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-b01-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-b02-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-b03-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-b04-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-b05-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-b06-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-b07-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-c01-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-c02-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-c03-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-c04-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-c05-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-c06-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-c07-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-c08-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-c09-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-c10-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-d01-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-d02-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-d03-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-d04-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-d05-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-d06-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-d07-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-d08-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-n-d09-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-a01-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-a02-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-a03-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-a04-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-a05-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-a06-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-a07-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-a08-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-a09-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-a10-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-a11-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-a12-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-a13-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-a14-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-a15-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-a16-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-a17-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-a18-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-b01-pmr-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-b02-pmr-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-b03-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-b04-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-b05-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-b06-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-b07-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-b08-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-b09-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-b10-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-b11-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-b12-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-b13-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-b14-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-b15-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-b16-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-b17-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-b18-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-b19-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-c01-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-c02-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-c03-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-c04-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-c05-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-c06-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-c07-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-c08-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-c09-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-c10-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-c11-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-c12-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-c13-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-c14-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-c15-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "place-p-c16-pmr-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "rampe-de-sortie-vers-la-rue-0-00-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "rampe-d-entree-depuis-la-rue-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "rampe-interieure-2-80-2-20-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-central-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-de-secours-ouest-sortie-a-1-00-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-de-secours-est-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-nord-est-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "reserve-cuisine-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "bar-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "rangement-mobilier-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "sanitaires-pmr-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "degagement-de-service-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-a-identifier-1-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-a-identifier-2-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-a-identifier-3-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-a-identifier-4-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-a-identifier-5-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-a-identifier-6-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-a-identifier-7-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-a-identifier-8-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-a-identifier-9-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-rdc-haut-2": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-rdc-haut-3": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-rdc-haut-4": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-rdc-haut-5": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-rdc-haut-6": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-a-identifier-1-rdc-bas": [
+  {
+   "fichier": "photos/futur-general--plan-rdcb.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdcb.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-a-identifier-2-rdc-bas": [
+  {
+   "fichier": "photos/futur-general--plan-rdcb.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdcb.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-a-identifier-3-rdc-bas": [
+  {
+   "fichier": "photos/futur-general--plan-rdcb.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdcb.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-rdc-bas-3": [
+  {
+   "fichier": "photos/futur-general--plan-rdcb.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdcb.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-rdc-bas-4": [
+  {
+   "fichier": "photos/futur-general--plan-rdcb.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdcb.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-rdc-bas-5": [
+  {
+   "fichier": "photos/futur-general--plan-rdcb.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdcb.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-rdc-bas-6": [
+  {
+   "fichier": "photos/futur-general--plan-rdcb.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdcb.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-rdc-bas-7": [
+  {
+   "fichier": "photos/futur-general--plan-rdcb.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdcb.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-a-identifier-1-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "local-a-identifier-2-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "ascenseur-sous-sol": [
+  {
+   "fichier": "photos/futur-general--plan-ss.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-realiste--parking.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "degagement-escalier-sud-ouest-r1": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-etage1.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "degagement-escalier-sud-ouest-r2": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "degagement-escalier-sud-ouest-r3": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "degagement-escalier-sud-ouest-r4": [
+  {
+   "fichier": "photos/futur-general--plan-e4.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "escalier-principal-demi-tournant-balance-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s1-r1": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-etage1.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s2-r1": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-etage1.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s3-r1": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-etage1.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s4-r1": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-etage1.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s5-r1": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-etage1.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s6-r1": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-etage1.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s7-r1": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-etage1.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s8-r1": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-etage1.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s9-r1": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-etage1.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s1-r2": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s2-r2": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s3-r2": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s4-r2": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s5-r2": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s6-r2": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s7-r2": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s8-r2": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s9-r2": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s1-r3": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s2-r3": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s3-r3": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s4-r3": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s5-r3": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s6-r3": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s7-r3": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s8-r3": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s9-r3": [
+  {
+   "fichier": "photos/futur-general--plan-e1.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s1-r4": [
+  {
+   "fichier": "photos/futur-general--plan-e4.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s2-r4": [
+  {
+   "fichier": "photos/futur-general--plan-e4.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s3-r4": [
+  {
+   "fichier": "photos/futur-general--plan-e4.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s4-r4": [
+  {
+   "fichier": "photos/futur-general--plan-e4.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s5-r4": [
+  {
+   "fichier": "photos/futur-general--plan-e4.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s6-r4": [
+  {
+   "fichier": "photos/futur-general--plan-e4.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s7-r4": [
+  {
+   "fichier": "photos/futur-general--plan-e4.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s8-r4": [
+  {
+   "fichier": "photos/futur-general--plan-e4.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "gaine-s9-r4": [
+  {
+   "fichier": "photos/futur-general--plan-e4.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  }
+ ],
+ "bar-du-restaurant-rdc-haut": [
+  {
+   "fichier": "photos/futur-general--plan-rdch.webp",
+   "categorie": "autres",
+   "legende": "Plan du niveau (projet)",
+   "date_prise": null
+  },
+  {
+   "fichier": "photos/futur-general--interieur-rdch.webp",
+   "categorie": "futur",
+   "legende": "Vue d'ensemble du niveau (projet)",
    "date_prise": null
   }
  ]
