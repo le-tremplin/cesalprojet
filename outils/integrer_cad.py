@@ -163,7 +163,9 @@ def integrer(nid, d):
     pris = set()
     for l in locaux:
         s = salles.get(l.get("salleCad") or "")
-        if s:
+        if s and l.get("contour_fixe"):
+            pris.add(l["salleCad"])          # contour corrigé à la main (outils/contours_manuels.py)
+        elif s:
             l["forme"] = forme_de(s)
             if s.get("surface") and not l.get("surface"):
                 l["surface"] = s["surface"]

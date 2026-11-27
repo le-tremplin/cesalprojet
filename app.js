@@ -52,11 +52,18 @@ const PALETTE = [
   ["golf", "Golf, cinéma", "#8aa1b1", /golf|cinéma|amphi/i],
   ["musique", "Musique", "#d18bb0", /musique/i],
   ["art", "Ateliers d'art", "#e4b363", /atelier|art\b|pop.?up/i],
-  ["fetes", "Salle des fêtes", "#f0a37a", /salle polyvalente|bar\b|scène/i],
-  ["cuisine", "Cuisines, restauration", "#e98c6a", /cuisine|restaurant|cafét|réserve cuisine|terrasse$|^terrasse/i],
+  ["fetes", "Salle des fêtes", "#c39bd3", /salle polyvalente|salle des fêtes|scène/i],
+  ["bar", "Bar", "#e8b4c4", /^bar\b/i],
+  ["cuisine", "Cuisines", "#de7f62", /cuisine/i],
+  ["restaurant", "Restaurant", "#f0a37a", /restaurant/i],
+  ["cafeteria", "Cafétéria", "#f3c47c", /cafét/i],
+  ["terrasse", "Terrasses", "#cdb68c", /^terrasse/i],
   ["sanitaire", "Sanitaires", "#7fcbcf", /wc|sanitaire|salle d.eau|vestiaire/i],
   ["stockage", "Stockage, archives", "#e8cf86", /stockage|archive|réserve|rangement|ménage|poubelle|office/i],
-  ["accueil", "Accueil, exposition", "#9cc7e3", /accueil|hall|expo|entrée|reprographie/i],
+  ["expo", "Exposition", "#a9cfb4", /expo/i],
+  ["entree", "Entrées", "#9fd4d6", /^entrée|accès hébergement/i],
+  ["accueil", "Accueil", "#8dbbe0", /accueil|hall|reprographie/i],
+  ["residents", "Circulation résidents", "#c3cbe8", /circulation résidents/i],
   ["logement", "Logements", "#f2b98c", /^logement/i],
   ["chambre", "Chambres", "#f6d3b3", /^ch\.|chambre/i],
   ["place", "Stationnement", "#bcd0e2", /^place|parking/i],
@@ -358,7 +365,7 @@ function dessiner() {
       g.style.transform = "scale(var(--inv))";
       svg("circle", { cx: l.forme.x, cy: l.forme.y, r: 26, class: "halo", fill: col }, g);
       svg("circle", { cx: l.forme.x, cy: l.forme.y, r: 13, class: "aff", fill: col, stroke: "#fff", "stroke-width": 3 }, g);
-      if (!(vecto && l.salleCad)) {
+      if (!vecto || l.categorie === "securite") {
         const t = svg("text", { x: l.forme.x + 20, y: l.forme.y + 5, class: "etiq", "font-size": 14 }, g);
         t.textContent = l.nom;
       }
@@ -628,14 +635,14 @@ function accueil() {
   const ordre = S.data.niveaux.filter(n => n.id !== "site");
   let d = 0; const dl = () => `style="animation-delay:${(d++ * 45)}ms"`;
   a.innerHTML = `<div class="acc">
-    <p class="sous" style="margin:0">Plans interactifs · locaux techniques</p>
-    <h1>${esc(C.NOM || "Le Tremplin")}</h1>
-    <p class="sous">${esc(C.SOUS_TITRE || "")} · ${esc(S.data.site.adresse || "")}</p>
+    <img class="logo-accueil" src="icones/logo-clair.svg" alt="Le Tremplin — CESAL · Bourges">
+    <p class="sous">Plans interactifs et suivi de la réhabilitation · ${esc(S.data.site.adresse || "")}</p>
     <div class="bloc"><h2>Locaux techniques et coupures</h2>
       <div class="tuiles">${tech.map(l => `<button class="tuile" data-id="${esc(l.id)}" ${dl()}><i style="background:${cat(l.categorie).couleur}"></i><b>${esc(l.nom)}</b><small>${esc((niv(l.niveau) || {}).nom || "")}${l.fiabilite === "H" ? " · à confirmer" : ""}</small></button>`).join("")}</div></div>
     <div class="bloc"><h2>Choisir un niveau</h2>
       <div class="coupe">${ordre.map(n => `<button data-niv="${n.id}" ${dl()}><span class="e">${esc(n.court)}</span><span>${esc(n.nom)}</span><span class="alt">${esc(n.alt || "")}</span></button>${n.id === "rdc-haut" ? `<div class="sol" title="niveau de la rue"></div>` : ""}`).join("")}</div></div>
     <button class="entrer" data-niv="site">Explorer le plan de masse →</button>
+    <div class="bloc synthese-finale" id="synthese-accueil"></div>
     <p class="mention">${esc(C.MENTION || "")}</p></div>`;
   a.onclick = e => {
     const b = e.target.closest("[data-id],[data-niv]"); if (!b) return;
@@ -643,8 +650,37 @@ function accueil() {
     b.dataset.id ? ouvrir(b.dataset.id) : choisirNiveau(b.dataset.niv, { url: true });
   };
   a.hidden = false;
+  chargerSynthese().then(sy => { const z = $("#synthese-accueil"); if (z && sy) z.innerHTML = htmlSynthese(sy, true); });
 }
 $("#btn-accueil").onclick = accueil;
+
+// ---------------------------------------------------------------- synthèse finale du projet
+let syntheseP = null;
+function chargerSynthese() {
+  if (!syntheseP) syntheseP = fetch("data/synthese.json").then(r => r.ok ? r.json() : null).catch(() => null);
+  return syntheseP;
+}
+const eur = n => Math.round(n).toLocaleString("fr-FR") + " €";
+const meur = n => (n / 1e6).toLocaleString("fr-FR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " M€";
+function htmlSynthese(sy, sombre) {
+  const max = Math.max(...sy.par_batiment.map(b => b.ttc));
+  return `<h2>Synthèse du projet</h2>
+    <div class="sf-grille">
+      <div class="sf-budget"><span>Budget prévisionnel total</span><b>${meur(sy.total_ttc)} TTC</b><small>${meur(sy.total_ht)} HT · somme des fiches</small>
+        <ul class="sf-barres">${sy.par_batiment.map(b => `<li><span>${esc(b.nom)}</span><i style="width:${(100 * b.ttc / max).toFixed(0)}%"></i><em>${meur(b.ttc)}</em></li>`).join("")}</ul></div>
+      <div class="sf-chiffres">${sy.chiffres.map(c => `<div><b>${esc(c.valeur)}</b><span>${esc(c.libelle)}</span></div>`).join("")}</div>
+      <div class="sf-enjeux"><h3>Enjeux principaux</h3>${sy.enjeux.map(e => `<p><b>${esc(e.titre)}</b>${esc(e.texte)}</p>`).join("")}</div>
+    </div>
+    <p class="sf-note">${esc(sy.comparaison)} ${esc(sy.avertissement)}</p>`;
+}
+const tiroir = $("#tiroir-synthese"), btnSy = $("#btn-synthese");
+chargerSynthese().then(sy => { if (sy) $("#ps-total").textContent = meur(sy.total_ttc) + " TTC"; });
+btnSy.onclick = async () => {
+  const ouvert = tiroir.hidden;
+  if (ouvert) { const sy = await chargerSynthese(); tiroir.innerHTML = sy ? `<button class="f-fermer sf-fermer" aria-label="Fermer">×</button>` + htmlSynthese(sy) : "<p>Synthèse indisponible.</p>"; }
+  tiroir.hidden = !ouvert; btnSy.setAttribute("aria-expanded", ouvert);
+  const f = tiroir.querySelector(".sf-fermer"); if (f) f.onclick = () => btnSy.click();
+};
 
 // ---------------------------------------------------------------- mot de passe (désactivé par défaut)
 async function verrou() {

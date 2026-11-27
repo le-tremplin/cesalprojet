@@ -17,8 +17,8 @@
 <div id="app">
   <header class="barre">
     <button class="marque" id="btn-accueil" aria-label="Accueil">
-      <span class="logo" aria-hidden="true"></span>
-      <span class="titre"><b>Le Tremplin</b><small>ancien CESAL, Bourges</small></span>
+      <img class="logo-barre" src="icones/logo-court-clair.svg" alt="Le Tremplin" width="132" height="44">
+      <span class="titre"><small>ancien CESAL, Bourges</small></span>
     </button>
     <div class="recherche">
       <input id="recherche" type="search" placeholder="Chercher un local…" autocomplete="off" aria-label="Chercher un local">
@@ -74,12 +74,16 @@
   </main>
 
   <footer class="pied">
+    <button class="pied-synthese" id="btn-synthese" aria-expanded="false" aria-controls="tiroir-synthese">
+      <span class="ps-titre">Synthèse du projet</span><span class="ps-total" id="ps-total"></span><span class="ps-fleche">▲</span>
+    </button>
     <span id="mention"></span>
     <span class="hors-ligne" id="hors-ligne" hidden>hors ligne · données en cache</span>
   </footer>
 </div>
 
 <div class="accueil" id="accueil" hidden></div>
+<section class="tiroir-synthese" id="tiroir-synthese" hidden aria-label="Synthèse du projet"></section>
 <div class="verrou" id="verrou" hidden>
   <form id="verrou-form">
     <b>Le Tremplin</b>

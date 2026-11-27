@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="370 100 1350 660" role="img" aria-label="Le Tremplin — CESAL · Bourges">
+<path d="M415 118 V198 H446 M484 118 H456 V198 H484 M456 158 H480" fill="none" stroke="#E46C33" stroke-width="17"/>
+<g fill="none" stroke="#1E2124" stroke-width="36" stroke-linejoin="miter" stroke-linecap="butt">
+<path d="M395 293 H516 M455.5 275 V530"/>
+<path d="M564 530 V293 H604 Q650 293 650 349 Q650 405 604 405 H564 M606 405 L657 530"/>
+<path d="M820 293 H730 V512 H820 M730 402 H811"/>
+<path d="M1088 530 V293 H1124 Q1170 293 1170 352 Q1170 413 1124 413 H1088"/>
+<path d="M1247 275 V512 H1338"/>
+<path d="M1395 352 V530"/>
+</g>
+<path fill="#1E2124" d="M858 530 V275 H892 L940 410 L986 275 H1022 V530 H986 V375 L948 485 H931 L894 375 V530 Z"/>
+<path fill="#1E2124" d="M1461 530 V275 H1497 L1552 430 V275 H1588 V530 H1553 L1497 378 V530 Z"/>
+<path fill="#E46C33" d="M1349 316 L1372 277 L1410 272 L1443 298 L1430 326 L1385 331 Z"/><circle cx="1395" cy="303" r="7" fill="#F7F2EA"/>
+<path d="M396 596 H1575 L1695 497" fill="none" stroke="#E46C33" stroke-width="15"/>
+<text x="1000" y="727" text-anchor="middle" font-family="Avenir Next, Avenir, Montserrat, 'Segoe UI', system-ui, sans-serif" font-size="62" letter-spacing="15" fill="#76726A">CESAL · BOURGES</text>
+</svg>

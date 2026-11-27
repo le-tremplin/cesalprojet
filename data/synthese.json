@@ -1,0 +1,91 @@
+{
+ "genere_le": "2026-11-26",
+ "total_ttc": 4975004,
+ "total_ht": 4345583,
+ "par_batiment": [
+  {
+   "nom": "Foyer · logements",
+   "ttc": 3142665
+  },
+  {
+   "nom": "Bâtiment 1 · ERP sport, culture, restauration",
+   "ttc": 1172387
+  },
+  {
+   "nom": "Salle des fêtes",
+   "ttc": 211878
+  },
+  {
+   "nom": "Parking et abords",
+   "ttc": 448074
+  }
+ ],
+ "postes": [
+  {
+   "nom": "Plomberie",
+   "ttc": 965553
+  },
+  {
+   "nom": "Équipements",
+   "ttc": 579060
+  },
+  {
+   "nom": "Revêtements de sols",
+   "ttc": 540569
+  },
+  {
+   "nom": "Peinture",
+   "ttc": 481838
+  },
+  {
+   "nom": "Gros œuvre",
+   "ttc": 440167
+  }
+ ],
+ "chiffres": [
+  {
+   "valeur": "≈ 5 350 m²",
+   "libelle": "de plancher hors parking, 3 bâtiments"
+  },
+  {
+   "valeur": "84",
+   "libelle": "studios aménagés (R+1 à R+4)"
+  },
+  {
+   "valeur": "20",
+   "libelle": "logements regroupés (R+2, R+3)"
+  },
+  {
+   "valeur": "115",
+   "libelle": "places de parking"
+  },
+  {
+   "valeur": "E → B/C",
+   "libelle": "objectif DPE du foyer (243 kWhep/m².an)"
+  }
+ ],
+ "enjeux": [
+  {
+   "titre": "Structure",
+   "texte": "Terrasse du RDC haut à vérifier (5 kN/m²) ; baies dans les refends des logements à valider par un BET."
+  },
+  {
+   "titre": "Sécurité ERP",
+   "texte": "3e catégorie probable : isolements REI 60 à 120 avec le foyer et le parking, SSI neuf, désenfumage."
+  },
+  {
+   "titre": "Énergie",
+   "texte": "Isolation par l'extérieur, menuiseries, VMC double flux et pompe à chaleur pour sortir de l'étiquette E."
+  },
+  {
+   "titre": "Accessibilité",
+   "texte": "Un seul ascenseur entre RDC bas et RDC haut : second appareil ou rampe à prévoir."
+  },
+  {
+   "titre": "Réseaux",
+   "texte": "Gaines techniques fixes sur les 4 étages ; plancher chauffant de 1990 à inspecter avant tout percement."
+  }
+ ],
+ "comparaison": "Ordre de grandeur des planches A0 (ratios, toute l'opération) : 7,5 à 12,7 M€ HT.",
+ "avertissement": "Somme des budgets prévisionnels des fiches : estimations d'étude, hors enveloppe extérieure (isolation, façades), honoraires et aléas. À valider par un économiste de la construction."
+}

@@ -533,8 +533,62 @@ def main():
     for niv, fiches in out.items():
         (dossier / f"{niv}.json").write_text(json.dumps(fiches, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
         total += len(fiches)
+    synthese(out)
     vides = [i for f in out.values() for i, x in f.items() if not x["budget"]["lignes"]]
     print(f"{total} fiches préremplies dans data/fiches/ ; sans ligne de budget : {len(vides)} {vides[:8]}")
+
+
+SALLE_DES_FETES = {"salle-restaurant", "cuisine", "bar-rdc-haut", "reserve-cuisine-rdc-haut", "rangement-mobilier-rdc-haut",
+                   "degagement-de-service-rdc-haut", "sanit-vest-rdc-haut", "bureau-rdc-haut", "sanitaires-rdc-haut",
+                   "sanitaires-pmr-rdc-haut", "bat-restaurant"}
+
+
+def synthese(out):
+    """Totaux et chiffres clés pour la synthèse finale du site (data/synthese.json)."""
+    def ttc(b):
+        return sum((x["quantite"] or 0) * x["pu_ht"] * (1 + x["tva"] / 100) for x in b["lignes"])
+
+    def ht(b):
+        return sum((x["quantite"] or 0) * x["pu_ht"] for x in b["lignes"])
+    groupes = {"Foyer · logements": 0, "Bâtiment 1 · ERP sport, culture, restauration": 0, "Salle des fêtes": 0, "Parking et abords": 0}
+    groupes_ht = dict.fromkeys(groupes, 0)
+    postes = {}
+    for niv, fiches in out.items():
+        for i, x in fiches.items():
+            g = ("Salle des fêtes" if i in SALLE_DES_FETES else "Foyer · logements" if niv in FOYER
+                 else "Parking et abords" if niv in ("sous-sol", "site") else "Bâtiment 1 · ERP sport, culture, restauration")
+            groupes[g] += ttc(x["budget"])
+            groupes_ht[g] += ht(x["budget"])
+            for ln in x["budget"]["lignes"]:
+                postes[ln["poste"]] = postes.get(ln["poste"], 0) + (ln["quantite"] or 0) * ln["pu_ht"] * (1 + ln["tva"] / 100)
+    L_ = D["locaux"]
+    nb = lambda f: sum(1 for l in L_ if f(l))
+    data = {
+        "genere_le": DATE,
+        "total_ttc": round(sum(groupes.values())), "total_ht": round(sum(groupes_ht.values())),
+        "par_batiment": [{"nom": k, "ttc": round(v)} for k, v in groupes.items()],
+        "postes": [{"nom": k, "ttc": round(v)} for k, v in sorted(postes.items(), key=lambda kv: -kv[1])[:5]],
+        "chiffres": [
+            {"valeur": "≈ 5 350 m²", "libelle": "de plancher hors parking, 3 bâtiments"},
+            {"valeur": str(nb(lambda l: l["nom"].startswith("Ch.") and l["niveau"] in ("r1", "r4")) + nb(lambda l: l["nom"].startswith("Ch.") and l["niveau"] in ("r2", "r3"))),
+             "libelle": "studios aménagés (R+1 à R+4)"},
+            {"valeur": str(nb(lambda l: l["nom"].startswith("Logement"))), "libelle": "logements regroupés (R+2, R+3)"},
+            {"valeur": "115", "libelle": "places de parking"},
+            {"valeur": "E → B/C", "libelle": "objectif DPE du foyer (243 kWhep/m².an)"},
+        ],
+        "enjeux": [
+            {"titre": "Structure", "texte": "Terrasse du RDC haut à vérifier (5 kN/m²) ; baies dans les refends des logements à valider par un BET."},
+            {"titre": "Sécurité ERP", "texte": "3e catégorie probable : isolements REI 60 à 120 avec le foyer et le parking, SSI neuf, désenfumage."},
+            {"titre": "Énergie", "texte": "Isolation par l'extérieur, menuiseries, VMC double flux et pompe à chaleur pour sortir de l'étiquette E."},
+            {"titre": "Accessibilité", "texte": "Un seul ascenseur entre RDC bas et RDC haut : second appareil ou rampe à prévoir."},
+            {"titre": "Réseaux", "texte": "Gaines techniques fixes sur les 4 étages ; plancher chauffant de 1990 à inspecter avant tout percement."},
+        ],
+        "comparaison": "Ordre de grandeur des planches A0 (ratios, toute l'opération) : 7,5 à 12,7 M€ HT.",
+        "avertissement": "Somme des budgets prévisionnels des fiches : estimations d'étude, hors enveloppe extérieure (isolation, "
+                         "façades), honoraires et aléas. À valider par un économiste de la construction.",
+    }
+    (RACINE / "data" / "synthese.json").write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"synthèse : {data['total_ttc']:,} € TTC".replace(",", " "), [(g["nom"], g["ttc"]) for g in data["par_batiment"]])
 
 
 if __name__ == "__main__":
