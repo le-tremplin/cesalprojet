@@ -75,6 +75,10 @@ GAINES = [(1022, 1815, 1060, 1865), (2005, 1812, 2042, 1867), (1505, 1617, 1547,
           (2401, 1495, 2484, 1680), (5707, 1950, 5795, 2190)]
 for i, (x0, y0, x1, y1) in enumerate(GAINES, 1):
     boites.append(("A-GAINES", f"Gaine G{i}", x0, y0, x1, y1, "C"))
+# Gaines techniques des noyaux sanitaires (rangée sud), relevées par le groupe sur le plan de l'étage 1
+# (annotations bleues) : une par noyau, sur son axe, de 0,55 m à 2,10 m du mur du couloir. Présentes aux 4 niveaux.
+for i, xn in enumerate([1253, 1744, 2234, 2738, 3227, 3718, 4210, 4699, 5204], 1):
+    boites.append(("A-GAINES", f"Gaine S{i}", xn - 16, Y_CS + 0.55 * PX, xn + 16, Y_CS + 2.10 * PX, "C"))
 boites.append(("A-ASCENSEURS", "Ascenseur nord", 2305, 1241, 2476, 1354, "C"))
 boites.append(("A-ASCENSEURS", "Ascenseur est", 5620, 2530, 5788, 2620, "C"))
 boites.append(("A-GAINES", "Vide-ordures", 5620, 2280, 5788, 2505, "C"))
@@ -97,36 +101,34 @@ def amenager(O, U, V, W, D, lit=0.90, pmr=False, cuisine=True):
     Kitchenette contre la gaine, salle d'eau contre le noyau (réseaux existants), penderie, lit, bureau."""
     P = lambda u, v: (O[0] + u * U[0] + v * V[0], O[1] + u * U[1] + v * V[1])
     rect = lambda u0, v0, u1, v1: [P(u0, v0), P(u1, v0), P(u1, v1), P(u0, v1), P(u0, v0)]
-    # salle d'eau : douche, lavabo, WC
-    ls = 2.05 if pmr else 1.30
-    vs = 2.30 if pmr else 2.25
+    # Organisation du DOE conservée : contre le noyau sanitaire (gaine technique sur son axe, relevé du groupe),
+    # la kitchenette côté couloir puis la salle d'eau ; côté opposé : penderie, puis lit près de la fenêtre.
+    ls = 2.05 if pmr else 1.30           # largeur de la salle d'eau
+    k1 = 1.75                            # fin de la kitchenette (depuis le couloir)
+    v0, v1 = k1 + 0.08, k1 + 0.08 + (2.40 if pmr else 2.20)
     u0 = W - ls
-    mur_leger([P(u0, 0.0), P(u0, vs), P(W, vs)])
-    porte([P(u0, vs), P(W, vs)], 0.12, larg=0.90 if pmr else 0.73, ep=0.08,
-          cote=1 if (V[0] * (-U[1]) + V[1] * U[0]) * 0 + 1 else 1)
-    equip.append(rect(W - 0.90, 0.05, W - 0.05, 0.90))                                # douche
-    equip.append([P(W - 0.90, 0.05), P(W - 0.05, 0.90)])
-    equip.append(rect(u0 + 0.05, 0.05, u0 + 0.50, 0.55))                             # lavabo
-    equip.append(rect(W - 0.45, 1.30, W - 0.05, 1.90))                                # WC
-    if pmr:
-        a = [P(W / 2 + 0.75 * math.cos(t * math.pi / 12), 3.20 + 0.75 * math.sin(t * math.pi / 12)) for t in range(25)]
-        equip.append(a)                                                                 # aire de rotation Ø 1,50
-    # kitchenette contre la cloison « gaine » (évier côté gaine, 2 plaques, réfrigérateur top)
-    if cuisine:
-        k0, k1 = (1.70, 3.40) if pmr else (0.70, 2.40)
-        equip.append(rect(0.0, k0, 0.62, k1))
-        equip.append(rect(0.10, k0 + 0.10, 0.50, k0 + 0.55))                          # évier
-        for dv in (1.05, 1.35):
-            c = P(0.31, k0 + dv)
+    mur_leger([P(W, v0), P(u0, v0), P(u0, v1), P(W, v1)])
+    porte([P(u0, v0), P(u0, v1)], 0.20, larg=0.90 if pmr else 0.73, ep=0.08, cote=-1)
+    equip.append(rect(W - 0.90, v1 - 0.95, W - 0.05, v1 - 0.05))                      # douche
+    equip.append([P(W - 0.90, v1 - 0.95), P(W - 0.05, v1 - 0.05)])
+    equip.append(rect(W - 0.50, v0 + 0.05, W - 0.05, v0 + 0.55))                      # lavabo
+    equip.append(rect(W - 0.45, v0 + 0.75, W - 0.05, v0 + 1.35))                      # WC
+    if cuisine:                                                                         # kitchenette adossée au noyau
+        equip.append(rect(W - 0.62, 0.10, W, k1))
+        equip.append(rect(W - 0.52, 0.20, W - 0.12, 0.65))                            # évier (côté gaine)
+        for dv in (1.05, 1.40):
+            c = P(W - 0.31, dv)
             equip.append([(c[0] + 0.11 * PX * math.cos(t * math.pi / 6), c[1] + 0.11 * PX * math.sin(t * math.pi / 6)) for t in range(13)])
-        v_pend = k1 + 0.05
-    else:
-        v_pend = 0.70
+    if pmr:
+        a = [P(u0 / 2 + 0.10 + 0.75 * math.cos(t * math.pi / 12), 2.30 + 0.75 * math.sin(t * math.pi / 12)) for t in range(25)]
+        equip.append(a)                                                                 # aire de rotation Ø 1,50
+    v_pend = 1.05                                                                       # après le débattement de la porte
     equip.append(rect(0.0, v_pend, 0.60, v_pend + 1.00))                                # penderie
     equip.append([P(0.0, v_pend), P(0.60, v_pend + 1.00)])
-    equip.append(rect(W - lit, D - 1.95, W, D - 0.05))                                  # lit
-    equip.append(rect(W - lit + 0.05, D - 0.50, W - 0.05, D - 0.10))                   # oreiller
-    equip.append(rect(0.0, D - 1.30, 0.60, D - 0.10))                                   # bureau
+    equip.append(rect(0.0, D - 1.95, lit, D - 0.05))                                    # lit
+    equip.append(rect(0.05, D - 0.50, lit - 0.05, D - 0.10))                           # oreiller
+    if D - v1 > 1.35:
+        equip.append(rect(W - 0.60, D - 1.25, W, D - 0.10))                             # bureau
 
 
 def baie_x(x0, x1, y_c, y_f, sg):
@@ -163,15 +165,18 @@ def logement(a, mid, c, y_c, y_f):
     equip.extend([ra(0.05, 0.05, 0.95, 0.95), [Pa(0.05, 0.05), Pa(0.95, 0.95)], ra(1.40, 0.05, 1.95, 0.50), ra(0.05, 1.55, 0.45, 2.15)])
     D = abs(y_f - y_c) / PX - 0.25
     equip.extend([ra(0.05, D - 2.00, 1.45, D - 0.10), ra(0.10, D - 0.50, 1.40, D - 0.15), ra(2.25, 2.60, 2.85, 3.60)])
-    # côté c : kitchenette contre le refend « gaine », table et coin séjour
+    # côté c : kitchenette adossée au noyau c (gaine sur son axe), table et canapé côté refend
     Oc = (mid - d * 0.10 * PX, y_c + sg * 0.10 * PX)
     Pc = lambda u, v: (Oc[0] - d * u * PX, Oc[1] + sg * v * PX)
     rc = lambda u0, v0, u1, v1: [Pc(u0, v0), Pc(u1, v0), Pc(u1, v1), Pc(u0, v1), Pc(u0, v0)]
-    equip.extend([rc(0.0, 0.70, 0.62, 2.55), rc(0.10, 0.80, 0.50, 1.25)])
-    for dv in (1.75, 2.10):
-        cc = Pc(0.31, dv)
+    Ok = (c - d * 0.10 * PX, y_c + sg * 0.10 * PX)
+    Pk = lambda u, v: (Ok[0] - d * u * PX, Ok[1] + sg * v * PX)
+    rk = lambda u0, v0, u1, v1: [Pk(u0, v0), Pk(u1, v0), Pk(u1, v1), Pk(u0, v1), Pk(u0, v0)]
+    equip.extend([rk(0.0, 0.10, 0.62, 2.40), rk(0.10, 0.20, 0.50, 0.65)])
+    for dv in (1.15, 1.50):
+        cc = Pk(0.31, dv)
         equip.append([(cc[0] + 0.11 * PX * math.cos(t * math.pi / 6), cc[1] + 0.11 * PX * math.sin(t * math.pi / 6)) for t in range(13)])
-    equip.extend([rc(1.50, D - 1.60, 2.30, D - 0.80), rc(0.10, D - 2.40, 0.95, D - 0.40)])   # table, canapé
+    equip.extend([rk(1.20, 2.80, 2.00, 3.60), rc(0.10, D - 2.40, 0.95, D - 0.40)])   # table, canapé
     return ((a + c) / 2, y_c + sg * 3.4 * PX)
 
 

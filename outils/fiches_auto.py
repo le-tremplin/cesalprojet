@@ -222,7 +222,13 @@ def fiche(l):
         vertical = ("[Plan] Même gaine aux R+1, R+2, R+3 et R+4, au même emplacement : vérifié par superposition des plans DOE Ex09a "
                     "(R+1), Ex10a (R+2) et Ex11a (R+3) ; le R+4 reprend le R+3. "
                     + (f"Débouché en toiture : {TOIT[gid]}." if gid in TOIT else "[À vérifier sur site] Débouché en toiture non identifié sur le plan de terrasse."))
-        A = {"description": f"[Plan] {'Vide-ordures' if f == 'vo' else 'Gaine technique'} relevé sur le DOE au {et}.\n" + (vertical if not dans_toit else ""),
+        if re.match(r"gaine s\d", l["nom"].lower()):
+            vertical = ("[Constat] Gaine relevée par le groupe sur le plan de l'étage 1 (annotation) : sur l'axe du noyau sanitaire, "
+                        "entre les kitchenettes et salles d'eau adossées des deux chambres voisines. Présente aux 4 niveaux de logement "
+                        "(R+1 à R+4), au même emplacement. Ne peut pas être déplacée.\n[À vérifier sur site] Débouché en toiture.")
+            E["configuration"] = f"[Constat] Emprise d'environ {sS} (0,40 × 1,55 m), sur l'axe du noyau sanitaire, à 0,55 m du mur du couloir."
+            E["particularites"] = "[Constat] Dessert la kitchenette et la salle d'eau de chaque côté du noyau. [À vérifier sur site] Nature des réseaux."
+        A = {"description": f"[Plan] {'Vide-ordures' if f == 'vo' else 'Gaine technique'} au {et}.\n" + (vertical if not dans_toit else ""),
              "problemes_techniques": "[À vérifier sur site] Nature et état des réseaux, calfeutrements coupe-feu, trappes d'accès.",
              "vigilance": "Ne pas déplacer ni supprimer : la gaine dessert les salles d'eau et kitchenettes voisines.", "observations": vigil_site}
         F = {"description": "[Projet] Gaine conservée ; repérage des réseaux ; raccordement des nouvelles salles d'eau et kitchenettes ; "
@@ -398,7 +404,7 @@ def fiche(l):
     # affectation actuelle constatée par le groupe : prioritaire sur la lecture des plans (l'affectation future ne change pas)
     if l.get("affectation_actuelle"):
         aff = l["affectation_actuelle"]
-        cours = "cours" in aff.lower()
+        cours = "cours" in aff.lower() and f != "batiment"
         precision = (" Une salle de cours est équipée de chaises, de tables, d'un bureau et d'un tableau." if cours else "")
         E["fonction_actuelle"] = f"[Constat] {aff}.{precision}"
         A["description"] = f"[Constat] Affectation actuelle : {aff.lower() if not aff.startswith('Espace') else aff}.{precision}\n" + A.get("description", "")
@@ -407,6 +413,13 @@ def fiche(l):
             B.insert(0, L("Dépose", "Dépose et évacuation du mobilier de salle de cours", 1, "forfait", 600, 20))
         if "vide" in aff.lower():
             A["equipements"] = "[Constat] Salles vides : aucun équipement à déposer."
+    if l.get("affectation_future"):
+        E["fonction_future"] = f"[Projet] {l['affectation_future']}."
+        F["description"] = f"[Projet] {l['affectation_future']}. Les travaux sont détaillés dans la fiche de chaque local."
+        F["nouvelle_fonction"] = l["affectation_future"]
+    if f == "batiment" and l.get("affectation_actuelle"):
+        A["description"] = f"[Constat] {l['affectation_actuelle']}.\n[Plan] {l.get('resume') or ''}".strip()
+        E["fonction_actuelle"] = f"[Constat] {l['affectation_actuelle']}."
     if l.get("coupure"):
         A["securite_circulation"] = (A.get("securite_circulation", "") + "\n[Plan] Consignes de coupure : voir le bouton « Couper / sécuriser ».").strip()
     if l.get("remarques"):
