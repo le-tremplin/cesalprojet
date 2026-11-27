@@ -7,7 +7,7 @@
  * 3. Réimprimer le QR : l'ancien pointe vers l'ancienne adresse.
  */
 window.CONFIG = {
-  URL_BASE: "https://ylieselamri-bot.github.io/cesalprojet/",
+  URL_BASE: "https://le-tremplin.github.io/cesalprojet/",
 
   NOM: "Le Tremplin",
   SOUS_TITRE: "ancien CESAL, Bourges",

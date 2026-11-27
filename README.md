@@ -3,7 +3,7 @@
 Plans et fiches des locaux du Tremplin (ancien CESAL, Bourges). Projet d'étude BUT GCCD 2026-2027.
 **Document d'étude : ne remplace pas le plan d'intervention officiel.**
 
-Adresse publique : https://ylieselamri-bot.github.io/cesalprojet/
+Adresse publique : https://le-tremplin.github.io/cesalprojet/
 
 ## Liens directs
 - Accueil : `…/cesalprojet/`
