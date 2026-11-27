@@ -62,6 +62,11 @@ Une pièce sans nom dans le DXF apparaît comme « Local à identifier n ».
 estimations à faire valider par un économiste. Relancer le script après une modification des plans
 (`python3 outils/fiches_auto.py`) : les corrections faites par les comptes autorisés, enregistrées dans la base, ne sont jamais écrasées.
 
+## Photos du dossier
+Les photos de l'existant et les rendus du projet sont dans `photos/` (WebP, 1 600 px max) et associés aux locaux par
+`outils/photos_projet.py` (fichier `data/photos.json`). Elles apparaissent dans les onglets Actuel, Futur et Galerie,
+en lecture seule ; les photos ajoutées depuis le site s'y ajoutent.
+
 ## Fiches, budgets et photos : base Supabase
 Sans configuration, le site est en consultation seule ; `?edition=1` permet au propriétaire de corriger sur son appareil.
 Pour partager les données entre appareils et utilisateurs :

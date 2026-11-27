@@ -136,6 +136,11 @@ const IDB = {
 // ------------------------------------------------------------------ données : fiches et photos
 const urlsLocales = new Map();
 const autoCache = new Map();
+let dossierPhotos = null;
+function photosDossier() {
+  if (!dossierPhotos) dossierPhotos = fetch("data/photos.json").then(r => r.ok ? r.json() : {}).catch(() => ({}));
+  return dossierPhotos;
+}
 function fichesAuto(niveau) {
   if (!autoCache.has(niveau)) autoCache.set(niveau, fetch(`data/fiches/${niveau}.json`).then(r => r.ok ? r.json() : {}).catch(() => ({})));
   return autoCache.get(niveau);
@@ -171,6 +176,12 @@ const Base = {
     const d = (await r.json())[0]; ls.set("cache:fiche:" + id, d); return d;
   },
   async photos(id) {
+    // photos du dossier (dépôt, lecture seule) puis photos ajoutées par les comptes autorisés
+    const [dossier, ajoutees] = await Promise.all([photosDossier(), this.photosUtilisateurs(id)]);
+    const fixes = (dossier[id] || []).map((p, i) => ({ ...p, id: `dossier-${id}-${i}`, url: p.fichier, statique: true }));
+    return [...ajoutees, ...fixes];
+  },
+  async photosUtilisateurs(id) {
     if (!EN_LIGNE) {
       const tout = await IDB.tx("readonly", s => s.index("local").getAll(id));
       return (tout || []).map(p => {
@@ -304,7 +315,7 @@ function htmlPhotos(cats, titre) {
 }
 function vignette(p) {
   return `<figure class="vign" data-f="voir" data-id="${esc(p.id)}"><img src="${esc(p.url)}" alt="${esc(p.legende || "")}" loading="lazy">
-    <figcaption>${esc(p.legende || "Sans légende")}${p.date_prise ? `<small>${esc(new Date(p.date_prise).toLocaleDateString("fr-FR"))}</small>` : ""}</figcaption></figure>`;
+    <figcaption>${p.categorie === "futur" ? `<span class="origine o-projet">Projet</span>` : p.categorie === "existant" ? `<span class="origine o-plan">Existant</span>` : ""}${esc(p.legende || "Sans légende")}${p.date_prise ? `<small>${esc(new Date(p.date_prise).toLocaleDateString("fr-FR"))}</small>` : ""}</figcaption></figure>`;
 }
 
 function htmlBudget(modifiable) {
@@ -431,7 +442,7 @@ function dialogueAjout(categorie, apres) {
   };
 }
 function visionneuse(p, apres) {
-  const admin = Auth.estAdmin();
+  const admin = Auth.estAdmin() && !p.statique;      // photos du dossier : gérées dans le dépôt (data/photos.json)
   const m = modale(`<figure class="grand"><img src="${esc(p.url)}" alt="${esc(p.legende || "")}"></figure>
     ${admin ? `<label class="ch">Légende<input id="pv-l" value="${esc(p.legende || "")}"></label>
       <div class="rang2"><label class="ch">Date<input id="pv-d" type="date" value="${esc((p.date_prise || "").slice(0, 10))}"></label>
